@@ -60,6 +60,12 @@
     <property name="test.unit.src" value="${test.dir}/unit"/>
     <property name="test.long.src" value="${test.dir}/long"/>
     <property name="dist.dir" value="${build.dir}/dist"/>
+
+
+    <property name="deegan.client" value="${basedir}/deegan_client"/>
+    <property name="deegan.client.src" value="${deegan.client}/src"/>
+    <property name="deegan.client.build.classes" value="${deegan.client}/build/classes"/>
+
     <condition property="version" value="${base.version}">
       <isset property="release"/>
     </condition>
@@ -1028,6 +1034,24 @@ url=${svn.entry.url}?pathrev=${svn.entry.commit.revision}
     </sequential>
   </macrodef>
 
+  <target name="build-deegan-client" depends="build" description="Application Aware Test Client">
+    <javac
+     includeantruntime="false"
+     debug="true"
+     debuglevel="${debuglevel}"
+     destdir="${deegan.client.build.classes}">
+      <classpath>
+        <path refid="cassandra.classpath"/>
+      </classpath>
+      <src path="${deegan.client.src}"/>
+    </javac>
+
+    <!-- Non-java resources needed by the test suite -->
+    <copy todir="${test.classes}">
+      <fileset dir="${test.resources}"/>
+    </copy>
+  </target>
+
   <target name="test" depends="build-test" description="Execute unit tests">
     <testmacro suitename="unit" inputdir="${test.unit.src}" timeout="60000">
       <jvmarg value="-Dlegacy-sstable-root=${test.data}/legacy-sstables"/>
@@ -1052,13 +1076,14 @@ url=${svn.entry.url}?pathrev=${svn.entry.commit.revision}
       <exec executable="./cassandra_dc_launcher.bash" dir="." failonerror="true">
         <arg line="@{numdcs} @{nodesperdc} wait"/>
       </exec>
+
       <exec executable="/bin/bash" dir="cassandra_var" failonerror="false">
         <arg line='-c "echo -n &gt; embeddedLog"'/>
       </exec>
       <testmacro suitename="unit" inputdir="${test.unit.src}" timeout="90000" showOutput="true"
                  filter="**/MultiDcCops2Test*.java">
-      <jvmarg value="-Dcassandra.multiDcTest.numDatacenters=@{numdcs}"/>
-      <jvmarg value="-Dcassandra.multiDcTest.nodesPerDatacenter=@{nodesperdc}"/>
+        <jvmarg value="-Dcassandra.multiDcTest.numDatacenters=@{numdcs}"/>
+        <jvmarg value="-Dcassandra.multiDcTest.nodesPerDatacenter=@{nodesperdc}"/>
       </testmacro>
       <exec executable="./kill_all_cassandra.bash" dir="." failonerror="false"/>
       <exec executable="./check_logs_for_errors.bash" dir="cassandra_var" failonerror="true"/>
