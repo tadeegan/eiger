@@ -50,7 +50,7 @@ public class TestClient {
         	this.trySomePutsAndGets();
         }
         catch(Exception e){
-        	print("exception in puts and gets" + e.getMessage());
+        	e.printStackTrace();
         }
     }
     
@@ -200,7 +200,7 @@ public class TestClient {
     	
         
         this.localServerIPAndPorts = localServerIPAndPorts;
-        this.consistencyLevel = ConsistencyLevel.LOCAL_QUORUM;
+        this.consistencyLevel = ConsistencyLevel.ONE;
         
         print("setup done");
     }
@@ -212,13 +212,16 @@ public class TestClient {
     	ByteBuffer key1 = ByteBufferUtil.bytes("tdeegan2");
     	ByteBuffer key2 = ByteBufferUtil.bytes("ltseng3");
     	
+    	String firstNameColumn = "first_name";
+    	ByteBuffer firstNameColumnBuffer = ByteBufferUtil.bytes(firstNameColumn);
+    	
     	ColumnParent columnParent = new ColumnParent(MAIN_COLUMN_FAMILY);
     	long timestamp = System.currentTimeMillis();
 
 
     	try{
-    		lib.insert(key1, columnParent, newColumn("col1", "val1", timestamp));
-        	lib.insert(key1, columnParent, newColumn("col2", "val2", timestamp));
+    		lib.insert(key1, columnParent, newColumn(firstNameColumn, "thomas", timestamp));
+        	lib.insert(key2, columnParent, newColumn(firstNameColumn, "lewis", timestamp));
     	}
     	catch(InvalidRequestException e){
     		print("invalid request: ");
@@ -226,14 +229,14 @@ public class TestClient {
     	}
     	print("got this far");
 
+    	
     	ColumnPath cp = new ColumnPath(MAIN_COLUMN_FAMILY);
-        cp.column = ByteBufferUtil.bytes("col1");
+        cp.column = firstNameColumnBuffer;
         ColumnOrSuperColumn got1 = lib.get(key1, cp);
-        cp.column = ByteBufferUtil.bytes("col2");
-        ColumnOrSuperColumn got2 = lib.get(key1, cp);
+        ColumnOrSuperColumn got2 = lib.get(key2, cp);
         
-        print("col1: " + got1.getColumn().value);
-        print("col2: " + got2.getColumn().value);
+        print("-- tdeegan2: " + new String(got1.getColumn().getValue()));
+        print("-- ltseng3: " + new String(got2.getColumn().getValue()));
         
     	print("done with insert");
     }
