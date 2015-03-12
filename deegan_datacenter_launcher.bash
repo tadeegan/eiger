@@ -8,19 +8,9 @@
 
 set -u
 
-if [ $# -lt 2 ]; then
-    echo "Usage: "$0" [number of dcs] [servers/dc] {wait}"
-    exit
-fi
-
-num_dcs=$1
-nodes_per_dc=$2
+num_dcs=1
+nodes_per_dc=1
 total_nodes=$((num_dcs * nodes_per_dc))
-if [ $# -gt 2 ]; then
-    wait=$3
-else
-    wait=""
-fi
 
 #sanity check
 if [[ $total_nodes -gt 100 ]]; then
@@ -38,8 +28,6 @@ fi
 
 #this file name is hardcoded into cassandra ... I'll work with it for now
 topo_file=conf/cassandra-topology.properties
-
-echo -n "" > $topo_file
 
 #remove old log files
 rm cassandra_var/cassandra*log
@@ -88,28 +76,21 @@ for dc in $(seq 0 $((num_dcs - 1))); do
 
         sed 's/LOG_FILE/cassandra_var\/cassandra_system.'$global_node_num'.log/g' conf/log4j-server_BASE.properties > conf/$log4j_file
 
-        #update the topology describing file
-        #we only care about splitting things up by datacenter for now
-        echo $local_ip=DC$dc:RAC1 >> $topo_file
-
         #Want small JVM mem sizes so this can all run on one machine
         export JVM_OPTS="-Xms32M -Xmn64M"
 
-        echo "inside double loop $dc $n"
         set -x
         bin/cassandra -Dcassandra.config=${conf_file} -Dcom.sun.management.jmxremote.port=$((7199 + global_node_num)) -Dlog4j.configuration=${log4j_file} > ${src_dir}/cassandra_var/stdout/${dc}_${n}.out
         set +x
     done
 done
 
-if [ "$wait" != "" ]; then
-    #wait until all nodes have joined the ring
-    normal_nodes=0
-    echo "Nodes up and normal: "
-    while [ "${normal_nodes}" -ne "${total_nodes}" ]; do
-        sleep 5
-        normal_nodes=$(bin/nodetool -h 127.0.0.1 ring 2>&1 | grep "Normal" | wc -l)
-        echo "normal nodes "$normal_nodes
-    done
+#wait until all nodes have joined the ring
+normal_nodes=0
+echo "Nodes up and normal: "
+while [ "${normal_nodes}" -ne "${total_nodes}" ]; do
     sleep 5
-fi
+    normal_nodes=$(bin/nodetool -h 127.0.0.1 ring 2>&1 | grep "Normal" | wc -l)
+    echo "normal nodes "$normal_nodes
+done
+sleep 5
