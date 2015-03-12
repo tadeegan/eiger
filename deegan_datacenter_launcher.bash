@@ -18,17 +18,10 @@ if [[ $total_nodes -gt 100 ]]; then
     exit
 fi
 
-echo "Checking loopback addresses"
-#ensure we have the local ip address for each node (cassandra requires a unique ip per node)
-local_addresses=$(ifconfig | grep 127.0.0 | grep "netmask 0xff000000" | wc -l)
-if [[ $local_addresses -lt $total_nodes ]]; then
-    echo "Adding loopback addresses! (requires sudo)"
-    ./add_loopback_address.bash $((total_nodes - 1))
-fi
-
 #this file name is hardcoded into cassandra ... I'll work with it for now
 topo_file=conf/cassandra-topology.properties
 
+ips='104.236.140.240, 188.226.251.145'
 #remove old log files
 rm cassandra_var/cassandra*log
 
@@ -68,7 +61,7 @@ for dc in $(seq 0 $((num_dcs - 1))); do
 
         #create the custom config file for this node
         sed 's/INITIAL_TOKEN/'$token'/g' conf/cassandra_BASE.yaml \
-            | sed 's/SEEDS/'"$seeds"'/g' \
+            | sed 's/SEEDS/'"$ips"'/g' \
             | sed 's/LISTEN_ADDRESS/'$local_ip'/g' \
             | sed 's/RPC_ADDRESS/'$local_ip'/g' \
             | sed 's/NODE_NUM/'$global_node_num'/g' \
