@@ -19,7 +19,7 @@ if [[ $total_nodes -gt 100 ]]; then
 fi
 
 #this file name is hardcoded into cassandra ... I'll work with it for now
-topo_file=conf/cassandra-topology.properties
+topo_file=conf/digital-ocean-topology.properties
 
 ips='104.236.140.240, 188.226.251.145'
 #remove old log files
