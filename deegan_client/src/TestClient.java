@@ -5,13 +5,11 @@ import java.util.*;
 import java.util.Map.Entry;
 import java.nio.ByteBuffer;
 
-import org.apache.cassandra.CleanupHelper;
 import org.apache.cassandra.client.ClientLibrary;
 import org.apache.cassandra.config.CFMetaData;
 import org.apache.cassandra.config.ColumnDefinition;
 import org.apache.cassandra.config.ConfigurationException;
 import org.apache.cassandra.config.KSMetaData;
-import org.apache.cassandra.cops2.Cops2Test;
 import org.apache.cassandra.locator.NetworkTopologyStrategy;
 import org.apache.cassandra.service.StorageService;
 import org.apache.cassandra.thrift.*;
