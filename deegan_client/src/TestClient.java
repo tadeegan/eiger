@@ -23,6 +23,7 @@ import org.apache.thrift.transport.TSocket;
 import org.apache.thrift.transport.TTransport;
 import org.hsqldb.SchemaManager;
 import org.apache.cassandra.locator.SimpleStrategy;
+import java.util.Scanner;
 
 public class TestClient {
 
@@ -45,7 +46,7 @@ public class TestClient {
         this.setup();
         try{
         	print("yoyo");
-        	this.trySomePutsAndGets();
+        	this.getCommandsFromUser();
         }
         catch(Exception e){
         	e.printStackTrace();
@@ -238,4 +239,63 @@ public class TestClient {
         
     	print("done with insert");
     }
+    
+    private void getCommandsFromUser() throws Exception {
+    	ClientLibrary lib = new ClientLibrary(this.localServerIPAndPorts, MAIN_KEYSPACE, this.consistencyLevel);    	
+    	
+    	Scanner in = new Scanner(System.in);
+    	while(true){
+    		System.out.println("Usage: GET <key> | SET <key> <val> | EXIT");
+            String s = in.nextLine();
+            if(s.equals("EXIT")) return;
+            if(this.executeCommand(s, lib))
+            	print("Success.");
+            else
+            	print("Bad command. Try again");
+    	}
+    }
+    
+    private boolean executeCommand(String command, ClientLibrary lib) throws Exception {
+    	long timestamp = System.currentTimeMillis();
+    	ColumnParent columnParent = new ColumnParent(MAIN_COLUMN_FAMILY);
+    	String firstNameColumn = "column_name";
+    	ByteBuffer firstNameColumnBuffer = ByteBufferUtil.bytes(firstNameColumn);
+    	
+    	String[] components = command.split(" ");
+    	if(components.length < 2) return false;
+    	if(components[0].equals("GET")){
+    		if(components.length != 2) return false;
+    		ByteBuffer key = ByteBufferUtil.bytes(components[1]);
+    		ColumnPath cp = new ColumnPath(MAIN_COLUMN_FAMILY);
+            cp.column = firstNameColumnBuffer;
+            try{
+            	ColumnOrSuperColumn got1 = lib.get(key, cp);
+            	print( components[1] + ": " + new String(got1.getColumn().getValue()));
+        		return true;
+            }
+            catch(NotFoundException e) {
+            	print(key + " not found");
+            	return true;
+            }
+            catch(Exception e) {
+            	return false;
+            }
+    	}
+    	if(components[0].equals("SET")){
+    		if(components.length != 3) return false;
+    		ByteBuffer key = ByteBufferUtil.bytes(components[1]);
+    		String val = components[2];
+    		try{
+    			lib.insert(key, columnParent, newColumn(firstNameColumn, val, timestamp));
+    		}
+    		catch(InvalidRequestException e){
+        		print("unable to insert :(");
+        		e.printStackTrace();
+        		return false;
+        	}
+    		return true;
+    	}
+    	return false;
+    }
 }
+
