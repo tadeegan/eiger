@@ -40,7 +40,6 @@ fi
 topo_file=conf/cassandra-topology.properties
 
 echo -n "" > $topo_file
-
 #remove old log files
 rm cassandra_var/cassandra*log
 
@@ -77,7 +76,9 @@ for dc in $(seq 0 $((num_dcs - 1))); do
         conf_file=${num_dcs}x${nodes_per_dc}_${dc}_${n}.yaml
         log4j_file=log4j-server_${global_node_num}.properties
 
-
+	local_ip=188.226.251.145
+	#token=170141183460469231731687303715884105728
+	token=0
         #create the custom config file for this node
         sed 's/INITIAL_TOKEN/'$token'/g' conf/cassandra_BASE.yaml \
             | sed 's/SEEDS/'"$seeds"'/g' \
