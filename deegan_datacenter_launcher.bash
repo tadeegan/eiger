@@ -19,9 +19,11 @@ if [[ $total_nodes -gt 100 ]]; then
 fi
 
 #this file name is hardcoded into cassandra ... I'll work with it for now
+<<<<<<< HEAD
 topo_file=conf/digital-ocean-topology.properties
 
 ips='104.236.140.240, 188.226.251.145'
+
 #remove old log files
 rm cassandra_var/cassandra*log
 
@@ -58,7 +60,9 @@ for dc in $(seq 0 $((num_dcs - 1))); do
         conf_file=${num_dcs}x${nodes_per_dc}_${dc}_${n}.yaml
         log4j_file=log4j-server_${global_node_num}.properties
 
-
+	local_ip=188.226.251.145
+	#token=170141183460469231731687303715884105728
+	token=0
         #create the custom config file for this node
         sed 's/INITIAL_TOKEN/'$token'/g' conf/cassandra_BASE.yaml \
             | sed 's/SEEDS/'"$ips"'/g' \
@@ -83,7 +87,11 @@ normal_nodes=0
 echo "Nodes up and normal: "
 while [ "${normal_nodes}" -ne "${total_nodes}" ]; do
     sleep 5
+<<<<<<< HEAD
     normal_nodes=$(bin/nodetool -h 127.0.0.1 ring 2>&1 | grep "Normal" | wc -l)
     echo "normal nodes "$normal_nodes
 done
 sleep 5
+=======
+fi
+>>>>>>> eiger-release
