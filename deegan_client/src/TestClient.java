@@ -180,9 +180,11 @@ public class TestClient {
     	Integer nodesPerDatacenter = 1;
     
     	String local_ip = System.getenv().get("local_ip");
+    	String other_ip = System.getenv().get("other_ip");
 
         HashMap<String, Integer> localServerIPAndPorts = new HashMap<String, Integer>();
         localServerIPAndPorts.put(local_ip, DEFAULT_THRIFT_PORT);	
+        localServerIPAndPorts.put(other_ip, DEFAULT_THRIFT_PORT);	
 
     	try{
         	//Create a keyspace with a replication factor of 1 for each datacenter
