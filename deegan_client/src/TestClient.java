@@ -179,7 +179,7 @@ public class TestClient {
     	Integer numDatacenters = 1;
     	Integer nodesPerDatacenter = 1;
     
-	String local_ip = System.getenv().get("local_ip");
+    	String local_ip = System.getenv().get("local_ip");
 
         HashMap<String, Integer> localServerIPAndPorts = new HashMap<String, Integer>();
         localServerIPAndPorts.put(local_ip, DEFAULT_THRIFT_PORT);	
