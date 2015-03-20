@@ -178,15 +178,15 @@ public class TestClient {
     	print("setup started");
     	Integer numDatacenters = 1;
     	Integer nodesPerDatacenter = 1;
-    	
-    	HashMap<String, Integer> localServerIPAndPorts = new HashMap<String, Integer>();
-        for (int i = 1; i <= nodesPerDatacenter; ++i) {
-            localServerIPAndPorts.put("127.0.0." + i, DEFAULT_THRIFT_PORT);
-        }
-        
+    
+	String local_ip = System.getenv().get("local_ip");
+
+        HashMap<String, Integer> localServerIPAndPorts = new HashMap<String, Integer>();
+        localServerIPAndPorts.put(local_ip, DEFAULT_THRIFT_PORT);	
+
     	try{
         	//Create a keyspace with a replication factor of 1 for each datacenter
-        	TTransport tr = new TFramedTransport(new TSocket("localhost", DEFAULT_THRIFT_PORT));
+        	TTransport tr = new TFramedTransport(new TSocket(local_ip, DEFAULT_THRIFT_PORT));
         	TProtocol proto = new TBinaryProtocol(tr);
         	Cassandra.Client client = new Cassandra.Client(proto);
         	tr.open();
