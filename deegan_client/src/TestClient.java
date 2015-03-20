@@ -138,10 +138,12 @@ public class TestClient {
         {	
         	KsDef keySpaceDefenition = new KsDef();
         	keySpaceDefenition.name = keyspace;
-        	keySpaceDefenition.strategy_class = SimpleStrategy.class.getName();
+        	keySpaceDefenition.strategy_class = NetworkTopologyStrategy.class.getName();
+        			//SimpleStrategy.class.getName();
         	if (keySpaceDefenition.strategy_options == null) 
         		keySpaceDefenition.strategy_options = new LinkedHashMap<String, String>();
-        	keySpaceDefenition.strategy_options.put("replication_factor", "1");
+        	keySpaceDefenition.strategy_options.put("DC0", "1");
+        	keySpaceDefenition.strategy_options.put("DC1", "1");
         	keySpaceDefenition.cf_defs = cfDefList;
 
             client.system_add_keyspace(keySpaceDefenition);
