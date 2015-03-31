@@ -644,8 +644,8 @@ public class StorageProxy implements StorageProxyMBean
                 assert !command.isDigestQuery();
                 logger.debug("Command/ConsistencyLevel is {}/{}", command, consistency_level);
 
-                List<InetAddress> endpoints = StorageService.instance.getLiveNaturalEndpoints(command.table,
-                                                                                              command.key);
+                List<InetAddress> endpoints = StorageService.instance.getLiveNaturalEndpoints(command.table, command.key);
+		logger.debug("end points: " + endpoints);
                 DatabaseDescriptor.getEndpointSnitch().sortByProximity(FBUtilities.getBroadcastAddress(), endpoints);
 
                 RowDigestResolver resolver = new RowDigestResolver(command.table, command.key);
@@ -671,7 +671,7 @@ public class StorageProxy implements StorageProxyMBean
                 if (handler.endpoints.size() == 1)
                     continue;
 
-                assert false : "COPS2 doesn't handle multiple replicas in a DC yet";
+                //assert false : "COPS2 doesn't handle multiple replicas in a DC yet";
 
                 // send the other endpoints a digest request
                 ReadCommand digestCommand = command.copy();
