@@ -203,7 +203,7 @@ public class TestClient {
     	
         
         this.localServerIPAndPorts = localServerIPAndPorts;
-        this.consistencyLevel = ConsistencyLevel.ONE;
+        this.consistencyLevel = ConsistencyLevel.LOCAL_QUARUM;
         
         print("setup done");
     }
