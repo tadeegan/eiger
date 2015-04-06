@@ -671,7 +671,7 @@ public class StorageProxy implements StorageProxyMBean
                 if (handler.endpoints.size() == 1)
                     continue;
 
-                //assert false : "COPS2 doesn't handle multiple replicas in a DC yet";
+                assert false : "COPS2 doesn't handle multiple replicas in a DC yet";
 
                 // send the other endpoints a digest request
                 ReadCommand digestCommand = command.copy();

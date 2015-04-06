@@ -132,6 +132,7 @@ public class TestClient {
     	
         List<CfDef> cfDefList = new ArrayList<CfDef>();
         CfDef columnFamily = new CfDef(keyspace, MAIN_COLUMN_FAMILY);
+	columnFamily.setRead_repair_chance(0.0);
         cfDefList.add(columnFamily);
 
         try 
@@ -184,7 +185,6 @@ public class TestClient {
 
         HashMap<String, Integer> localServerIPAndPorts = new HashMap<String, Integer>();
         localServerIPAndPorts.put(local_ip, DEFAULT_THRIFT_PORT);	
-        localServerIPAndPorts.put(other_ip, DEFAULT_THRIFT_PORT);	
 
     	try{
         	//Create a keyspace with a replication factor of 1 for each datacenter
