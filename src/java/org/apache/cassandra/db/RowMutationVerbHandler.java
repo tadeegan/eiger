@@ -72,7 +72,7 @@ public class RowMutationVerbHandler implements IVerbHandler
     protected void applyAndRespond(Message message, String id, RowMutation rm)
     {
     	long endTime = System.currentTimeMillis();
-    	long deltaTime = this.startTime - endTime;
+    	long deltaTime = endTime - this.startTime;
     	logger_.debug("~~~~ [DEEGAN] Row Mutation Handler Complete (" + deltaTime + "ms )" );
         try
         {
