@@ -175,7 +175,7 @@ public class StorageProxy implements StorageProxyMBean
      */
     public static void mutate(List<? extends IMutation> mutations, ConsistencyLevel consistency_level) throws UnavailableException, TimeoutException
     {
-	logger.debug("[DEEGAN]:~~~~~~~~~~~ Mutate ");
+    	logger.debug("[DEEGAN]:~~~~~~~~~~~ Mutate ");
         logger.debug("Mutations/ConsistencyLevel are {}/{}", mutations, consistency_level);
         final String localDataCenter = DatabaseDescriptor.getEndpointSnitch().getDatacenter(FBUtilities.getBroadcastAddress());
 
@@ -1409,6 +1409,8 @@ public class StorageProxy implements StorageProxyMBean
      */
     public static void checkDependencies(String keyspace, ByteBuffer locatorKey, long timestamp, Set<Dependency> deps, ICompletable completable)
     {
+    	logger.debug("~~~~~ [DEEGAN] Storage Proxy checkDeps()");
+    	
         if (logger.isDebugEnabled())
             logger.debug("Checking deps for " + completable);
 
