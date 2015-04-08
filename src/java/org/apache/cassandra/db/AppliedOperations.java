@@ -173,6 +173,7 @@ public class AppliedOperations
 
     public static synchronized void checkDependency(DependencyCheck depCheck, Message depCheckMessage, String id)
     {
+	logger.debug("~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~");
         // Don't check dependencies for values written in this DC, we know they've been applied
         if (VersionUtil.extractDatacenter(depCheck.getDependency().getTimestamp()) == ShortNodeId.getLocalDC()) {
             return;
