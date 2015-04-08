@@ -36,10 +36,12 @@ import org.slf4j.LoggerFactory;
 public class RowMutationVerbHandler implements IVerbHandler
 {
     private static Logger logger_ = LoggerFactory.getLogger(RowMutationVerbHandler.class);
-
+    private long startTime;
     @Override
     public void doVerb(Message message, String id)
     {
+    	this.startTime = System.currentTimeMillis();
+    	logger_.debug("~~~~ [DEEGAN] Starting verb handler");
         try
         {
             RowMutation rm = RowMutation.fromBytes(message.getMessageBody(), message.getVersion());
@@ -69,6 +71,9 @@ public class RowMutationVerbHandler implements IVerbHandler
 
     protected void applyAndRespond(Message message, String id, RowMutation rm)
     {
+    	long endTime = System.currentTimeMillis();
+    	long deltaTime = this.startTime - endTime;
+    	logger_.debug("~~~~ [DEEGAN] Row Mutation Handler Complete (" + deltaTime + "ms )" );
         try
         {
             assert message != null && id != null && rm != null : message + ", " + id + ", " + rm;
