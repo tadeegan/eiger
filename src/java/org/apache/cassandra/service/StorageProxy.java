@@ -20,6 +20,8 @@ package org.apache.cassandra.service;
 
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.lang.management.ManagementFactory;
 import java.net.InetAddress;
 import java.nio.ByteBuffer;
@@ -175,7 +177,15 @@ public class StorageProxy implements StorageProxyMBean
      */
     public static void mutate(List<? extends IMutation> mutations, ConsistencyLevel consistency_level) throws UnavailableException, TimeoutException
     {
+    	Exception e = new Exception();
+    	StringWriter sw = new StringWriter();
+    	PrintWriter pw = new PrintWriter(sw);
+    	e.printStackTrace(pw);
+    	String trace = sw.toString();
+    	
+    	
     	logger.debug("[DEEGAN]:~~~~~~~~~~~ Mutate ");
+    	logger.debug(trace);
         logger.debug("Mutations/ConsistencyLevel are {}/{}", mutations, consistency_level);
         final String localDataCenter = DatabaseDescriptor.getEndpointSnitch().getDatacenter(FBUtilities.getBroadcastAddress());
 
