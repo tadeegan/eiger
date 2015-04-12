@@ -177,10 +177,10 @@ public class StorageProxy implements StorageProxyMBean
      */
     public static void mutate(List<? extends IMutation> mutations, ConsistencyLevel consistency_level) throws UnavailableException, TimeoutException
     {
-    	Exception e = new Exception();
+    	Exception exception = new Exception();
     	StringWriter sw = new StringWriter();
     	PrintWriter pw = new PrintWriter(sw);
-    	e.printStackTrace(pw);
+    	exception.printStackTrace(pw);
     	String trace = sw.toString();
     	
     	
