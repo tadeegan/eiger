@@ -13,6 +13,7 @@ public class RowMutationCompletion implements ICompletable
     
     private long startTime;
 
+    private int maxMutationDelay = 0; //default to 0 if the environment var is not set
     private static Logger logger = LoggerFactory.getLogger(RowMutationCompletion.class);
     
     public RowMutationCompletion(Message message, String id, RowMutation rm)
@@ -22,6 +23,14 @@ public class RowMutationCompletion implements ICompletable
         this.message = message;
         this.id = id;
         this.rm = rm;
+        
+        String value = System.getenv("max_mutation_delay_ms");
+        try{
+        	this.maxMutationDelay = Integer.parseInt(value);
+        }
+        catch(NumberFormatException e){
+        	logger.error(e.getLocalizedMessage());
+        }
     }
 
     // Complete the blocked RowMutation
@@ -31,6 +40,11 @@ public class RowMutationCompletion implements ICompletable
     	long endTime = System.currentTimeMillis();
     	long deltaTime = endTime - this.startTime;
     	logger.debug("~~~~ [DEEGAN] Completion Complete (" + deltaTime + "ms )" );
+    	try {
+    		Thread.sleep((long)(Math.random()*this.maxMutationDelay));
+    	}catch (Exception interupt) {
+    		
+    	}
         RowMutationVerbHandler.instance().applyAndRespond(message, id, rm);
     }
 
