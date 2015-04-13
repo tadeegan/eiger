@@ -27,6 +27,7 @@ public class RowMutationCompletion implements ICompletable
         String value = System.getenv("max_mutation_delay_ms");
         try{
         	this.maxMutationDelay = Integer.parseInt(value);
+        	
         }
         catch(NumberFormatException e){
         	logger.error(e.getLocalizedMessage());
@@ -41,7 +42,11 @@ public class RowMutationCompletion implements ICompletable
     	long deltaTime = endTime - this.startTime;
     	logger.debug("~~~~ [DEEGAN] Completion Complete (" + deltaTime + "ms )" );
     	try {
-    		Thread.sleep((long)(Math.random()*this.maxMutationDelay));
+    		long time = (long)(Math.random()*this.maxMutationDelay);
+    		logger.debug("Max mutation delay: " + this.maxMutationDelay);
+    		logger.debug("time: " + time);
+    		Thread.sleep(time);
+    		logger.debug("done....");
     	}catch (Exception interupt) {
     		
     	}
