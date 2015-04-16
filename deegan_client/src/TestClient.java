@@ -23,6 +23,7 @@ import org.apache.thrift.transport.TSocket;
 import org.apache.thrift.transport.TTransport;
 import org.hsqldb.SchemaManager;
 import org.apache.cassandra.locator.SimpleStrategy;
+
 import java.util.Scanner;
 
 public class TestClient {
@@ -30,6 +31,8 @@ public class TestClient {
     private final int DEFAULT_THRIFT_PORT = 9160;
     private final String MAIN_KEYSPACE = "KeySpace1";
     private final String MAIN_COLUMN_FAMILY = "ColumnFam1";
+    
+    private final int NUM_OPPERATIONS_STRESS = 10000;
 
     private Map<String, Integer> localServerIPAndPorts = new HashMap<String, Integer>();
     private List<Map<String, Integer>> dcToServerIPAndPorts = null;
@@ -46,7 +49,7 @@ public class TestClient {
         this.setup();
         try{
         	print("yoyo");
-        	this.getCommandsFromUser();
+        	this.stressTest();
         }
         catch(Exception e){
         	e.printStackTrace();
@@ -180,8 +183,11 @@ public class TestClient {
     	Integer numDatacenters = 1;
     	Integer nodesPerDatacenter = 1;
     
-    	String local_ip = System.getenv().get("local_ip");
-    	String other_ip = System.getenv().get("other_ip");
+    	//Eiger1: 104.236.140.240 ::SFO
+    	//Eiger3: 104.236.191.32 :: SFO
+    	//Eiger2: 188.226.251.145 :: AMST
+
+    	String local_ip = "188.226.251.145";
 
         HashMap<String, Integer> localServerIPAndPorts = new HashMap<String, Integer>();
         localServerIPAndPorts.put(local_ip, DEFAULT_THRIFT_PORT);	
@@ -203,7 +209,7 @@ public class TestClient {
     	
         
         this.localServerIPAndPorts = localServerIPAndPorts;
-        this.consistencyLevel = ConsistencyLevel.LOCAL_QUARUM;
+        this.consistencyLevel = ConsistencyLevel.LOCAL_QUORUM;
         
         print("setup done");
     }
@@ -259,47 +265,111 @@ public class TestClient {
     	}
     }
     
-    private boolean executeCommand(String command, ClientLibrary lib) throws Exception {
+    private String performGet(String key, ClientLibrary lib) {
+    	String firstNameColumn = "column_name";
+    	ByteBuffer firstNameColumnBuffer = ByteBufferUtil.bytes(firstNameColumn);
+    	try{
+    		ByteBuffer keyBytes = ByteBufferUtil.bytes(key);
+    		ColumnPath cp = new ColumnPath(MAIN_COLUMN_FAMILY);
+            cp.column = firstNameColumnBuffer;
+        	ColumnOrSuperColumn got1 = lib.get(keyBytes, cp);
+    		return new String(got1.getColumn().getValue());
+        }
+        catch(NotFoundException e) {
+        	print("not found");
+        	return null;
+        }
+    	catch(Exception e) {
+    		e.printStackTrace();
+    		return null;
+    	}
+    }
+    
+    private boolean performWrite(String key, String value, ClientLibrary lib) {
     	long timestamp = System.currentTimeMillis();
     	ColumnParent columnParent = new ColumnParent(MAIN_COLUMN_FAMILY);
     	String firstNameColumn = "column_name";
-    	ByteBuffer firstNameColumnBuffer = ByteBufferUtil.bytes(firstNameColumn);
-    	
+    	try{
+    		ByteBuffer keyBytes = ByteBufferUtil.bytes(key);
+			lib.insert(keyBytes, columnParent, newColumn(firstNameColumn, value, timestamp));
+		}
+		catch(InvalidRequestException e){
+    		print("unable to insert :(");
+    		e.printStackTrace();
+    		return false;
+    	}
+    	catch(Exception e) {
+    		e.printStackTrace();
+    		return false;
+    	}
+    	return true;
+    }
+    
+    private boolean executeCommand(String command, ClientLibrary lib) throws Exception {    	
     	String[] components = command.split(" ");
     	if(components.length < 2) return false;
     	if(components[0].equals("GET")){
     		if(components.length != 2) return false;
-    		ByteBuffer key = ByteBufferUtil.bytes(components[1]);
-    		ColumnPath cp = new ColumnPath(MAIN_COLUMN_FAMILY);
-            cp.column = firstNameColumnBuffer;
-            try{
-            	ColumnOrSuperColumn got1 = lib.get(key, cp);
-            	print( components[1] + ": " + new String(got1.getColumn().getValue()));
-        		return true;
-            }
-            catch(NotFoundException e) {
-            	print(key + " not found");
-            	return true;
-            }
-            catch(Exception e) {
-            	return false;
-            }
+            String val = this.performGet(components[1], lib);
+            print( components[1] + ": " + val);
+            return true;
     	}
     	if(components[0].equals("SET")){
     		if(components.length != 3) return false;
-    		ByteBuffer key = ByteBufferUtil.bytes(components[1]);
-    		String val = components[2];
-    		try{
-    			lib.insert(key, columnParent, newColumn(firstNameColumn, val, timestamp));
-    		}
-    		catch(InvalidRequestException e){
-        		print("unable to insert :(");
-        		e.printStackTrace();
-        		return false;
-        	}
-    		return true;
+    		return this.performWrite(components[1], components[2], lib);
     	}
     	return false;
+    }
+    
+    private void stressTest() throws Exception {
+    	HashMap<String, Integer> eiger1ServerIPAndPorts = new HashMap<String, Integer>();
+    	eiger1ServerIPAndPorts.put("104.236.140.240", DEFAULT_THRIFT_PORT);	
+    	ClientLibrary eiger1 = new ClientLibrary(eiger1ServerIPAndPorts, MAIN_KEYSPACE, this.consistencyLevel);
+    	
+    	HashMap<String, Integer> eiger2ServerIPAndPorts = new HashMap<String, Integer>();
+    	eiger2ServerIPAndPorts.put("188.226.251.145", DEFAULT_THRIFT_PORT);	
+    	ClientLibrary eiger2 = new ClientLibrary(eiger2ServerIPAndPorts, MAIN_KEYSPACE, this.consistencyLevel);
+    	
+    	HashMap<String, Integer> eiger3ServerIPAndPorts = new HashMap<String, Integer>();
+    	eiger3ServerIPAndPorts.put("104.236.191.32", DEFAULT_THRIFT_PORT);	
+    	ClientLibrary eiger3 = new ClientLibrary(eiger3ServerIPAndPorts, MAIN_KEYSPACE, this.consistencyLevel);
+    	
+    	String chanceOfWriteEnvVar = System.getenv("chance_of_write");
+    	String valueSizeEnvVar = System.getenv("value_size");
+    	double chanceOfWrite = 0;
+    	int valueSize = 0;
+        try{
+        	chanceOfWrite = Double.parseDouble(chanceOfWriteEnvVar);
+        	valueSize = Integer.parseInt(valueSizeEnvVar);
+        }
+        catch(NumberFormatException e){
+        	print("Something fucked up");
+        	return;
+        }
+        
+        int topkey = 0;
+    	for(int i = 0; i < NUM_OPPERATIONS_STRESS; i++){
+    		print(((double)i/(double)NUM_OPPERATIONS_STRESS*100.0) + "%");
+    		if(Math.random() > chanceOfWrite) {
+    			// Do a get on one of the keys we wrote
+    			int keyIndex = topkey - (int)(Math.random() * (topkey-1)) -1;
+    			String key = "" + keyIndex;
+    			String result = this.performGet(key, eiger2);
+    			print("GET " + key + " =" + result);
+    		}
+    		else {
+    			// Do a write of this new key
+    			String key = "" + topkey;
+    			
+    			char[] chars = new char[valueSize];
+    			chars[0] = '*';
+    			String value = new String(chars);
+    			
+    			this.performWrite(key, value, eiger2);
+    			print("SET key: " + key);
+    			topkey++;
+    		}
+    	}    	
     }
 }
 
