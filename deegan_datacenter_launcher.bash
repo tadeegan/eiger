@@ -62,6 +62,9 @@ set +x
 normal_nodes=0
 echo "Nodes up and normal: "
 
+if [ $# -gt 1 ]; then
+    exit
+fi
 num_nodes=$(wc -l <  conf/digital-ocean-topology.properties)
 while [ "${normal_nodes}" -ne $num_nodes ]; do
     sleep 5
