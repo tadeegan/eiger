@@ -21,3 +21,4 @@ tools/stress/old
 vicci_dcl_config/old
 vicci_dcl_config/live_nodes
 vicci_dcl_config/kodiak_*
+deegan_env.sh

@@ -6,7 +6,8 @@
 
 ./kill_all_cassandra.bash
 source deegan_env.sh
-
+export max_mutation_delay_ms=$1
+echo $max_mutation_delay_ms
 set -u
 
 #this file name is hardcoded into cassandra ... I'll work with it for now
