@@ -48,14 +48,12 @@ public class TestClient {
      */
     public TestClient() {
     	//this.facebookTests();
-//        this.setup();
-//        try{
-//        	print("yoyo");
-//        	this.stressTest();
-//        }
-//        catch(Exception e){
-//        	e.printStackTrace();
-//        }
+        try{
+        	this.stressTest();
+        }
+        catch(Exception e){
+        	e.printStackTrace();
+        }
     }
     
     /**
@@ -336,6 +334,7 @@ public class TestClient {
     }
     
     private void stressTest() throws Exception {
+    	this.setupStressTests();
     	HashMap<String, Integer> eiger1ServerIPAndPorts = new HashMap<String, Integer>();
     	eiger1ServerIPAndPorts.put("104.236.140.240", DEFAULT_THRIFT_PORT);	
     	ClientLibrary eiger1 = new ClientLibrary(eiger1ServerIPAndPorts, MAIN_KEYSPACE, this.consistencyLevel);
