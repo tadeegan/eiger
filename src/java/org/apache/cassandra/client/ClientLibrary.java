@@ -148,7 +148,7 @@ public class ClientLibrary {
     }
 
 
-    private Cassandra.Client findClient(ByteBuffer key)
+    protected Cassandra.Client findClient(ByteBuffer key)
     {
         List<InetAddress> addrs = ringCache.getEndpoint(key);
         Cassandra.Client client = null;
@@ -1159,15 +1159,22 @@ public class ClientLibrary {
         assert false : "get_indexed_slices is deprecated in cassandra, so it's not supported in cops2";
         return null;
     }
+    
+    // For the application aware modifications
+    
+    public void modifiedInsert(ByteBuffer key, ColumnParent column_parent, Column column, Dep dependency)
+    throws InvalidRequestException, UnavailableException, TimedOutException, TException
+    {
+    	column.timestamp = 0;
+    	Set<Dep> deps = new HashSet<Dep>();
+    	if(dependency != null) deps.add(dependency);
+        WriteResult result = findClient(key).insert(key, column_parent, column, consistencyLevel, deps, LamportClock.sendTimestamp());
+        LamportClock.updateTime(result.lts);
+    }
 
     public void insert(ByteBuffer key, ColumnParent column_parent, Column column)
     throws InvalidRequestException, UnavailableException, TimedOutException, TException
     {
-        //if (logger.isTraceEnabled()) {
-        //    logger.trace("insert(key = {}, column_parent = {}, column = {})", new Object[]{printKey(key),column_parent, column});
-        //}
-
-        //Set the timestamp (version) to 0 so the accepting datacenter sets it
         column.timestamp = 0;
         WriteResult result = findClient(key).insert(key, column_parent, column, consistencyLevel, clientContext.getDeps(), LamportClock.sendTimestamp());
         LamportClock.updateTime(result.lts);
