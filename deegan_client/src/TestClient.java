@@ -6,6 +6,9 @@ import java.util.Map.Entry;
 import java.nio.ByteBuffer;
 
 import org.apache.cassandra.client.ClientLibrary;
+import org.apache.cassandra.client.FacebookClientLibrary;
+import org.apache.cassandra.client.FacebookClientLibrary.FBComment;
+import org.apache.cassandra.client.FacebookClientLibrary.FBPost;
 import org.apache.cassandra.config.CFMetaData;
 import org.apache.cassandra.config.ColumnDefinition;
 import org.apache.cassandra.config.ConfigurationException;
@@ -44,14 +47,15 @@ public class TestClient {
      * Constructor
      */
     public TestClient() {
-        this.setup();
-        try{
-        	print("yoyo");
-        	this.stressTest();
-        }
-        catch(Exception e){
-        	e.printStackTrace();
-        }
+    	//this.facebookTests();
+//        this.setup();
+//        try{
+//        	print("yoyo");
+//        	this.stressTest();
+//        }
+//        catch(Exception e){
+//        	e.printStackTrace();
+//        }
     }
     
     /**
@@ -85,6 +89,7 @@ public class TestClient {
         System.out.println("Waiting for key propagation...");
         for (Entry<String, Integer> ipAndPort : allServerIPAndPorts.entrySet()) {
             String ip = ipAndPort.getKey();
+            print(ip);
             Integer port = ipAndPort.getValue();
 
             TTransport tFramedTransport = new TFramedTransport(new TSocket(ip, port));
@@ -117,7 +122,7 @@ public class TestClient {
      * @throws TException
      * @throws InvalidRequestException
      */
-    private void setupKeyspace(Cassandra.Iface client, String keyspace) throws TException, InvalidRequestException
+    private void setupKeyspace(Cassandra.Iface client, String keyspace, List<String>columnFamilies, Map<String, Integer> allServerIPAndPorts) throws TException, InvalidRequestException
     {
     	List<KsDef> yo = client.describe_keyspaces();
 
@@ -132,9 +137,12 @@ public class TestClient {
     	print("---------------------------");
     	
         List<CfDef> cfDefList = new ArrayList<CfDef>();
-        CfDef columnFamily = new CfDef(keyspace, MAIN_COLUMN_FAMILY);
-	columnFamily.setRead_repair_chance(0.0);
-        cfDefList.add(columnFamily);
+        for(String famName: columnFamilies) {
+        	CfDef columnFamily = new CfDef(keyspace, famName);
+            columnFamily.setRead_repair_chance(0.0);
+            cfDefList.add(columnFamily);
+        }
+        
 
         try 
         {	
@@ -161,6 +169,8 @@ public class TestClient {
             {
                 throw new RuntimeException(e);
             }
+            this.waitForKeyspacePropagation(localServerIPAndPorts, keyspace);
+
         }
         catch (InvalidRequestException probablyExists) 
         {
@@ -173,38 +183,44 @@ public class TestClient {
         }
     }
 
+    
     /**
      * Modified from cops2 unit tests
      */
-    private void setup() {
+    private void setupStressTests() {
     	print("setup started");
     	Integer numDatacenters = 1;
     	Integer nodesPerDatacenter = 1;
     
-    	//Eiger1: 104.236.140.240 ::SFO
-    	//Eiger3: 104.236.191.32 :: SFO
-    	//Eiger2: 188.226.251.145 :: AMST
-
-    	String local_ip = "188.226.251.145";
-
-        HashMap<String, Integer> localServerIPAndPorts = new HashMap<String, Integer>();
-        localServerIPAndPorts.put(local_ip, DEFAULT_THRIFT_PORT);	
+    	String eiger1 = "104.236.140.240";
+    	String eiger2 = "188.226.251.145";
+    	String eiger3 = "104.236.191.32";
+    	String eiger4 = "192.241.215.97";
+    	
+    	HashMap<String, Integer> localServerIPAndPorts = new HashMap<String, Integer>();
+        localServerIPAndPorts.put(eiger2, DEFAULT_THRIFT_PORT);
+        
+        HashMap<String, Integer> allServerIPAndPorts = new HashMap<String, Integer>();
+        allServerIPAndPorts.put(eiger1, DEFAULT_THRIFT_PORT);
+        allServerIPAndPorts.put(eiger2, DEFAULT_THRIFT_PORT);
+        allServerIPAndPorts.put(eiger3, DEFAULT_THRIFT_PORT);
+        allServerIPAndPorts.put(eiger4, DEFAULT_THRIFT_PORT);
+        
+        ArrayList<String> columnFams = new ArrayList<String>();
+        columnFams.add(MAIN_COLUMN_FAMILY);
 
     	try{
         	//Create a keyspace with a replication factor of 1 for each datacenter
-        	TTransport tr = new TFramedTransport(new TSocket(local_ip, DEFAULT_THRIFT_PORT));
+        	TTransport tr = new TFramedTransport(new TSocket(eiger2, DEFAULT_THRIFT_PORT));
         	TProtocol proto = new TBinaryProtocol(tr);
         	Cassandra.Client client = new Cassandra.Client(proto);
         	tr.open();
 
-        	this.setupKeyspace(client, MAIN_KEYSPACE);
-            this.waitForKeyspacePropagation(localServerIPAndPorts, MAIN_KEYSPACE);
+        	this.setupKeyspace(client, MAIN_KEYSPACE, columnFams, allServerIPAndPorts);
     	}catch(Exception c){
             System.out.println("An exception occured: " + c);
     		return;
     	}
-    	
-    	
         
         this.localServerIPAndPorts = localServerIPAndPorts;
         this.consistencyLevel = ConsistencyLevel.LOCAL_QUORUM;
@@ -372,6 +388,128 @@ public class TestClient {
     			topkey++;
     		}
     	}    	
+    }
+    
+    private final String FACEBOOK_KEYSPACE = "Facebook";
+    
+    private void setupFacebook() {
+    	print("setup Facebook started");
+    	String eiger1 = "104.236.140.240";
+    	String eiger2 = "188.226.251.145";
+    	String eiger3 = "104.236.191.32";
+    	String eiger4 = "192.241.215.97";
+    	
+    	HashMap<String, Integer> localServerIPAndPorts = new HashMap<String, Integer>();
+        localServerIPAndPorts.put(eiger2, DEFAULT_THRIFT_PORT);
+        
+        HashMap<String, Integer> allServerIPAndPorts = new HashMap<String, Integer>();
+        allServerIPAndPorts.put(eiger1, DEFAULT_THRIFT_PORT);
+        allServerIPAndPorts.put(eiger2, DEFAULT_THRIFT_PORT);
+        allServerIPAndPorts.put(eiger3, DEFAULT_THRIFT_PORT);
+        allServerIPAndPorts.put(eiger4, DEFAULT_THRIFT_PORT);
+        
+        ArrayList<String> columnFams = new ArrayList<String>();
+        columnFams.add("Walls");
+        
+        try{
+        	//Create a keyspace with a replication factor of 1 for each datacenter
+        	TTransport tr = new TFramedTransport(new TSocket(localServerIPAndPorts.keySet().iterator().next(), DEFAULT_THRIFT_PORT));
+        	TProtocol proto = new TBinaryProtocol(tr);
+        	Cassandra.Client client = new Cassandra.Client(proto);
+        	tr.open();
+        	
+        	this.setupKeyspace(client, FACEBOOK_KEYSPACE, columnFams, allServerIPAndPorts);
+           // this.waitForKeyspacePropagation(allServerIPAndPorts, FACEBOOK_KEYSPACE);
+            
+    	}catch(Exception c){
+            System.out.println("An exception occured: " + c);
+    		return;
+    	}
+        
+        this.localServerIPAndPorts = localServerIPAndPorts;
+        this.consistencyLevel = ConsistencyLevel.LOCAL_QUORUM;
+        
+    }
+    
+    private void printWall(List<FBPost> posts) {
+    	Collections.sort(posts, new Comparator<FBPost>(){
+    		@Override
+    		public int compare(FBPost a, FBPost b) {
+    			return (int)(a.getTimestamp() - b.getTimestamp());
+    		}
+    	});
+       	for(FBPost post: posts){
+    		print(post.writerId + " posted: " + post.content);
+    		for(FBComment comment: post.comments) {
+    			print("    > " +comment.writerId + "commented: " + comment.content);
+    		}
+    	}
+    }
+    
+    private void facebookTests(){
+    	print("bull shit");
+    	this.setupFacebook();
+    	this.facebookStressTests();
+    }
+    
+    private String randomUser(int num){
+    	int userid = (int)((double)num * Math.random());
+    	return "user"+userid;
+    }
+    private void facebookStressTests() {
+    	FacebookClientLibrary fb = new FacebookClientLibrary(this.localServerIPAndPorts, FACEBOOK_KEYSPACE, this.consistencyLevel);
+    	int size = 1000;
+    	double write_ratio = 0.5;
+    	double comment_ratio = .8;
+    	int num_users = 4;
+    	for(int i = 0; i < 500; i++) {
+    		print("i: " + i);
+    		String wall = randomUser(num_users);
+    		List<FBPost> posts = fb.getWallPosts(wall);
+    		if(Math.random() < write_ratio) {
+    			//write
+        		String user = randomUser(num_users);
+        		if(Math.random() < comment_ratio || posts.isEmpty()){
+        			fb.makePost(wall, "This is a postttt!!?!?!!", user);
+        		}
+        		else {
+        			//make a comment
+        			print("posts size: " + posts.size());
+        			int randomPost = (int)((double)posts.size()*Math.random());
+        			fb.makeComment(user, "Some comment shiitttt", posts.get(randomPost));
+        		}
+    		}
+    	}
+    	printWall(fb.getWallPosts("user1"));
+    	printWall(fb.getWallPosts("user2"));
+    	printWall(fb.getWallPosts("user3"));
+    }
+    
+    private void facebookExample(){
+    	FacebookClientLibrary fb = new FacebookClientLibrary(this.localServerIPAndPorts, FACEBOOK_KEYSPACE, this.consistencyLevel);
+    	fb.makePost("user1", "Post1", "user2");
+    	fb.makePost("user1", "Post2", "user3");
+    	List<FBPost> posts = fb.getWallPosts("user1");
+    	FBPost parentPost = posts.iterator().next();
+    	fb.makeComment("user 5", "This is a comment", parentPost);
+    	//fb.makeComment("user5", "This is a comment", post.getValue(), post.getKey(), "user1");
+    	    	    	
+    	//--------- Post to user 2 wall
+    	
+    	fb.makePost("user2", "Hello user2", "user44");
+    	fb.makePost("user2", "Whats upppp?", "user41");
+    	fb.makePost("user2", "This is a status update. I wrote on my own wall", "user2");
+    	
+    	posts = fb.getWallPosts("user2");
+    	parentPost = posts.iterator().next();
+    	
+    	fb.makeComment("user8", "Great comment", parentPost);
+    	fb.makeComment("user2", "Thanks!", parentPost);
+    	
+    	print("~~User1~~");
+    	printWall(fb.getWallPosts("user1"));
+    	print("~~User2~~");
+    	printWall(fb.getWallPosts("user2"));
     }
 }
 
