@@ -416,8 +416,8 @@ public class TestClient {
         	Cassandra.Client client = new Cassandra.Client(proto);
         	tr.open();
         	
-        	this.setupKeyspace(client, FACEBOOK_KEYSPACE, columnFams);
-            this.waitForKeyspacePropagation(allServerIPAndPorts, FACEBOOK_KEYSPACE);
+        	this.setupKeyspace(client, FACEBOOK_KEYSPACE, columnFams, allServerIPAndPorts);
+           // this.waitForKeyspacePropagation(allServerIPAndPorts, FACEBOOK_KEYSPACE);
             
     	}catch(Exception c){
             System.out.println("An exception occured: " + c);
