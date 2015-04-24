@@ -49,7 +49,7 @@ public class TestClient {
      * Constructor
      */
     public TestClient() {
-    	this.facebookTests();
+    	//this.facebookTests();
 //        this.setup();
 //        try{
 //        	print("yoyo");
@@ -124,7 +124,7 @@ public class TestClient {
      * @throws TException
      * @throws InvalidRequestException
      */
-    private void setupKeyspace(Cassandra.Iface client, String keyspace, List<String>columnFamilies) throws TException, InvalidRequestException
+    private void setupKeyspace(Cassandra.Iface client, String keyspace, List<String>columnFamilies, Map<String, Integer> allServerIPAndPorts) throws TException, InvalidRequestException
     {
     	List<KsDef> yo = client.describe_keyspaces();
 
@@ -171,6 +171,8 @@ public class TestClient {
             {
                 throw new RuntimeException(e);
             }
+            this.waitForKeyspacePropagation(localServerIPAndPorts, keyspace);
+
         }
         catch (InvalidRequestException probablyExists) 
         {
@@ -192,33 +194,35 @@ public class TestClient {
     	Integer numDatacenters = 1;
     	Integer nodesPerDatacenter = 1;
     
-    	//Eiger1: 104.236.140.240 ::SFO
-    	//Eiger3: 104.236.191.32 :: SFO
-    	//Eiger2: 188.226.251.145 :: AMST
-
-    	String local_ip = "188.226.251.145";
-
-        HashMap<String, Integer> localServerIPAndPorts = new HashMap<String, Integer>();
-        localServerIPAndPorts.put(local_ip, DEFAULT_THRIFT_PORT);	
+    	String eiger1 = "104.236.140.240";
+    	String eiger2 = "188.226.251.145";
+    	String eiger3 = "104.236.191.32";
+    	String eiger4 = "192.241.215.97";
+    	
+    	HashMap<String, Integer> localServerIPAndPorts = new HashMap<String, Integer>();
+        localServerIPAndPorts.put(eiger2, DEFAULT_THRIFT_PORT);
+        
+        HashMap<String, Integer> allServerIPAndPorts = new HashMap<String, Integer>();
+        allServerIPAndPorts.put(eiger1, DEFAULT_THRIFT_PORT);
+        allServerIPAndPorts.put(eiger2, DEFAULT_THRIFT_PORT);
+        allServerIPAndPorts.put(eiger3, DEFAULT_THRIFT_PORT);
+        allServerIPAndPorts.put(eiger4, DEFAULT_THRIFT_PORT);
         
         ArrayList<String> columnFams = new ArrayList<String>();
         columnFams.add(MAIN_COLUMN_FAMILY);
 
     	try{
         	//Create a keyspace with a replication factor of 1 for each datacenter
-        	TTransport tr = new TFramedTransport(new TSocket(local_ip, DEFAULT_THRIFT_PORT));
+        	TTransport tr = new TFramedTransport(new TSocket(eiger2, DEFAULT_THRIFT_PORT));
         	TProtocol proto = new TBinaryProtocol(tr);
         	Cassandra.Client client = new Cassandra.Client(proto);
         	tr.open();
 
-        	this.setupKeyspace(client, MAIN_KEYSPACE, columnFams);
-            this.waitForKeyspacePropagation(localServerIPAndPorts, MAIN_KEYSPACE);
+        	this.setupKeyspace(client, MAIN_KEYSPACE, columnFams, allServerIPAndPorts);
     	}catch(Exception c){
             System.out.println("An exception occured: " + c);
     		return;
     	}
-    	
-    	
         
         this.localServerIPAndPorts = localServerIPAndPorts;
         this.consistencyLevel = ConsistencyLevel.LOCAL_QUORUM;
@@ -391,6 +395,7 @@ public class TestClient {
     	String eiger1 = "104.236.140.240";
     	String eiger2 = "188.226.251.145";
     	String eiger3 = "104.236.191.32";
+    	String eiger4 = "192.241.215.97";
     	
     	HashMap<String, Integer> localServerIPAndPorts = new HashMap<String, Integer>();
         localServerIPAndPorts.put(eiger2, DEFAULT_THRIFT_PORT);
@@ -399,6 +404,7 @@ public class TestClient {
         allServerIPAndPorts.put(eiger1, DEFAULT_THRIFT_PORT);
         allServerIPAndPorts.put(eiger2, DEFAULT_THRIFT_PORT);
         allServerIPAndPorts.put(eiger3, DEFAULT_THRIFT_PORT);
+        allServerIPAndPorts.put(eiger4, DEFAULT_THRIFT_PORT);
         
         ArrayList<String> columnFams = new ArrayList<String>();
         columnFams.add("Walls");
