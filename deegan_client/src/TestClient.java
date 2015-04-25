@@ -49,10 +49,8 @@ public class TestClient {
      * Constructor
      */
     public TestClient() {
-    	//this.facebookTests();
-//        this.setup();
+    	this.facebookTests();
 //        try{
-//        	print("yoyo");
 //        	this.stressTest();
 //        }
 //        catch(Exception e){
@@ -411,17 +409,18 @@ public class TestClient {
         
         try{
         	//Create a keyspace with a replication factor of 1 for each datacenter
-        	TTransport tr = new TFramedTransport(new TSocket(localServerIPAndPorts.keySet().iterator().next(), DEFAULT_THRIFT_PORT));
+        	String local_ip = localServerIPAndPorts.keySet().iterator().next();
+        	print("Local ip: " +local_ip);
+        	TTransport tr = new TFramedTransport(new TSocket(local_ip, DEFAULT_THRIFT_PORT));
         	TProtocol proto = new TBinaryProtocol(tr);
         	Cassandra.Client client = new Cassandra.Client(proto);
         	tr.open();
         	
-        	this.setupKeyspace(client, FACEBOOK_KEYSPACE, columnFams, allServerIPAndPorts);
-           // this.waitForKeyspacePropagation(allServerIPAndPorts, FACEBOOK_KEYSPACE);
-            
+        	this.setupKeyspace(client, FACEBOOK_KEYSPACE, columnFams, allServerIPAndPorts);            
     	}catch(Exception c){
-            System.out.println("An exception occured: " + c);
-    		return;
+    		print(c.getLocalizedMessage());
+            c.printStackTrace();
+    		print("fucked..........");
     	}
         
         this.localServerIPAndPorts = localServerIPAndPorts;
@@ -445,7 +444,6 @@ public class TestClient {
     }
     
     private void facebookTests(){
-    	print("bull shit");
     	this.setupFacebook();
     	this.facebookStressTests();
     }
@@ -467,13 +465,13 @@ public class TestClient {
     		if(Math.random() < write_ratio) {
     			//write
         		String user = randomUser(num_users);
+        		int randomPost = (int)((double)posts.size()*Math.random());
         		if(Math.random() < comment_ratio || posts.isEmpty()){
-        			fb.makePost(wall, "This is a postttt!!?!?!!", user);
+        			fb.makePost(wall, "This is a postttt!!?!?!!", user, null);
         		}
         		else {
         			//make a comment
-        			print("posts size: " + posts.size());
-        			int randomPost = (int)((double)posts.size()*Math.random());
+        			//print("posts size: " + posts.size());
         			fb.makeComment(user, "Some comment shiitttt", posts.get(randomPost));
         		}
     		}
@@ -485,8 +483,9 @@ public class TestClient {
     
     private void facebookExample(){
     	FacebookClientLibrary fb = new FacebookClientLibrary(this.localServerIPAndPorts, FACEBOOK_KEYSPACE, this.consistencyLevel);
-    	fb.makePost("user1", "Post1", "user2");
-    	fb.makePost("user1", "Post2", "user3");
+    	fb.makePost("user1", "Post1", "user2", null);
+    	fb.makePost("user1", "Post2", "user3", null);
+    	fb.makePost("user1", "Post2aaa", "user4", null);
     	List<FBPost> posts = fb.getWallPosts("user1");
     	FBPost parentPost = posts.iterator().next();
     	fb.makeComment("user 5", "This is a comment", parentPost);
@@ -494,9 +493,9 @@ public class TestClient {
     	    	    	
     	//--------- Post to user 2 wall
     	
-    	fb.makePost("user2", "Hello user2", "user44");
-    	fb.makePost("user2", "Whats upppp?", "user41");
-    	fb.makePost("user2", "This is a status update. I wrote on my own wall", "user2");
+    	fb.makePost("user2", "Hello user2", "user44", null);
+    	fb.makePost("user2", "Whats upppp?", "user41", null);
+    	fb.makePost("user2", "This is a status update. I wrote on my own wall", "user2", null);
     	
     	posts = fb.getWallPosts("user2");
     	parentPost = posts.iterator().next();

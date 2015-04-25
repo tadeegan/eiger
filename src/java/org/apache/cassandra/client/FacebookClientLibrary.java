@@ -8,14 +8,16 @@ import java.util.Map.Entry;
 
 import org.apache.cassandra.thrift.Cassandra;
 import org.apache.cassandra.thrift.Column;
+import org.apache.cassandra.thrift.ColumnOrSuperColumn;
 import org.apache.cassandra.thrift.ColumnParent;
-import org.apache.cassandra.thrift.Compression;
 import org.apache.cassandra.thrift.ConsistencyLevel;
-import org.apache.cassandra.thrift.CqlResult;
-import org.apache.cassandra.thrift.CqlRow;
 import org.apache.cassandra.thrift.Dep;
-
+import org.apache.cassandra.thrift.GetRangeSlicesResult;
+import org.apache.cassandra.thrift.KeyRange;
+import org.apache.cassandra.thrift.KeySlice;
+import org.apache.cassandra.thrift.SlicePredicate;
 import org.apache.cassandra.utils.ByteBufferUtil;
+import org.apache.cassandra.utils.LamportClock;
 import org.apache.thrift.protocol.TBinaryProtocol;
 import org.apache.thrift.protocol.TProtocol;
 import org.apache.thrift.transport.TFramedTransport;
@@ -125,12 +127,22 @@ public class FacebookClientLibrary {
 
 	public List<FBPost> getWallPosts(String wallId) {
 		
-		String query = "SELECT * FROM Facebook.Walls";
+		String query = "SELECT " +  wallId + " FROM Facebook.Walls";
+		System.out.println(query);
 		
 		Entry<String, Integer> entry = this.localServerIPAndPorts.entrySet().iterator().next();
 		TTransport tFramedTransport = new TFramedTransport(new TSocket(entry.getKey(), entry.getValue()));
         TProtocol binaryProtoOnFramed = new TBinaryProtocol(tFramedTransport);
         Cassandra.Client client = new Cassandra.Client(binaryProtoOnFramed);
+        
+        SlicePredicate predicate = new SlicePredicate();
+		predicate.addToColumn_names(toBytes(wallId));
+		
+		KeyRange range = new KeyRange();
+		range.count = 1000;
+		range.setStart_key(toBytes(""));
+		range.setEnd_key(toBytes(""));
+		
         try {
 			tFramedTransport.open();
 		} catch (TTransportException e) {
@@ -138,39 +150,33 @@ public class FacebookClientLibrary {
 		}
         
         try {
-        	client.execute_cql_query(toBytes("USE Facebook"), Compression.NONE);
-			CqlResult queryResult = client.execute_cql_query(toBytes(query), Compression.NONE);
-			
-			List<FBPost> posts = new ArrayList<>();
+        	List<FBPost> posts = new ArrayList<>();
 			List<FBComment> comments = new ArrayList<>();
-			for(CqlRow row : queryResult.getRows()) {
-				
-				List<Column> columns = row.getColumns();
-				Column postContent = null;
-				for(Column column: columns) {
-					String keyName = new String(column.getName());
-					if(keyName.equals(wallId)) postContent = column;
-				}				
-				if(postContent == null) continue;
-				if(postContent.getValue()[1] == 'p') {
-					FBPost post = new FBPost(new String(row.getKey()), postContent);
-					posts.add(post);
-				}else{
-					FBComment comment = new FBComment(new String(row.getKey()), postContent);
-					comments.add(comment);
-				}
-			}
 			
-			//Gather and arrange comments O(n^2) for now. Hash for O(n)
-//			System.out.println("Num comments: " + comments.size());
-			for(FBComment comment: comments) {
+        	client.set_keyspace("Facebook", LamportClock.sendTimestamp());
+            GetRangeSlicesResult res = client.get_range_slices(columnParent, predicate, range, ConsistencyLevel.LOCAL_QUORUM, LamportClock.sendTimestamp());
+            for(KeySlice s: res.value){
+            	String key = new String(s.getKey());
+            	for(ColumnOrSuperColumn c: s.columns) {
+            		Column postContent = c.getColumn();
+            		if(postContent.getValue()[1] == 'p') {
+    					FBPost post = new FBPost(key, postContent);
+    					posts.add(post);
+    				}else{
+    					FBComment comment = new FBComment(key, postContent);
+    					comments.add(comment);
+    				}
+            	}
+            }
+            
+            for(FBComment comment: comments) {
 				for(FBPost post: posts) {
 					if(post.key.equals(comment.parentCommentkey)){
 						post.comments.add(comment);
 					}
 				}
 			}
-			
+            
 			return posts;
 		} catch (Exception e){
 			e.printStackTrace();
@@ -178,25 +184,34 @@ public class FacebookClientLibrary {
 		return null;
 	}
 	
-	public void newPost(FBPost post) {
-		
-	}
-	
 	private static final ColumnParent columnParent = new ColumnParent("Walls");
 
-	public void makePost(String wallId, String content, String writerId) {
+	public void makePost(String wallId, String content, String writerId, FBPost previousPostOrNull) {
 		FBPost post = new FBPost(wallId, writerId, content);
+		Dep dep = previousPostOrNull != null ? previousPostOrNull.asDep() : null;
 		try {
-			this.lib.modifiedInsert(toBytes(post.key), columnParent, this.newColumn(wallId, post.serialize(), post.getTimestamp()), null);
+			this.lib.modifiedInsert(toBytes(post.key), columnParent, this.newColumn(wallId, post.serialize(), post.getTimestamp()), dep);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 	
 	public void makeComment(String writerId, String content, FBPost parentPost) {
-		FBComment comment = new FBComment(writerId, content, parentPost);		
+		Dep dep;
+		//We will make this comment depend on the most recent comment or the post if there are no comments
+		if(parentPost.comments.isEmpty()) {
+			dep = parentPost.asDep();
+		}
+		else{
+			FBComment mostRecent = parentPost.comments.get(0);
+			for(FBComment c: parentPost.comments) {
+				if(c.getTimestamp() > mostRecent.getTimestamp()) mostRecent = c;
+			}
+			dep = mostRecent.asDep();
+		}
+		FBComment comment = new FBComment(writerId, content, parentPost);
 		try {
-			this.lib.modifiedInsert(toBytes(comment.key), columnParent, this.newColumn(comment.wallId, comment.serialize() ,comment.getTimestamp()), parentPost.asDep());
+			this.lib.modifiedInsert(toBytes(comment.key), columnParent, this.newColumn(comment.wallId, comment.serialize() ,comment.getTimestamp()), dep);
 		} catch (Exception e){
 			e.printStackTrace();
 		}
