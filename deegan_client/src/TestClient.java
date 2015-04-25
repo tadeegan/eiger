@@ -35,8 +35,6 @@ public class TestClient {
     private final String MAIN_KEYSPACE = "KeySpace1";
     private final String MAIN_COLUMN_FAMILY = "ColumnFam1";
     
-    private final int NUM_OPPERATIONS_STRESS = 10000;
-
     private Map<String, Integer> localServerIPAndPorts = new HashMap<String, Integer>();
     private List<Map<String, Integer>> dcToServerIPAndPorts = null;
     private ConsistencyLevel consistencyLevel;
@@ -56,6 +54,7 @@ public class TestClient {
 //        catch(Exception e){
 //        	e.printStackTrace();
 //        }
+
     }
     
     /**
@@ -336,6 +335,7 @@ public class TestClient {
     }
     
     private void stressTest() throws Exception {
+    	this.setupStressTests();
     	HashMap<String, Integer> eiger1ServerIPAndPorts = new HashMap<String, Integer>();
     	eiger1ServerIPAndPorts.put("104.236.140.240", DEFAULT_THRIFT_PORT);	
     	ClientLibrary eiger1 = new ClientLibrary(eiger1ServerIPAndPorts, MAIN_KEYSPACE, this.consistencyLevel);
@@ -350,6 +350,10 @@ public class TestClient {
     	
     	String chanceOfWriteEnvVar = System.getenv("chance_of_write");
     	String valueSizeEnvVar = System.getenv("value_size");
+    	String numOperations = System.getenv("num_operations");
+    	
+    	int numOps = Integer.parseInt(numOperations);
+    	
     	double chanceOfWrite = 0;
     	int valueSize = 0;
         try{
@@ -362,8 +366,8 @@ public class TestClient {
         }
         
         int topkey = 0;
-    	for(int i = 0; i < NUM_OPPERATIONS_STRESS; i++){
-    		print(((double)i/(double)NUM_OPPERATIONS_STRESS*100.0) + "%");
+    	for(int i = 0; i < numOps; i++){
+    		print(((double)i/(double)numOps*100.0) + "%");
     		if(Math.random() > chanceOfWrite) {
     			// Do a get on one of the keys we wrote
     			int keyIndex = topkey - (int)(Math.random() * (topkey-1)) -1;

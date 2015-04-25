@@ -1,18 +1,21 @@
 import os
-
+import sys
 #Experiment Variables
 
 eiger1 = "104.236.140.240"
 eiger2 = "188.226.251.145"
 eiger3 = "104.236.191.32"
+eiger4 = "192.241.215.97"
 
-NODES = [eiger1, eiger2, eiger3]
-DC0 = [eiger1, eiger3]
+DC0 = [eiger1, eiger3, eiger4]
 DC1 = [eiger2]
+NODES = DC0 + DC1
 
-VAL_SIZES = ["10","100","1000"] #bytes
-LATENCY_MAX = ["0", "10", "100"] #ms
-RATIO_WRITES = ["0.1", "0.01", "0.001"] #writes/read
+VAL_SIZES = ["10"] #bytes
+LATENCY_MAX = ["0", "5", "20"] #ms
+RATIO_WRITES = ["0.5","0.1", "0.01", "0.001"] #writes/read
+
+NUM_OPERATIONS = 20000
 
 def mkdir(path):
     os.system("mkdir {}".format(path))
@@ -34,17 +37,16 @@ def experiment():
             mkdir(base_path_lat)
             for ratio in RATIO_WRITES:
                 base_path_rat = "{}/{}_write_ratio".format(base_path_lat, ratio)
-                # mkdir(base_path_rat)
-                # perform_experiment(val, latency, ratio)
+                mkdir(base_path_rat)
+                perform_experiment(val, latency, ratio)
                 files = []
                 for indx, address in enumerate(DC0):
                     filename = "{}/eiger{}.log".format(base_path_rat,indx)
                     files.append(filename)
-                #     copy_logs(address, filename)
+                    copy_logs(address, filename)
                 generate_report(files, "{}/report.txt".format(base_path_rat), ratio, latency, val)
 
-def perform_experiment(val, latency, ratio):
-    print("Performing Experiment VAL:{} LAT:{} RAT:{}".format(val, latency, ratio))
+def reset_nodes(latency):
     print("Reseting all nodes....")
     for node in NODES:
         cmd = "sshpass -p $eiger_pass ssh eiger@{} 'cd eiger; bash deegan_burn_it_all.bash;'".format(node)
@@ -57,9 +59,12 @@ def perform_experiment(val, latency, ratio):
             cmd = "sshpass -p $eiger_pass ssh eiger@{} 'cd eiger; bash deegan_datacenter_launcher.bash {}'".format(node, latency)
         print(cmd)
         os.system(cmd)
-    print("Running Client Stress Tests on {}".format(eiger2))
 
-    cmd = "sshpass -p $eiger_pass ssh eiger@{} 'cd eiger; export chance_of_write={}; export value_size={}; export CASSANDRA_HOME=/home/eiger/eiger; env; ./deegan_client_launcher.bash'".format(eiger2, ratio, val)
+def perform_experiment(val, latency, ratio):
+    print("Performing Experiment VAL:{} LAT:{} RAT:{}".format(val, latency, ratio))
+    reset_nodes(latency)
+    print("Running Client Stress Tests on {}".format(eiger2))
+    cmd = "sshpass -p $eiger_pass ssh eiger@{} 'cd eiger; export num_operations={}; export chance_of_write={}; export value_size={}; export CASSANDRA_HOME=/home/eiger/eiger; env; ./deegan_client_launcher.bash'".format(eiger2, NUM_OPERATIONS, ratio, val)
     print(cmd)
     os.system(cmd)
 
@@ -75,6 +80,7 @@ def generate_report(input_files, output_path, ratio, latency, val):
     f.write("Write/Read ratio: {}\n".format(ratio))
     f.write("Latency: {}ms\n".format(latency))
     f.write("Value Size: {}b\n\n".format(val))
+    f.write("Total Operiations: {}b\n\n".format(NUM_OPERATIONS))
     for input_file in input_files:
         f.write("\n\n{}:\n\n".format(input_file))
         numbers = []
@@ -93,4 +99,11 @@ def generate_report(input_files, output_path, ratio, latency, val):
         f.write(str(numbers))
     f.close()
 
-experiment()
+if __name__ == "__main__":
+    if(len(sys.argv) != 2):
+        print("Usage: runner.py (reset | experiment)")
+    elif(sys.argv[1] == "reset"):
+        reset_nodes(0)
+    elif(sys.argv[1] == "experiment"):
+        experiment()
+

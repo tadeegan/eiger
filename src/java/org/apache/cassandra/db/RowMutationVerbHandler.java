@@ -58,6 +58,7 @@ public class RowMutationVerbHandler implements IVerbHandler
                 StorageProxy.checkDependencies(rm.getTable(), rm.key(), rm.extractTimestamp(), rm.getDependencies(), new RowMutationCompletion(message, id, rm));
             } else {
                 // No deps to check, applyAndRespond immediately
+            	logger_.debug("~~~ [Deegan] Apply Mutation. No Deps");
                 applyAndRespond(message, id, rm);
             }
         }

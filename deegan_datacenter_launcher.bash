@@ -5,13 +5,15 @@
 # Requires: add_loopback_address.bash
 
 ./kill_all_cassandra.bash
-
+source deegan_env.sh
+export max_mutation_delay_ms=$1
+echo $max_mutation_delay_ms
 set -u
 
 #this file name is hardcoded into cassandra ... I'll work with it for now
 topo_file=conf/digital-ocean-topology.properties
 cp $topo_file conf/cassandra-topology.properties 
-ips='104.236.140.240, 188.226.251.145'
+ips='104.236.140.240, 188.226.251.145, 104.236.191.32'
 
 #remove old log files
 rm cassandra_var/cassandra*log
@@ -59,7 +61,12 @@ set +x
 #wait until all nodes have joined the ring
 normal_nodes=0
 echo "Nodes up and normal: "
-while [ "${normal_nodes}" -ne "2" ]; do
+
+if [ $# -gt 1 ]; then
+    exit
+fi
+num_nodes=$(wc -l <  conf/digital-ocean-topology.properties)
+while [ "${normal_nodes}" -ne $num_nodes ]; do
     sleep 5
     normal_nodes=$(bin/nodetool -h 127.0.0.1 ring 2>&1 | grep "Normal" | wc -l)
     echo "normal nodes "$normal_nodes
