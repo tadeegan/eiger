@@ -456,33 +456,45 @@ public class TestClient {
     	int userid = (int)((double)num * Math.random());
     	return "user"+userid;
     }
+    
     private void facebookStressTests() {
     	FacebookClientLibrary fb = new FacebookClientLibrary(this.localServerIPAndPorts, FACEBOOK_KEYSPACE, this.consistencyLevel);
     	int size = 1000;
-    	double write_ratio = 0.5;
     	double comment_ratio = .8;
-    	int num_users = 4;
-    	for(int i = 0; i < 500; i++) {
+    	int num_users = 50;
+    	
+    	double chanceOfWriteEnvVar = Double.parseDouble(System.getenv("chance_of_write"));
+    	//String valueSizeEnvVar = System.getenv("value_size"); We dont care about this
+    	int numOperations = Integer.parseInt(System.getenv("num_operations"));
+    	
+    	for(int i = 0; i < numOperations; i++) {
     		print("i: " + i);
     		String wall = randomUser(num_users);
     		List<FBPost> posts = fb.getWallPosts(wall);
-    		if(Math.random() < write_ratio) {
+    		if(Math.random() < chanceOfWriteEnvVar) {
     			//write
+    			i++; //this is an operation too
         		String user = randomUser(num_users);
         		int randomPost = (int)((double)posts.size()*Math.random());
         		if(Math.random() < comment_ratio || posts.isEmpty()){
-        			fb.makePost(wall, "This is a postttt!!?!?!!", user, null);
+        			//make a new post
+        			if(posts.isEmpty()){
+            			fb.makePost(wall, "This is a postttt!!?!?!!", user, null);
+        			}
+        			else{
+            			FBPost latestPost = posts.get(0);
+        				for(FBPost post: posts) {
+            				if(post.getTimestamp() > latestPost.getTimestamp()) latestPost = post;
+            			}
+        				fb.makePost(wall, "This is a postttt!!?!?!!", user, latestPost);
+        			}
         		}
         		else {
-        			//make a comment
-        			//print("posts size: " + posts.size());
+        			//make a new comment
         			fb.makeComment(user, "Some comment shiitttt", posts.get(randomPost));
         		}
     		}
     	}
-    	printWall(fb.getWallPosts("user1"));
-    	printWall(fb.getWallPosts("user2"));
-    	printWall(fb.getWallPosts("user3"));
     }
     
     private void facebookExample(){
