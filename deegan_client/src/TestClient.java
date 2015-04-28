@@ -461,8 +461,7 @@ public class TestClient {
     	FacebookClientLibrary fb = new FacebookClientLibrary(this.localServerIPAndPorts, FACEBOOK_KEYSPACE, this.consistencyLevel);
     	int size = 1000;
     	double comment_ratio = .8;
-    	int num_users = 50;
-    	
+    	int num_users = Integer.parseInt(System.getenv("num_facebook_users"));
     	double chanceOfWriteEnvVar = Double.parseDouble(System.getenv("chance_of_write"));
     	//String valueSizeEnvVar = System.getenv("value_size"); We dont care about this
     	int numOperations = Integer.parseInt(System.getenv("num_operations"));

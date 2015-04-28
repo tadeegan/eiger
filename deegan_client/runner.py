@@ -17,6 +17,8 @@ RATIO_WRITES = ["0.5","0.1", "0.01", "0.001"] #writes/read
 
 NUM_OPERATIONS = 20000
 
+NUM_USERS_FACEBOOK = 20
+
 def mkdir(path):
     os.system("mkdir {}".format(path))
 
@@ -25,9 +27,10 @@ def experiment():
 
     NUM_NODES = len(DC0)
 
-    mkdir("results")
+    base_dir = "results-facebook"
+    mkdir(base_dir)
 
-    base_path_node = "results/{}_node".format(NUM_NODES)
+    base_path_node = "{}/{}_node".format(base_dir,NUM_NODES)
     mkdir(base_path_node)
     for val in VAL_SIZES:
         base_path_val = "{}/{}_val".format(base_path_node, val)
@@ -64,7 +67,7 @@ def perform_experiment(val, latency, ratio):
     print("Performing Experiment VAL:{} LAT:{} RAT:{}".format(val, latency, ratio))
     reset_nodes(latency)
     print("Running Client Stress Tests on {}".format(eiger2))
-    cmd = "sshpass -p $eiger_pass ssh eiger@{} 'cd eiger; export num_operations={}; export chance_of_write={}; export value_size={}; export CASSANDRA_HOME=/home/eiger/eiger; env; ./deegan_client_launcher.bash'".format(eiger2, NUM_OPERATIONS, ratio, val)
+    cmd = "sshpass -p $eiger_pass ssh eiger@{} 'cd eiger; export num_facebook_users={}; export num_operations={}; export chance_of_write={}; export value_size={}; export CASSANDRA_HOME=/home/eiger/eiger; env; ./deegan_client_launcher.bash'".format(eiger2, NUM_USERS_FACEBOOK, NUM_OPERATIONS, ratio, val)
     print(cmd)
     os.system(cmd)
 
