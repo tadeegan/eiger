@@ -47,14 +47,18 @@ public class TestClient {
      * Constructor
      */
     public TestClient() {
-    	this.facebookTests();
-//        try{
-//        	this.stressTest();
-//        }
-//        catch(Exception e){
-//        	e.printStackTrace();
-//        }
-
+    	String testType = System.getenv("testType");
+    	if(testType == null || testType.equals("facebook-stress")){
+    		this.facebookTests();
+    	}
+    	else {
+    		try{
+            	this.stressTest();
+            }
+            catch(Exception e){
+            	e.printStackTrace();
+            }
+    	}
     }
     
     /**
