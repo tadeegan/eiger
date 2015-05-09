@@ -158,10 +158,12 @@ public class FacebookClientLibrary {
         	GetRangeSlicesResult res = null;
         	List<KeySlice> result;
             if(this.useEiger) {
+            	result = lib.get_range_slices(columnParent, predicate, range);
+            }
+            else{
             	res = client.get_range_slices(columnParent, predicate, range, ConsistencyLevel.LOCAL_QUORUM, LamportClock.sendTimestamp());
             	result = res.value;
             }
-            else result = lib.get_range_slices(columnParent, predicate, range);
             for(KeySlice s: result){
             	String key = new String(s.getKey());
             	for(ColumnOrSuperColumn c: s.columns) {
