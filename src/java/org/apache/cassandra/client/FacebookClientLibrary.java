@@ -30,6 +30,7 @@ public class FacebookClientLibrary {
 	private static int sequenceNum = 0;
 	private ClientLibrary lib;
 	private Map<String, Integer> localServerIPAndPorts;
+	public boolean useEiger = false;
 	
 	private abstract class FBContent {
 		//Constants
@@ -126,9 +127,9 @@ public class FacebookClientLibrary {
 	}
 
 	public List<FBPost> getWallPosts(String wallId) {
-		
-		String query = "SELECT " +  wallId + " FROM Facebook.Walls";
-		System.out.println(query);
+
+//		String query = "SELECT " +  wallId + " FROM Facebook.Walls";
+//		System.out.println(query);
 		
 		Entry<String, Integer> entry = this.localServerIPAndPorts.entrySet().iterator().next();
 		TTransport tFramedTransport = new TFramedTransport(new TSocket(entry.getKey(), entry.getValue()));
@@ -154,8 +155,14 @@ public class FacebookClientLibrary {
 			List<FBComment> comments = new ArrayList<>();
 			
         	client.set_keyspace("Facebook", LamportClock.sendTimestamp());
-            GetRangeSlicesResult res = client.get_range_slices(columnParent, predicate, range, ConsistencyLevel.LOCAL_QUORUM, LamportClock.sendTimestamp());
-            for(KeySlice s: res.value){
+        	GetRangeSlicesResult res = null;
+        	List<KeySlice> result;
+            if(this.useEiger) {
+            	res = client.get_range_slices(columnParent, predicate, range, ConsistencyLevel.LOCAL_QUORUM, LamportClock.sendTimestamp());
+            	result = res.value;
+            }
+            else result = lib.get_range_slices(columnParent, predicate, range);
+            for(KeySlice s: result){
             	String key = new String(s.getKey());
             	for(ColumnOrSuperColumn c: s.columns) {
             		Column postContent = c.getColumn();
@@ -190,7 +197,8 @@ public class FacebookClientLibrary {
 		FBPost post = new FBPost(wallId, writerId, content);
 		Dep dep = previousPostOrNull != null ? previousPostOrNull.asDep() : null;
 		try {
-			this.lib.modifiedInsert(toBytes(post.key), columnParent, this.newColumn(wallId, post.serialize(), post.getTimestamp()), dep);
+			if(this.useEiger) this.lib.insert(toBytes(post.key), columnParent, this.newColumn(wallId, post.serialize(), post.getTimestamp()));
+			else this.lib.modifiedInsert(toBytes(post.key), columnParent, this.newColumn(wallId, post.serialize(), post.getTimestamp()), dep);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -211,7 +219,8 @@ public class FacebookClientLibrary {
 		}
 		FBComment comment = new FBComment(writerId, content, parentPost);
 		try {
-			this.lib.modifiedInsert(toBytes(comment.key), columnParent, this.newColumn(comment.wallId, comment.serialize() ,comment.getTimestamp()), dep);
+			if(this.useEiger) this.lib.insert(toBytes(comment.key), columnParent, this.newColumn(comment.wallId, comment.serialize() ,comment.getTimestamp()));
+			else this.lib.modifiedInsert(toBytes(comment.key), columnParent, this.newColumn(comment.wallId, comment.serialize() ,comment.getTimestamp()), dep);
 		} catch (Exception e){
 			e.printStackTrace();
 		}

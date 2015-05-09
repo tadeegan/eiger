@@ -4,6 +4,7 @@ import org.apache.cassandra.net.ICompletable;
 import org.apache.cassandra.net.Message;
 import org.slf4j.LoggerFactory;
 import org.slf4j.Logger;
+import org.apache.commons.math3.distribution.NormalDistribution;
 
 public class RowMutationCompletion implements ICompletable
 {
@@ -42,15 +43,21 @@ public class RowMutationCompletion implements ICompletable
     	long deltaTime = endTime - this.startTime;
     	logger.debug("~~~~ [DEEGAN] Completion Complete (" + deltaTime + "ms )" );
     	try {
-    		long time = (long)(Math.random()*this.maxMutationDelay);
-    		logger.debug("Max mutation delay: " + this.maxMutationDelay);
-    		logger.debug("time: " + time);
-    		Thread.sleep(time);
+    		long delay = (long) getDelay();
+    		Thread.sleep(delay);
     		logger.debug("done....");
     	}catch (Exception interupt) {
     		
     	}
         RowMutationVerbHandler.instance().applyAndRespond(message, id, rm);
     }
+
+    private double getDelay() {
+    	long time = (long)(Math.random()*this.maxMutationDelay);
+		logger.debug("Max mutation delay: " + this.maxMutationDelay);
+		logger.debug("time: " + time);
+		NormalDistribution dist = new NormalDistribution(0, time);
+		return Math.abs(dist.sample());
+	}
 
 }

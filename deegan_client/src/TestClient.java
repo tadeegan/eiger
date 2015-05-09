@@ -48,8 +48,11 @@ public class TestClient {
      */
     public TestClient() {
     	String testType = System.getenv("testType");
+    	String useEigerEnv = System.getenv("useEiger");
+    	boolean useEiger = useEigerEnv.equals("yes");
     	if(testType == null || testType.equals("facebook-stress")){
-    		this.facebookTests();
+    		//this.facebookTests(useEiger);
+    		this.facebookExample();
     	}
     	else {
     		try{
@@ -452,9 +455,9 @@ public class TestClient {
     	}
     }
     
-    private void facebookTests(){
+    private void facebookTests(boolean useEiger){
     	this.setupFacebook();
-    	this.facebookStressTests();
+    	this.facebookStressTests(useEiger);
     }
     
     private String randomUser(int num){
@@ -462,8 +465,9 @@ public class TestClient {
     	return "user"+userid;
     }
     
-    private void facebookStressTests() {
+    private void facebookStressTests(boolean useEiger) {
     	FacebookClientLibrary fb = new FacebookClientLibrary(this.localServerIPAndPorts, FACEBOOK_KEYSPACE, this.consistencyLevel);
+    	fb.useEiger = useEiger; // use eiger vs application aware.  more deps
     	int size = 1000;
     	double comment_ratio = .8;
     	int num_users = Integer.parseInt(System.getenv("num_facebook_users"));
@@ -502,7 +506,9 @@ public class TestClient {
     }
     
     private void facebookExample(){
+    	this.setupFacebook();
     	FacebookClientLibrary fb = new FacebookClientLibrary(this.localServerIPAndPorts, FACEBOOK_KEYSPACE, this.consistencyLevel);
+    	fb.useEiger = true;
     	fb.makePost("user1", "Post1", "user2", null);
     	fb.makePost("user1", "Post2", "user3", null);
     	fb.makePost("user1", "Post2aaa", "user4", null);
