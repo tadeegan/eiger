@@ -51,8 +51,8 @@ public class TestClient {
     	String useEigerEnv = System.getenv("useEiger");
     	boolean useEiger = useEigerEnv.equals("yes");
     	if(testType == null || testType.equals("facebook-stress")){
-    		//this.facebookTests(useEiger);
-    		this.facebookExample();
+    		this.facebookTests(useEiger);
+    		//this.facebookExample();
     	}
     	else {
     		try{
