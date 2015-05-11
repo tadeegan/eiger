@@ -12,6 +12,7 @@ import org.apache.cassandra.client.FacebookClientLibrary.FBPost;
 import org.apache.cassandra.config.CFMetaData;
 import org.apache.cassandra.config.ColumnDefinition;
 import org.apache.cassandra.config.ConfigurationException;
+import org.apache.cassandra.config.DatabaseDescriptor;
 import org.apache.cassandra.config.KSMetaData;
 import org.apache.cassandra.locator.NetworkTopologyStrategy;
 import org.apache.cassandra.service.StorageService;
@@ -28,6 +29,7 @@ import org.hsqldb.SchemaManager;
 import org.apache.cassandra.locator.SimpleStrategy;
 
 import java.util.Scanner;
+import java.net.URL;
 
 public class TestClient {
 
@@ -50,6 +52,17 @@ public class TestClient {
     	String testType = System.getenv("testType");
     	String useEigerEnv = System.getenv("useEiger");
     	boolean useEiger = useEigerEnv.equals("yes");
+    	print("use Euger: " + useEiger);
+    	
+    	try{
+    		for(URL u: Collections.list(DatabaseDescriptor.class.getClassLoader().getResources(""))){
+    			print("url " + u);
+    		}
+    	}catch(Exception e){}
+    	
+    	URL u = DatabaseDescriptor.class.getClassLoader().getResource("cassandra.yaml");
+    	print("url casddandra: " + u);
+    	
     	if(testType == null || testType.equals("facebook-stress")){
     		this.facebookTests(useEiger);
     		//this.facebookExample();
@@ -202,6 +215,7 @@ public class TestClient {
     	String eiger2 = "188.226.251.145";
     	String eiger3 = "104.236.191.32";
     	String eiger4 = "192.241.215.97";
+    	String eiger5 = "104.236.152.144";
     	
     	HashMap<String, Integer> localServerIPAndPorts = new HashMap<String, Integer>();
         localServerIPAndPorts.put(eiger2, DEFAULT_THRIFT_PORT);
@@ -211,6 +225,7 @@ public class TestClient {
         allServerIPAndPorts.put(eiger2, DEFAULT_THRIFT_PORT);
         allServerIPAndPorts.put(eiger3, DEFAULT_THRIFT_PORT);
         allServerIPAndPorts.put(eiger4, DEFAULT_THRIFT_PORT);
+        allServerIPAndPorts.put(eiger5, DEFAULT_THRIFT_PORT);
         
         ArrayList<String> columnFams = new ArrayList<String>();
         columnFams.add(MAIN_COLUMN_FAMILY);
@@ -343,17 +358,10 @@ public class TestClient {
     
     private void stressTest() throws Exception {
     	this.setupStressTests();
-    	HashMap<String, Integer> eiger1ServerIPAndPorts = new HashMap<String, Integer>();
-    	eiger1ServerIPAndPorts.put("104.236.140.240", DEFAULT_THRIFT_PORT);	
-    	ClientLibrary eiger1 = new ClientLibrary(eiger1ServerIPAndPorts, MAIN_KEYSPACE, this.consistencyLevel);
     	
     	HashMap<String, Integer> eiger2ServerIPAndPorts = new HashMap<String, Integer>();
     	eiger2ServerIPAndPorts.put("188.226.251.145", DEFAULT_THRIFT_PORT);	
     	ClientLibrary eiger2 = new ClientLibrary(eiger2ServerIPAndPorts, MAIN_KEYSPACE, this.consistencyLevel);
-    	
-    	HashMap<String, Integer> eiger3ServerIPAndPorts = new HashMap<String, Integer>();
-    	eiger3ServerIPAndPorts.put("104.236.191.32", DEFAULT_THRIFT_PORT);	
-    	ClientLibrary eiger3 = new ClientLibrary(eiger3ServerIPAndPorts, MAIN_KEYSPACE, this.consistencyLevel);
     	
     	String chanceOfWriteEnvVar = System.getenv("chance_of_write");
     	String valueSizeEnvVar = System.getenv("value_size");
@@ -375,7 +383,7 @@ public class TestClient {
         int topkey = 0;
     	for(int i = 0; i < numOps; i++){
     		Thread.sleep(20);
-    		print(((double)i/(double)numOps*100.0) + "%");
+    		print(((double)ai/(double)numOps*100.0) + "%");
     		if(Math.random() > chanceOfWrite) {
     			// Do a get on one of the keys we wrote
     			int keyIndex = topkey - (int)(Math.random() * (topkey-1)) -1;
@@ -406,6 +414,7 @@ public class TestClient {
     	String eiger2 = "188.226.251.145";
     	String eiger3 = "104.236.191.32";
     	String eiger4 = "192.241.215.97";
+    	String eiger5 = "104.236.152.144";
     	
     	HashMap<String, Integer> localServerIPAndPorts = new HashMap<String, Integer>();
         localServerIPAndPorts.put(eiger2, DEFAULT_THRIFT_PORT);
@@ -415,6 +424,7 @@ public class TestClient {
         allServerIPAndPorts.put(eiger2, DEFAULT_THRIFT_PORT);
         allServerIPAndPorts.put(eiger3, DEFAULT_THRIFT_PORT);
         allServerIPAndPorts.put(eiger4, DEFAULT_THRIFT_PORT);
+        allServerIPAndPorts.put(eiger5, DEFAULT_THRIFT_PORT);
         
         ArrayList<String> columnFams = new ArrayList<String>();
         columnFams.add("Walls");
@@ -468,7 +478,6 @@ public class TestClient {
     private void facebookStressTests(boolean useEiger) {
     	FacebookClientLibrary fb = new FacebookClientLibrary(this.localServerIPAndPorts, FACEBOOK_KEYSPACE, this.consistencyLevel);
     	fb.useEiger = useEiger; // use eiger vs application aware.  more deps
-    	int size = 1000;
     	double comment_ratio = .8;
     	int num_users = Integer.parseInt(System.getenv("num_facebook_users"));
     	double chanceOfWriteEnvVar = Double.parseDouble(System.getenv("chance_of_write"));
