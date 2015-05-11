@@ -383,7 +383,7 @@ public class TestClient {
         int topkey = 0;
     	for(int i = 0; i < numOps; i++){
     		Thread.sleep(20);
-    		print(((double)ai/(double)numOps*100.0) + "%");
+    		print(((double)i/(double)numOps*100.0) + "%");
     		if(Math.random() > chanceOfWrite) {
     			// Do a get on one of the keys we wrote
     			int keyIndex = topkey - (int)(Math.random() * (topkey-1)) -1;
