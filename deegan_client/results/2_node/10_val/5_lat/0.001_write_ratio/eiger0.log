@@ -1,0 +1,761 @@
+ INFO [main] 2015-04-23 23:50:15,829 AbstractCassandraDaemon.java (line 103) Logging initialized
+ INFO [main] 2015-04-23 23:50:15,836 AbstractCassandraDaemon.java (line 124) JVM vendor/version: OpenJDK 64-Bit Server VM/1.7.0_75
+ INFO [main] 2015-04-23 23:50:15,836 AbstractCassandraDaemon.java (line 125) Heap size: 250544128/251592704
+ INFO [main] 2015-04-23 23:50:15,837 AbstractCassandraDaemon.java (line 126) Classpath: /home/eiger/eiger//conf:/home/eiger/eiger//build/classes/main:/home/eiger/eiger//build/classes/thrift:/home/eiger/eiger//lib/antlr-3.2.jar:/home/eiger/eiger//lib/avro-1.4.0-fixes.jar:/home/eiger/eiger//lib/avro-1.4.0-sources-fixes.jar:/home/eiger/eiger//lib/commons-cli-1.1.jar:/home/eiger/eiger//lib/commons-codec-1.2.jar:/home/eiger/eiger//lib/commons-lang-2.4.jar:/home/eiger/eiger//lib/compress-lzf-0.8.4.jar:/home/eiger/eiger//lib/concurrentlinkedhashmap-lru-1.2.jar:/home/eiger/eiger//lib/guava-r08.jar:/home/eiger/eiger//lib/high-scale-lib-1.1.2.jar:/home/eiger/eiger//lib/jackson-core-asl-1.9.2.jar:/home/eiger/eiger//lib/jackson-mapper-asl-1.9.2.jar:/home/eiger/eiger//lib/jamm-0.2.5.jar:/home/eiger/eiger//lib/jline-0.9.94.jar:/home/eiger/eiger//lib/json-simple-1.1.jar:/home/eiger/eiger//lib/libthrift-0.7.0.jar:/home/eiger/eiger//lib/log4j-1.2.16.jar:/home/eiger/eiger//lib/servlet-api-2.5-20081211.jar:/home/eiger/eiger//lib/slf4j-api-1.6.1.jar:/home/eiger/eiger//lib/slf4j-log4j12-1.6.1.jar:/home/eiger/eiger//lib/snakeyaml-1.6.jar:/home/eiger/eiger//lib/snappy-java-1.0.4.1.jar:/home/eiger/eiger//lib/snaptree-0.1-SNAPSHOT.jar
+ INFO [main] 2015-04-23 23:50:15,839 CLibrary.java (line 66) JNA not found. Native methods will be disabled.
+ INFO [main] 2015-04-23 23:50:15,852 DatabaseDescriptor.java (line 124) Loading settings from file:/home/eiger/eiger/conf/eiger_conf.yaml
+ INFO [main] 2015-04-23 23:50:16,135 DatabaseDescriptor.java (line 178) DiskAccessMode 'auto' determined to be mmap, indexAccessMode is mmap
+ INFO [main] 2015-04-23 23:50:16,168 DatabaseDescriptor.java (line 243) Global memtable threshold is enabled at 79MB
+ INFO [main] 2015-04-23 23:50:16,500 CacheService.java (line 100) Initializing key cache with capacity of 2 MBs.
+ INFO [main] 2015-04-23 23:50:16,534 CacheService.java (line 111) Scheduling key cache save to each 14400 seconds (going to save all keys).
+ INFO [main] 2015-04-23 23:50:16,540 CacheService.java (line 125) Initializing row cache with capacity of 0 MBs and provider org.apache.cassandra.cache.ConcurrentLinkedHashCacheProvider
+ INFO [main] 2015-04-23 23:50:16,543 CacheService.java (line 137) Scheduling row cache save to each 0 seconds (going to save all keys).
+DEBUG [main] 2015-04-23 23:50:16,809 AppliedOperations.java (line 112) addAppliedOp called: 4c:65536=1.0.0
+ INFO [main] 2015-04-23 23:50:16,845 DatabaseDescriptor.java (line 479) Couldn't detect any schema definitions in local storage.
+ INFO [main] 2015-04-23 23:50:16,847 DatabaseDescriptor.java (line 506) Found table data in data directories. Consider using the CLI to define your schema.
+ INFO [main] 2015-04-23 23:50:16,875 CommitLog.java (line 136) No commitlog files found; skipping replay
+DEBUG [main] 2015-04-23 23:50:16,879 AppliedOperations.java (line 112) addAppliedOp called: 6275696c64:0=0.0.0
+DEBUG [main] 2015-04-23 23:50:16,882 AppliedOperations.java (line 112) addAppliedOp called: 63716c:0=0.0.0
+DEBUG [main] 2015-04-23 23:50:16,883 AppliedOperations.java (line 112) addAppliedOp called: 746872696674:0=0.0.0
+DEBUG [main] 2015-04-23 23:50:16,885 AppliedOperations.java (line 112) addAppliedOp called: 436f6f6b696573:131072=2.0.0
+ INFO [main] 2015-04-23 23:50:16,886 StorageService.java (line 424) Cassandra version: 1.1-dev-SNAPSHOT
+ INFO [main] 2015-04-23 23:50:16,886 StorageService.java (line 425) Thrift API version: 19.25.0+cops.2.0.3
+ INFO [main] 2015-04-23 23:50:16,887 StorageService.java (line 438) Loading persisted ring state
+ INFO [main] 2015-04-23 23:50:16,892 StorageService.java (line 519) Starting up server gossip
+DEBUG [main] 2015-04-23 23:50:16,912 AppliedOperations.java (line 112) addAppliedOp called: 4c:196608=3.0.0
+ INFO [main] 2015-04-23 23:50:16,916 ColumnFamilyStore.java (line 590) Enqueuing flush of Memtable-LocationInfo@1828568147(246/307 serialized/live bytes, 3 ops)
+ INFO [FlushWriter:1] 2015-04-23 23:50:16,917 Memtable.java (line 252) Writing Memtable-LocationInfo@1828568147(246/307 serialized/live bytes, 3 ops)
+ INFO [FlushWriter:1] 2015-04-23 23:50:16,961 Memtable.java (line 293) Completed flushing /home/eiger/eiger/cassandra_var/data/0/system/LocationInfo/system-LocationInfo-hc-1-Data.db (354 bytes)
+ INFO [main] 2015-04-23 23:50:16,988 MessagingService.java (line 286) Starting Messaging Service on port 7000
+ INFO [main] 2015-04-23 23:50:16,999 StorageService.java (line 543) This node will not auto bootstrap because it is configured to be a seed node.
+ INFO [main] 2015-04-23 23:50:17,012 StorageService.java (line 629) Saved token not found. Using 0 from configuration
+DEBUG [main] 2015-04-23 23:50:17,012 AppliedOperations.java (line 112) addAppliedOp called: 426f6f747374726170:262144=4.0.0
+DEBUG [main] 2015-04-23 23:50:17,015 AppliedOperations.java (line 112) addAppliedOp called: 4c:327680=5.0.0
+ INFO [main] 2015-04-23 23:50:17,016 ColumnFamilyStore.java (line 590) Enqueuing flush of Memtable-LocationInfo@142685600(118/147 serialized/live bytes, 2 ops)
+ INFO [FlushWriter:1] 2015-04-23 23:50:17,016 Memtable.java (line 252) Writing Memtable-LocationInfo@142685600(118/147 serialized/live bytes, 2 ops)
+ INFO [FlushWriter:1] 2015-04-23 23:50:17,030 Memtable.java (line 293) Completed flushing /home/eiger/eiger/cassandra_var/data/0/system/LocationInfo/system-LocationInfo-hc-2-Data.db (228 bytes)
+ INFO [main] 2015-04-23 23:50:17,035 StorageService.java (line 1053) Node /104.236.140.240 state jump to normal
+ INFO [main] 2015-04-23 23:50:17,036 StorageService.java (line 646) Bootstrap/Replace/Move completed! Now serving reads.
+ INFO [main] 2015-04-23 23:50:17,037 Mx4jTool.java (line 72) Will not load MX4J, mx4j-tools.jar is not in the classpath
+ INFO [main] 2015-04-23 23:50:17,111 CassandraDaemon.java (line 121) Binding thrift service to /104.236.140.240:9160
+ INFO [main] 2015-04-23 23:50:17,116 CassandraDaemon.java (line 130) Using TFastFramedTransport with a max frame size of 15728640 bytes.
+ INFO [main] 2015-04-23 23:50:17,121 CassandraDaemon.java (line 157) Using synchronous/threadpool thrift server on /104.236.140.240 : 9160
+ INFO [Thread-2] 2015-04-23 23:50:17,122 CassandraDaemon.java (line 210) Listening for thrift clients...
+ INFO [GossipStage:1] 2015-04-23 23:50:19,487 Gossiper.java (line 834) Node /188.226.251.145 is now part of the cluster
+ INFO [GossipStage:1] 2015-04-23 23:50:19,488 Gossiper.java (line 800) InetAddress /188.226.251.145 is now UP
+DEBUG [GossipStage:1] 2015-04-23 23:50:19,490 AppliedOperations.java (line 112) addAppliedOp called: 52696e67:1638400=25.0.0
+ INFO [GossipStage:1] 2015-04-23 23:50:19,492 ColumnFamilyStore.java (line 590) Enqueuing flush of Memtable-LocationInfo@1107139982(60/75 serialized/live bytes, 1 ops)
+ INFO [FlushWriter:1] 2015-04-23 23:50:19,493 Memtable.java (line 252) Writing Memtable-LocationInfo@1107139982(60/75 serialized/live bytes, 1 ops)
+ INFO [FlushWriter:1] 2015-04-23 23:50:19,512 Memtable.java (line 293) Completed flushing /home/eiger/eiger/cassandra_var/data/0/system/LocationInfo/system-LocationInfo-hc-3-Data.db (114 bytes)
+ INFO [GossipStage:1] 2015-04-23 23:50:20,316 Gossiper.java (line 834) Node /104.236.191.32 is now part of the cluster
+ INFO [GossipStage:1] 2015-04-23 23:50:20,317 Gossiper.java (line 800) InetAddress /104.236.191.32 is now UP
+DEBUG [GossipStage:1] 2015-04-23 23:50:20,318 AppliedOperations.java (line 112) addAppliedOp called: 52696e67:2621440=40.0.0
+ INFO [GossipStage:1] 2015-04-23 23:50:20,319 ColumnFamilyStore.java (line 590) Enqueuing flush of Memtable-LocationInfo@724707318(75/93 serialized/live bytes, 1 ops)
+ INFO [FlushWriter:1] 2015-04-23 23:50:20,320 Memtable.java (line 252) Writing Memtable-LocationInfo@724707318(75/93 serialized/live bytes, 1 ops)
+ INFO [FlushWriter:1] 2015-04-23 23:50:20,340 Memtable.java (line 293) Completed flushing /home/eiger/eiger/cassandra_var/data/0/system/LocationInfo/system-LocationInfo-hc-4-Data.db (129 bytes)
+ INFO [CompactionExecutor:1] 2015-04-23 23:50:20,350 CompactionTask.java (line 115) Compacting [SSTableReader(path='/home/eiger/eiger/cassandra_var/data/0/system/LocationInfo/system-LocationInfo-hc-3-Data.db'), SSTableReader(path='/home/eiger/eiger/cassandra_var/data/0/system/LocationInfo/system-LocationInfo-hc-4-Data.db'), SSTableReader(path='/home/eiger/eiger/cassandra_var/data/0/system/LocationInfo/system-LocationInfo-hc-2-Data.db'), SSTableReader(path='/home/eiger/eiger/cassandra_var/data/0/system/LocationInfo/system-LocationInfo-hc-1-Data.db')]
+ INFO [CompactionExecutor:1] 2015-04-23 23:50:20,386 CompactionTask.java (line 226) Compacted to [/home/eiger/eiger/cassandra_var/data/0/system/LocationInfo/system-LocationInfo-hc-5-Data.db,].  825 to 720 (~87% of original) bytes for 4 keys at 0.019618MB/s.  Time: 35ms.
+DEBUG [MigrationStage:1] 2015-04-23 23:50:27,229 AppliedOperations.java (line 112) addAppliedOp called: 30613765313938302d656133352d313165342d303030302d613836313834363836376666:8392704=128.1.0
+DEBUG [MigrationStage:1] 2015-04-23 23:50:27,230 AppliedOperations.java (line 118) Add applied op: 30613765313938302d656133352d313165342d303030302d613836313834363836376666:8392704=128.1.0
+DEBUG [MigrationStage:1] 2015-04-23 23:50:27,230 AppliedOperations.java (line 61) Ignoring updateNewestOp for: MigrationStage:1
+DEBUG [MigrationStage:1] 2015-04-23 23:50:27,350 AppliedOperations.java (line 112) addAppliedOp called: 4d6967726174696f6e73204b6579:9961472=152.0.0
+ INFO [MigrationStage:1] 2015-04-23 23:50:27,364 Migration.java (line 119) Applying migration 0a7e1980-ea35-11e4-0000-a861846867ff Add keyspace: KeySpace1, rep strategy:NetworkTopologyStrategy{org.apache.cassandra.config.CFMetaData@799fbb6d[cfId=1000,ksName=KeySpace1,cfName=ColumnFam1,cfType=Standard,comparator=org.apache.cassandra.db.marshal.BytesType,subcolumncomparator=<null>,comment=,readRepairChance=0.0,replicateOnWrite=true,gcGraceSeconds=864000,defaultValidator=org.apache.cassandra.db.marshal.BytesType,keyValidator=org.apache.cassandra.db.marshal.BytesType,minCompactionThreshold=4,maxCompactionThreshold=32,mergeShardsChance=0.1,keyAlias=<null>,column_metadata={},compactionStrategyClass=class org.apache.cassandra.db.compaction.SizeTieredCompactionStrategy,compactionStrategyOptions={},compressionOptions={},bloomFilterFpChance=<null>,caching=KEYS_ONLY]}, durable_writes: true
+DEBUG [MigrationStage:1] 2015-04-23 23:50:27,365 AppliedOperations.java (line 112) addAppliedOp called: 4c617374204d6967726174696f6e:9961472=152.0.0
+ INFO [MigrationStage:1] 2015-04-23 23:50:27,368 ColumnFamilyStore.java (line 590) Enqueuing flush of Memtable-Migrations@1022601753(6788/8485 serialized/live bytes, 1 ops)
+ INFO [FlushWriter:1] 2015-04-23 23:50:27,369 Memtable.java (line 252) Writing Memtable-Migrations@1022601753(6788/8485 serialized/live bytes, 1 ops)
+ INFO [MigrationStage:1] 2015-04-23 23:50:27,372 ColumnFamilyStore.java (line 590) Enqueuing flush of Memtable-Schema@113324400(2972/3715 serialized/live bytes, 3 ops)
+ INFO [FlushWriter:1] 2015-04-23 23:50:27,400 Memtable.java (line 293) Completed flushing /home/eiger/eiger/cassandra_var/data/0/system/Migrations/system-Migrations-hc-1-Data.db (6852 bytes)
+ INFO [FlushWriter:1] 2015-04-23 23:50:27,401 Memtable.java (line 252) Writing Memtable-Schema@113324400(2972/3715 serialized/live bytes, 3 ops)
+ INFO [FlushWriter:1] 2015-04-23 23:50:27,416 Memtable.java (line 293) Completed flushing /home/eiger/eiger/cassandra_var/data/0/system/Schema/system-Schema-hc-1-Data.db (3122 bytes)
+DEBUG [MutationStage:1] 2015-04-23 23:50:35,693 RowMutationVerbHandler.java (line 42) ~~~~ [DEEGAN] Starting verb handler
+DEBUG [MutationStage:1] 2015-04-23 23:50:35,695 RowMutationVerbHandler.java (line 47) Deserialized RowMutation(keyspace='KeySpace1', key='34', modifications=[ColumnFamily(ColumnFam1 [636f6c756d6e5f6e616d65:false:10@296226816,])])
+DEBUG [MutationStage:1] 2015-04-23 23:50:35,718 StorageProxy.java (line 1422) ~~~~~ [DEEGAN] Storage Proxy checkDeps()
+DEBUG [MutationStage:1] 2015-04-23 23:50:35,718 StorageProxy.java (line 1425) Checking deps for org.apache.cassandra.db.RowMutationCompletion@3f74245e
+DEBUG [MutationStage:1] 2015-04-23 23:50:35,719 AppliedOperations.java (line 97) Add pending op: 34:296226816=4520.1.0
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:35,728 RowMutationCompletion.java (line 43) ~~~~ [DEEGAN] Completion Complete (31ms )
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:35,729 RowMutationCompletion.java (line 46) Max mutation delay: 5
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:35,729 RowMutationCompletion.java (line 47) time: 4
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:35,734 RowMutationCompletion.java (line 49) done....
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:35,736 RowMutationVerbHandler.java (line 73) ~~~~ [DEEGAN] Applying Mutation1!!!
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:35,736 RowMutationVerbHandler.java (line 79) Applying RowMutation(keyspace='KeySpace1', key='34', modifications=[ColumnFamily(ColumnFam1 [636f6c756d6e5f6e616d65:false:10@296226816,])])
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:35,736 AppliedOperations.java (line 112) addAppliedOp called: 34:296226816=4520.1.0
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:35,737 AppliedOperations.java (line 118) Add applied op: 34:296226816=4520.1.0
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:35,740 RowMutationVerbHandler.java (line 86) RowMutation(keyspace='KeySpace1', key='34', modifications=[ColumnFamily(ColumnFam1 [636f6c756d6e5f6e616d65:false:10@296226816,])]) applied.  Sending response to 71@/188.226.251.145
+DEBUG [MiscStage:1] 2015-04-23 23:50:36,003 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:36,003 AppliedOperations.java (line 182) Check dependency: 34:296226816=4520.1.0, (dcm.lt=5062)
+DEBUG [MiscStage:1] 2015-04-23 23:50:36,003 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=5062)
+DEBUG [MiscStage:1] 2015-04-23 23:50:36,652 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:36,652 AppliedOperations.java (line 182) Check dependency: 34:296226816=4520.1.0, (dcm.lt=6631)
+DEBUG [MiscStage:1] 2015-04-23 23:50:36,653 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=6631)
+DEBUG [MutationStage:2] 2015-04-23 23:50:36,815 RowMutationVerbHandler.java (line 42) ~~~~ [DEEGAN] Starting verb handler
+DEBUG [MutationStage:2] 2015-04-23 23:50:36,816 RowMutationVerbHandler.java (line 47) Deserialized RowMutation(keyspace='KeySpace1', key='37', modifications=[ColumnFamily(ColumnFam1 [636f6c756d6e5f6e616d65:false:10@458821632,])])
+DEBUG [MutationStage:2] 2015-04-23 23:50:36,816 StorageProxy.java (line 1422) ~~~~~ [DEEGAN] Storage Proxy checkDeps()
+DEBUG [MutationStage:2] 2015-04-23 23:50:36,817 StorageProxy.java (line 1425) Checking deps for org.apache.cassandra.db.RowMutationCompletion@2de0d5e3
+DEBUG [MutationStage:2] 2015-04-23 23:50:36,817 AppliedOperations.java (line 97) Add pending op: 37:458821632=7001.1.0
+DEBUG [MiscStage:1] 2015-04-23 23:50:36,819 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:36,820 AppliedOperations.java (line 182) Check dependency: 34:296226816=4520.1.0, (dcm.lt=7011)
+DEBUG [MiscStage:1] 2015-04-23 23:50:36,820 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=7011)
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:36,826 RowMutationCompletion.java (line 43) ~~~~ [DEEGAN] Completion Complete (10ms )
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:36,827 RowMutationCompletion.java (line 46) Max mutation delay: 5
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:36,827 RowMutationCompletion.java (line 47) time: 2
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:36,829 RowMutationCompletion.java (line 49) done....
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:36,830 RowMutationVerbHandler.java (line 73) ~~~~ [DEEGAN] Applying Mutation1!!!
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:36,830 RowMutationVerbHandler.java (line 79) Applying RowMutation(keyspace='KeySpace1', key='37', modifications=[ColumnFamily(ColumnFam1 [636f6c756d6e5f6e616d65:false:10@458821632,])])
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:36,831 AppliedOperations.java (line 112) addAppliedOp called: 37:458821632=7001.1.0
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:36,831 AppliedOperations.java (line 118) Add applied op: 37:458821632=7001.1.0
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:36,832 RowMutationVerbHandler.java (line 86) RowMutation(keyspace='KeySpace1', key='37', modifications=[ColumnFamily(ColumnFam1 [636f6c756d6e5f6e616d65:false:10@458821632,])]) applied.  Sending response to 77@/188.226.251.145
+DEBUG [MiscStage:1] 2015-04-23 23:50:37,060 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:37,060 AppliedOperations.java (line 182) Check dependency: 37:458821632=7001.1.0, (dcm.lt=7738)
+DEBUG [MiscStage:1] 2015-04-23 23:50:37,061 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=7738)
+DEBUG [MiscStage:1] 2015-04-23 23:50:37,062 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:37,062 AppliedOperations.java (line 182) Check dependency: 34:296226816=4520.1.0, (dcm.lt=7741)
+DEBUG [MiscStage:1] 2015-04-23 23:50:37,063 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=7741)
+DEBUG [MutationStage:3] 2015-04-23 23:50:39,632 RowMutationVerbHandler.java (line 42) ~~~~ [DEEGAN] Starting verb handler
+DEBUG [MutationStage:3] 2015-04-23 23:50:39,633 RowMutationVerbHandler.java (line 47) Deserialized RowMutation(keyspace='KeySpace1', key='39', modifications=[ColumnFamily(ColumnFam1 [636f6c756d6e5f6e616d65:false:10@909905920,])])
+DEBUG [MutationStage:3] 2015-04-23 23:50:39,633 StorageProxy.java (line 1422) ~~~~~ [DEEGAN] Storage Proxy checkDeps()
+DEBUG [MutationStage:3] 2015-04-23 23:50:39,633 StorageProxy.java (line 1425) Checking deps for org.apache.cassandra.db.RowMutationCompletion@545b1bd
+DEBUG [MutationStage:3] 2015-04-23 23:50:39,634 AppliedOperations.java (line 97) Add pending op: 39:909905920=13884.1.0
+DEBUG [MiscStage:1] 2015-04-23 23:50:39,635 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:39,635 AppliedOperations.java (line 182) Check dependency: 34:296226816=4520.1.0, (dcm.lt=13891)
+DEBUG [MiscStage:1] 2015-04-23 23:50:39,635 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=13891)
+DEBUG [MiscStage:1] 2015-04-23 23:50:39,636 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:39,636 AppliedOperations.java (line 182) Check dependency: 37:458821632=7001.1.0, (dcm.lt=13895)
+DEBUG [MiscStage:1] 2015-04-23 23:50:39,637 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=13895)
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:39,642 RowMutationCompletion.java (line 43) ~~~~ [DEEGAN] Completion Complete (9ms )
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:39,642 RowMutationCompletion.java (line 46) Max mutation delay: 5
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:39,643 RowMutationCompletion.java (line 47) time: 1
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:39,644 RowMutationCompletion.java (line 49) done....
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:39,644 RowMutationVerbHandler.java (line 73) ~~~~ [DEEGAN] Applying Mutation1!!!
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:39,644 RowMutationVerbHandler.java (line 79) Applying RowMutation(keyspace='KeySpace1', key='39', modifications=[ColumnFamily(ColumnFam1 [636f6c756d6e5f6e616d65:false:10@909905920,])])
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:39,645 AppliedOperations.java (line 112) addAppliedOp called: 39:909905920=13884.1.0
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:39,645 AppliedOperations.java (line 118) Add applied op: 39:909905920=13884.1.0
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:39,646 RowMutationVerbHandler.java (line 86) RowMutation(keyspace='KeySpace1', key='39', modifications=[ColumnFamily(ColumnFam1 [636f6c756d6e5f6e616d65:false:10@909905920,])]) applied.  Sending response to 90@/188.226.251.145
+DEBUG [MiscStage:1] 2015-04-23 23:50:41,853 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:41,856 AppliedOperations.java (line 182) Check dependency: 39:909905920=13884.1.0, (dcm.lt=20538)
+DEBUG [MiscStage:1] 2015-04-23 23:50:41,856 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=20538)
+DEBUG [MiscStage:1] 2015-04-23 23:50:41,857 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:41,857 AppliedOperations.java (line 182) Check dependency: 37:458821632=7001.1.0, (dcm.lt=20539)
+DEBUG [MiscStage:1] 2015-04-23 23:50:41,857 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=20539)
+DEBUG [MiscStage:1] 2015-04-23 23:50:41,861 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:41,861 AppliedOperations.java (line 182) Check dependency: 34:296226816=4520.1.0, (dcm.lt=20548)
+DEBUG [MiscStage:1] 2015-04-23 23:50:41,862 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=20548)
+DEBUG [MutationStage:4] 2015-04-23 23:50:44,075 RowMutationVerbHandler.java (line 42) ~~~~ [DEEGAN] Starting verb handler
+DEBUG [MutationStage:4] 2015-04-23 23:50:44,076 RowMutationVerbHandler.java (line 47) Deserialized RowMutation(keyspace='KeySpace1', key='3131', modifications=[ColumnFamily(ColumnFam1 [636f6c756d6e5f6e616d65:false:10@1697845248,])])
+DEBUG [MutationStage:4] 2015-04-23 23:50:44,077 StorageProxy.java (line 1422) ~~~~~ [DEEGAN] Storage Proxy checkDeps()
+DEBUG [MutationStage:4] 2015-04-23 23:50:44,077 StorageProxy.java (line 1425) Checking deps for org.apache.cassandra.db.RowMutationCompletion@20a709f3
+DEBUG [MutationStage:4] 2015-04-23 23:50:44,078 AppliedOperations.java (line 97) Add pending op: 3131:1697845248=25907.1.0
+DEBUG [MiscStage:1] 2015-04-23 23:50:44,080 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:44,081 AppliedOperations.java (line 182) Check dependency: 34:296226816=4520.1.0, (dcm.lt=25915)
+DEBUG [MiscStage:1] 2015-04-23 23:50:44,081 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=25915)
+DEBUG [MiscStage:1] 2015-04-23 23:50:44,084 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:44,085 AppliedOperations.java (line 182) Check dependency: 37:458821632=7001.1.0, (dcm.lt=25922)
+DEBUG [MiscStage:1] 2015-04-23 23:50:44,085 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=25922)
+DEBUG [MiscStage:1] 2015-04-23 23:50:44,088 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:44,089 AppliedOperations.java (line 182) Check dependency: 39:909905920=13884.1.0, (dcm.lt=25927)
+DEBUG [MiscStage:1] 2015-04-23 23:50:44,089 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=25927)
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:44,093 RowMutationCompletion.java (line 43) ~~~~ [DEEGAN] Completion Complete (16ms )
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:44,094 RowMutationCompletion.java (line 46) Max mutation delay: 5
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:44,094 RowMutationCompletion.java (line 47) time: 2
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:44,096 RowMutationCompletion.java (line 49) done....
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:44,096 RowMutationVerbHandler.java (line 73) ~~~~ [DEEGAN] Applying Mutation1!!!
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:44,096 RowMutationVerbHandler.java (line 79) Applying RowMutation(keyspace='KeySpace1', key='3131', modifications=[ColumnFamily(ColumnFam1 [636f6c756d6e5f6e616d65:false:10@1697845248,])])
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:44,097 AppliedOperations.java (line 112) addAppliedOp called: 3131:1697845248=25907.1.0
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:44,097 AppliedOperations.java (line 118) Add applied op: 3131:1697845248=25907.1.0
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:44,098 RowMutationVerbHandler.java (line 86) RowMutation(keyspace='KeySpace1', key='3131', modifications=[ColumnFamily(ColumnFam1 [636f6c756d6e5f6e616d65:false:10@1697845248,])]) applied.  Sending response to 102@/188.226.251.145
+DEBUG [MiscStage:1] 2015-04-23 23:50:45,088 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:45,089 AppliedOperations.java (line 182) Check dependency: 3131:1697845248=25907.1.0, (dcm.lt=30988)
+DEBUG [MiscStage:1] 2015-04-23 23:50:45,089 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=30988)
+DEBUG [MiscStage:1] 2015-04-23 23:50:45,089 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:45,090 AppliedOperations.java (line 182) Check dependency: 34:296226816=4520.1.0, (dcm.lt=30989)
+DEBUG [MiscStage:1] 2015-04-23 23:50:45,090 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=30989)
+DEBUG [MiscStage:1] 2015-04-23 23:50:45,091 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:45,091 AppliedOperations.java (line 182) Check dependency: 39:909905920=13884.1.0, (dcm.lt=30992)
+DEBUG [MiscStage:1] 2015-04-23 23:50:45,091 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=30992)
+DEBUG [MiscStage:1] 2015-04-23 23:50:45,093 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:45,093 AppliedOperations.java (line 182) Check dependency: 37:458821632=7001.1.0, (dcm.lt=30995)
+DEBUG [MiscStage:1] 2015-04-23 23:50:45,094 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=30995)
+DEBUG [MiscStage:1] 2015-04-23 23:50:47,476 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:47,476 AppliedOperations.java (line 182) Check dependency: 39:909905920=13884.1.0, (dcm.lt=42971)
+DEBUG [MiscStage:1] 2015-04-23 23:50:47,477 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=42971)
+DEBUG [MiscStage:1] 2015-04-23 23:50:47,478 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:47,478 AppliedOperations.java (line 182) Check dependency: 3131:1697845248=25907.1.0, (dcm.lt=42974)
+DEBUG [MiscStage:1] 2015-04-23 23:50:47,478 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=42974)
+DEBUG [MiscStage:1] 2015-04-23 23:50:47,478 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:47,479 AppliedOperations.java (line 182) Check dependency: 37:458821632=7001.1.0, (dcm.lt=42975)
+DEBUG [MiscStage:1] 2015-04-23 23:50:47,479 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=42975)
+DEBUG [MiscStage:1] 2015-04-23 23:50:47,483 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:47,483 AppliedOperations.java (line 182) Check dependency: 34:296226816=4520.1.0, (dcm.lt=42990)
+DEBUG [MiscStage:1] 2015-04-23 23:50:47,484 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=42990)
+DEBUG [MutationStage:5] 2015-04-23 23:50:48,199 RowMutationVerbHandler.java (line 42) ~~~~ [DEEGAN] Starting verb handler
+DEBUG [MutationStage:5] 2015-04-23 23:50:48,200 RowMutationVerbHandler.java (line 47) Deserialized RowMutation(keyspace='KeySpace1', key='3134', modifications=[ColumnFamily(ColumnFam1 [636f6c756d6e5f6e616d65:false:10@3054112768,])])
+DEBUG [MutationStage:5] 2015-04-23 23:50:48,200 StorageProxy.java (line 1422) ~~~~~ [DEEGAN] Storage Proxy checkDeps()
+DEBUG [MutationStage:5] 2015-04-23 23:50:48,200 StorageProxy.java (line 1425) Checking deps for org.apache.cassandra.db.RowMutationCompletion@1359c03a
+DEBUG [MutationStage:5] 2015-04-23 23:50:48,200 AppliedOperations.java (line 97) Add pending op: 3134:3054112768=46602.1.0
+DEBUG [MiscStage:1] 2015-04-23 23:50:48,201 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:48,202 AppliedOperations.java (line 182) Check dependency: 3131:1697845248=25907.1.0, (dcm.lt=46608)
+DEBUG [MiscStage:1] 2015-04-23 23:50:48,202 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=46608)
+DEBUG [MiscStage:1] 2015-04-23 23:50:48,203 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:48,203 AppliedOperations.java (line 182) Check dependency: 34:296226816=4520.1.0, (dcm.lt=46609)
+DEBUG [MiscStage:1] 2015-04-23 23:50:48,204 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=46609)
+DEBUG [MiscStage:1] 2015-04-23 23:50:48,205 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:48,206 AppliedOperations.java (line 182) Check dependency: 37:458821632=7001.1.0, (dcm.lt=46613)
+DEBUG [MiscStage:1] 2015-04-23 23:50:48,207 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=46613)
+DEBUG [MiscStage:1] 2015-04-23 23:50:48,207 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:48,208 AppliedOperations.java (line 182) Check dependency: 39:909905920=13884.1.0, (dcm.lt=46614)
+DEBUG [MiscStage:1] 2015-04-23 23:50:48,208 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=46614)
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:48,211 RowMutationCompletion.java (line 43) ~~~~ [DEEGAN] Completion Complete (11ms )
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:48,211 RowMutationCompletion.java (line 46) Max mutation delay: 5
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:48,211 RowMutationCompletion.java (line 47) time: 0
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:48,212 RowMutationCompletion.java (line 49) done....
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:48,212 RowMutationVerbHandler.java (line 73) ~~~~ [DEEGAN] Applying Mutation1!!!
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:48,212 RowMutationVerbHandler.java (line 79) Applying RowMutation(keyspace='KeySpace1', key='3134', modifications=[ColumnFamily(ColumnFam1 [636f6c756d6e5f6e616d65:false:10@3054112768,])])
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:48,213 AppliedOperations.java (line 112) addAppliedOp called: 3134:3054112768=46602.1.0
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:48,213 AppliedOperations.java (line 118) Add applied op: 3134:3054112768=46602.1.0
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:48,213 RowMutationVerbHandler.java (line 86) RowMutation(keyspace='KeySpace1', key='3134', modifications=[ColumnFamily(ColumnFam1 [636f6c756d6e5f6e616d65:false:10@3054112768,])]) applied.  Sending response to 118@/188.226.251.145
+DEBUG [MutationStage:6] 2015-04-23 23:50:49,698 RowMutationVerbHandler.java (line 42) ~~~~ [DEEGAN] Starting verb handler
+DEBUG [MutationStage:6] 2015-04-23 23:50:49,699 RowMutationVerbHandler.java (line 47) Deserialized RowMutation(keyspace='KeySpace1', key='3135', modifications=[ColumnFamily(ColumnFam1 [636f6c756d6e5f6e616d65:false:10@3281981440,])])
+DEBUG [MutationStage:6] 2015-04-23 23:50:49,699 StorageProxy.java (line 1422) ~~~~~ [DEEGAN] Storage Proxy checkDeps()
+DEBUG [MutationStage:6] 2015-04-23 23:50:49,699 StorageProxy.java (line 1425) Checking deps for org.apache.cassandra.db.RowMutationCompletion@4ce2c6cd
+DEBUG [MutationStage:6] 2015-04-23 23:50:49,700 AppliedOperations.java (line 97) Add pending op: 3135:3281981440=50079.1.0
+DEBUG [MiscStage:1] 2015-04-23 23:50:49,702 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:49,702 AppliedOperations.java (line 182) Check dependency: 3131:1697845248=25907.1.0, (dcm.lt=50089)
+DEBUG [MiscStage:1] 2015-04-23 23:50:49,702 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=50089)
+DEBUG [MiscStage:1] 2015-04-23 23:50:49,703 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:49,703 AppliedOperations.java (line 182) Check dependency: 34:296226816=4520.1.0, (dcm.lt=50091)
+DEBUG [MiscStage:1] 2015-04-23 23:50:49,703 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=50091)
+DEBUG [MiscStage:1] 2015-04-23 23:50:49,704 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:49,704 AppliedOperations.java (line 182) Check dependency: 39:909905920=13884.1.0, (dcm.lt=50093)
+DEBUG [MiscStage:1] 2015-04-23 23:50:49,705 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=50093)
+DEBUG [MiscStage:1] 2015-04-23 23:50:49,706 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:49,706 AppliedOperations.java (line 182) Check dependency: 3134:3054112768=46602.1.0, (dcm.lt=50098)
+DEBUG [MiscStage:1] 2015-04-23 23:50:49,706 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=50098)
+DEBUG [MiscStage:1] 2015-04-23 23:50:49,707 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:49,707 AppliedOperations.java (line 182) Check dependency: 37:458821632=7001.1.0, (dcm.lt=50099)
+DEBUG [MiscStage:1] 2015-04-23 23:50:49,708 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=50099)
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:49,713 RowMutationCompletion.java (line 43) ~~~~ [DEEGAN] Completion Complete (14ms )
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:49,714 RowMutationCompletion.java (line 46) Max mutation delay: 5
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:49,714 RowMutationCompletion.java (line 47) time: 0
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:49,714 RowMutationCompletion.java (line 49) done....
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:49,714 RowMutationVerbHandler.java (line 73) ~~~~ [DEEGAN] Applying Mutation1!!!
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:49,715 RowMutationVerbHandler.java (line 79) Applying RowMutation(keyspace='KeySpace1', key='3135', modifications=[ColumnFamily(ColumnFam1 [636f6c756d6e5f6e616d65:false:10@3281981440,])])
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:49,716 AppliedOperations.java (line 112) addAppliedOp called: 3135:3281981440=50079.1.0
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:49,716 AppliedOperations.java (line 118) Add applied op: 3135:3281981440=50079.1.0
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:49,717 RowMutationVerbHandler.java (line 86) RowMutation(keyspace='KeySpace1', key='3135', modifications=[ColumnFamily(ColumnFam1 [636f6c756d6e5f6e616d65:false:10@3281981440,])]) applied.  Sending response to 124@/188.226.251.145
+DEBUG [MiscStage:1] 2015-04-23 23:50:50,117 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:50,118 AppliedOperations.java (line 182) Check dependency: 39:909905920=13884.1.0, (dcm.lt=51064)
+DEBUG [MiscStage:1] 2015-04-23 23:50:50,118 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=51064)
+DEBUG [MiscStage:1] 2015-04-23 23:50:50,119 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:50,119 AppliedOperations.java (line 182) Check dependency: 3134:3054112768=46602.1.0, (dcm.lt=51070)
+DEBUG [MiscStage:1] 2015-04-23 23:50:50,120 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=51070)
+DEBUG [MiscStage:1] 2015-04-23 23:50:50,120 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:50,120 AppliedOperations.java (line 182) Check dependency: 3131:1697845248=25907.1.0, (dcm.lt=51074)
+DEBUG [MiscStage:1] 2015-04-23 23:50:50,121 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=51074)
+DEBUG [MiscStage:1] 2015-04-23 23:50:50,121 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:50,121 AppliedOperations.java (line 182) Check dependency: 37:458821632=7001.1.0, (dcm.lt=51077)
+DEBUG [MiscStage:1] 2015-04-23 23:50:50,122 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=51077)
+DEBUG [MiscStage:1] 2015-04-23 23:50:50,122 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:50,122 AppliedOperations.java (line 182) Check dependency: 34:296226816=4520.1.0, (dcm.lt=51079)
+DEBUG [MiscStage:1] 2015-04-23 23:50:50,122 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=51079)
+DEBUG [MiscStage:1] 2015-04-23 23:50:50,123 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:50,123 AppliedOperations.java (line 182) Check dependency: 3135:3281981440=50079.1.0, (dcm.lt=51081)
+DEBUG [MiscStage:1] 2015-04-23 23:50:50,123 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=51081)
+DEBUG [MutationStage:7] 2015-04-23 23:50:52,127 RowMutationVerbHandler.java (line 42) ~~~~ [DEEGAN] Starting verb handler
+DEBUG [MutationStage:7] 2015-04-23 23:50:52,127 RowMutationVerbHandler.java (line 47) Deserialized RowMutation(keyspace='KeySpace1', key='3137', modifications=[ColumnFamily(ColumnFam1 [636f6c756d6e5f6e616d65:false:10@3736670208,])])
+DEBUG [MutationStage:7] 2015-04-23 23:50:52,128 StorageProxy.java (line 1422) ~~~~~ [DEEGAN] Storage Proxy checkDeps()
+DEBUG [MutationStage:7] 2015-04-23 23:50:52,128 StorageProxy.java (line 1425) Checking deps for org.apache.cassandra.db.RowMutationCompletion@61ecc629
+DEBUG [MutationStage:7] 2015-04-23 23:50:52,128 AppliedOperations.java (line 97) Add pending op: 3137:3736670208=57017.1.0
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,129 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,129 AppliedOperations.java (line 182) Check dependency: 3131:1697845248=25907.1.0, (dcm.lt=57023)
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,129 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=57023)
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,130 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,130 AppliedOperations.java (line 182) Check dependency: 39:909905920=13884.1.0, (dcm.lt=57025)
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,130 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=57025)
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,133 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,133 AppliedOperations.java (line 182) Check dependency: 3135:3281981440=50079.1.0, (dcm.lt=57033)
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,133 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=57033)
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,134 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,134 AppliedOperations.java (line 182) Check dependency: 3134:3054112768=46602.1.0, (dcm.lt=57035)
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,135 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=57035)
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,136 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,136 AppliedOperations.java (line 182) Check dependency: 34:296226816=4520.1.0, (dcm.lt=57040)
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,136 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=57040)
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,137 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,137 AppliedOperations.java (line 182) Check dependency: 37:458821632=7001.1.0, (dcm.lt=57041)
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,137 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=57041)
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:52,157 RowMutationCompletion.java (line 43) ~~~~ [DEEGAN] Completion Complete (29ms )
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:52,157 RowMutationCompletion.java (line 46) Max mutation delay: 5
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:52,157 RowMutationCompletion.java (line 47) time: 2
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:52,159 RowMutationCompletion.java (line 49) done....
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:52,160 RowMutationVerbHandler.java (line 73) ~~~~ [DEEGAN] Applying Mutation1!!!
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:52,160 RowMutationVerbHandler.java (line 79) Applying RowMutation(keyspace='KeySpace1', key='3137', modifications=[ColumnFamily(ColumnFam1 [636f6c756d6e5f6e616d65:false:10@3736670208,])])
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:52,160 AppliedOperations.java (line 112) addAppliedOp called: 3137:3736670208=57017.1.0
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:52,161 AppliedOperations.java (line 118) Add applied op: 3137:3736670208=57017.1.0
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:52,161 RowMutationVerbHandler.java (line 86) RowMutation(keyspace='KeySpace1', key='3137', modifications=[ColumnFamily(ColumnFam1 [636f6c756d6e5f6e616d65:false:10@3736670208,])]) applied.  Sending response to 133@/188.226.251.145
+DEBUG [MutationStage:8] 2015-04-23 23:50:52,327 RowMutationVerbHandler.java (line 42) ~~~~ [DEEGAN] Starting verb handler
+DEBUG [MutationStage:8] 2015-04-23 23:50:52,328 RowMutationVerbHandler.java (line 47) Deserialized RowMutation(keyspace='KeySpace1', key='3138', modifications=[ColumnFamily(ColumnFam1 [636f6c756d6e5f6e616d65:false:10@3830714368,])])
+DEBUG [MutationStage:8] 2015-04-23 23:50:52,328 StorageProxy.java (line 1422) ~~~~~ [DEEGAN] Storage Proxy checkDeps()
+DEBUG [MutationStage:8] 2015-04-23 23:50:52,328 StorageProxy.java (line 1425) Checking deps for org.apache.cassandra.db.RowMutationCompletion@331da5fc
+DEBUG [MutationStage:8] 2015-04-23 23:50:52,329 AppliedOperations.java (line 97) Add pending op: 3138:3830714368=58452.1.0
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,330 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,330 AppliedOperations.java (line 182) Check dependency: 39:909905920=13884.1.0, (dcm.lt=58460)
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,331 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=58460)
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,331 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,331 AppliedOperations.java (line 182) Check dependency: 3134:3054112768=46602.1.0, (dcm.lt=58461)
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,331 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=58461)
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,332 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,332 AppliedOperations.java (line 182) Check dependency: 37:458821632=7001.1.0, (dcm.lt=58463)
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,332 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=58463)
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,336 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,336 AppliedOperations.java (line 182) Check dependency: 3135:3281981440=50079.1.0, (dcm.lt=58464)
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,336 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=58464)
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,337 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,337 AppliedOperations.java (line 182) Check dependency: 3131:1697845248=25907.1.0, (dcm.lt=58470)
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,337 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=58470)
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,338 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,338 AppliedOperations.java (line 182) Check dependency: 34:296226816=4520.1.0, (dcm.lt=58476)
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,339 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=58476)
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,339 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,339 AppliedOperations.java (line 182) Check dependency: 3137:3736670208=57017.1.0, (dcm.lt=58479)
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,340 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=58479)
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:52,343 RowMutationCompletion.java (line 43) ~~~~ [DEEGAN] Completion Complete (15ms )
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:52,343 RowMutationCompletion.java (line 46) Max mutation delay: 5
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:52,343 RowMutationCompletion.java (line 47) time: 3
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:52,346 RowMutationCompletion.java (line 49) done....
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:52,346 RowMutationVerbHandler.java (line 73) ~~~~ [DEEGAN] Applying Mutation1!!!
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:52,347 RowMutationVerbHandler.java (line 79) Applying RowMutation(keyspace='KeySpace1', key='3138', modifications=[ColumnFamily(ColumnFam1 [636f6c756d6e5f6e616d65:false:10@3830714368,])])
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:52,347 AppliedOperations.java (line 112) addAppliedOp called: 3138:3830714368=58452.1.0
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:52,347 AppliedOperations.java (line 118) Add applied op: 3138:3830714368=58452.1.0
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:52,348 RowMutationVerbHandler.java (line 86) RowMutation(keyspace='KeySpace1', key='3138', modifications=[ColumnFamily(ColumnFam1 [636f6c756d6e5f6e616d65:false:10@3830714368,])]) applied.  Sending response to 136@/188.226.251.145
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,531 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,532 AppliedOperations.java (line 182) Check dependency: 3134:3054112768=46602.1.0, (dcm.lt=59903)
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,532 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=59903)
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,533 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,534 AppliedOperations.java (line 182) Check dependency: 3135:3281981440=50079.1.0, (dcm.lt=59905)
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,534 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=59905)
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,536 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,536 AppliedOperations.java (line 182) Check dependency: 34:296226816=4520.1.0, (dcm.lt=59909)
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,536 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=59909)
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,537 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,537 AppliedOperations.java (line 182) Check dependency: 37:458821632=7001.1.0, (dcm.lt=59914)
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,538 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=59914)
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,540 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,541 AppliedOperations.java (line 182) Check dependency: 3138:3830714368=58452.1.0, (dcm.lt=59920)
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,541 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=59920)
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,542 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,542 AppliedOperations.java (line 182) Check dependency: 39:909905920=13884.1.0, (dcm.lt=59924)
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,542 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=59924)
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,543 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,543 AppliedOperations.java (line 182) Check dependency: 3137:3736670208=57017.1.0, (dcm.lt=59925)
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,543 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=59925)
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,544 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,545 AppliedOperations.java (line 182) Check dependency: 3131:1697845248=25907.1.0, (dcm.lt=59928)
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,545 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=59928)
+DEBUG [MutationStage:9] 2015-04-23 23:50:52,711 RowMutationVerbHandler.java (line 42) ~~~~ [DEEGAN] Starting verb handler
+DEBUG [MutationStage:9] 2015-04-23 23:50:52,712 RowMutationVerbHandler.java (line 47) Deserialized RowMutation(keyspace='KeySpace1', key='3230', modifications=[ColumnFamily(ColumnFam1 [636f6c756d6e5f6e616d65:false:10@4020375552,])])
+DEBUG [MutationStage:9] 2015-04-23 23:50:52,772 StorageProxy.java (line 1422) ~~~~~ [DEEGAN] Storage Proxy checkDeps()
+DEBUG [MutationStage:9] 2015-04-23 23:50:52,772 StorageProxy.java (line 1425) Checking deps for org.apache.cassandra.db.RowMutationCompletion@1354377d
+DEBUG [MutationStage:9] 2015-04-23 23:50:52,773 AppliedOperations.java (line 97) Add pending op: 3230:4020375552=61346.1.0
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,781 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,781 AppliedOperations.java (line 182) Check dependency: 3138:3830714368=58452.1.0, (dcm.lt=61353)
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,782 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=61353)
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,786 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,787 AppliedOperations.java (line 182) Check dependency: 3137:3736670208=57017.1.0, (dcm.lt=61365)
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,787 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=61365)
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,790 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,790 AppliedOperations.java (line 182) Check dependency: 34:296226816=4520.1.0, (dcm.lt=61369)
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,790 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=61369)
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,799 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,800 AppliedOperations.java (line 182) Check dependency: 37:458821632=7001.1.0, (dcm.lt=61372)
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,800 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=61372)
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,800 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,801 AppliedOperations.java (line 182) Check dependency: 3134:3054112768=46602.1.0, (dcm.lt=61375)
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,801 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=61375)
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,802 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,803 AppliedOperations.java (line 182) Check dependency: 39:909905920=13884.1.0, (dcm.lt=61377)
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,803 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=61377)
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,804 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,804 AppliedOperations.java (line 182) Check dependency: 3135:3281981440=50079.1.0, (dcm.lt=61379)
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,806 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=61379)
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,808 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,808 AppliedOperations.java (line 182) Check dependency: 3131:1697845248=25907.1.0, (dcm.lt=61380)
+DEBUG [MiscStage:1] 2015-04-23 23:50:52,809 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=61380)
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:52,813 RowMutationCompletion.java (line 43) ~~~~ [DEEGAN] Completion Complete (41ms )
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:52,813 RowMutationCompletion.java (line 46) Max mutation delay: 5
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:52,813 RowMutationCompletion.java (line 47) time: 3
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:52,817 RowMutationCompletion.java (line 49) done....
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:52,817 RowMutationVerbHandler.java (line 73) ~~~~ [DEEGAN] Applying Mutation1!!!
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:52,817 RowMutationVerbHandler.java (line 79) Applying RowMutation(keyspace='KeySpace1', key='3230', modifications=[ColumnFamily(ColumnFam1 [636f6c756d6e5f6e616d65:false:10@4020375552,])])
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:52,818 AppliedOperations.java (line 112) addAppliedOp called: 3230:4020375552=61346.1.0
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:52,818 AppliedOperations.java (line 118) Add applied op: 3230:4020375552=61346.1.0
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:52,819 RowMutationVerbHandler.java (line 86) RowMutation(keyspace='KeySpace1', key='3230', modifications=[ColumnFamily(ColumnFam1 [636f6c756d6e5f6e616d65:false:10@4020375552,])]) applied.  Sending response to 138@/188.226.251.145
+DEBUG [MiscStage:1] 2015-04-23 23:50:53,428 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:53,429 AppliedOperations.java (line 182) Check dependency: 3138:3830714368=58452.1.0, (dcm.lt=66634)
+DEBUG [MiscStage:1] 2015-04-23 23:50:53,429 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=66634)
+DEBUG [MiscStage:1] 2015-04-23 23:50:53,430 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:53,430 AppliedOperations.java (line 182) Check dependency: 3135:3281981440=50079.1.0, (dcm.lt=66635)
+DEBUG [MiscStage:1] 2015-04-23 23:50:53,430 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=66635)
+DEBUG [MiscStage:1] 2015-04-23 23:50:53,430 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:53,431 AppliedOperations.java (line 182) Check dependency: 3230:4020375552=61346.1.0, (dcm.lt=66638)
+DEBUG [MiscStage:1] 2015-04-23 23:50:53,431 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=66638)
+DEBUG [MiscStage:1] 2015-04-23 23:50:53,431 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:53,432 AppliedOperations.java (line 182) Check dependency: 3137:3736670208=57017.1.0, (dcm.lt=66641)
+DEBUG [MiscStage:1] 2015-04-23 23:50:53,432 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=66641)
+DEBUG [MiscStage:1] 2015-04-23 23:50:53,432 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:53,432 AppliedOperations.java (line 182) Check dependency: 3134:3054112768=46602.1.0, (dcm.lt=66646)
+DEBUG [MiscStage:1] 2015-04-23 23:50:53,433 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=66646)
+DEBUG [MiscStage:1] 2015-04-23 23:50:53,433 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:53,434 AppliedOperations.java (line 182) Check dependency: 3131:1697845248=25907.1.0, (dcm.lt=66653)
+DEBUG [MiscStage:1] 2015-04-23 23:50:53,434 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=66653)
+DEBUG [MiscStage:1] 2015-04-23 23:50:53,434 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:53,435 AppliedOperations.java (line 182) Check dependency: 39:909905920=13884.1.0, (dcm.lt=66656)
+DEBUG [MiscStage:1] 2015-04-23 23:50:53,435 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=66656)
+DEBUG [MiscStage:1] 2015-04-23 23:50:53,435 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:53,435 AppliedOperations.java (line 182) Check dependency: 34:296226816=4520.1.0, (dcm.lt=66658)
+DEBUG [MiscStage:1] 2015-04-23 23:50:53,436 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=66658)
+DEBUG [MiscStage:1] 2015-04-23 23:50:53,436 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:53,436 AppliedOperations.java (line 182) Check dependency: 37:458821632=7001.1.0, (dcm.lt=66661)
+DEBUG [MiscStage:1] 2015-04-23 23:50:53,436 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=66661)
+DEBUG [MutationStage:10] 2015-04-23 23:50:54,449 RowMutationVerbHandler.java (line 42) ~~~~ [DEEGAN] Starting verb handler
+DEBUG [MutationStage:10] 2015-04-23 23:50:54,450 RowMutationVerbHandler.java (line 47) Deserialized RowMutation(keyspace='KeySpace1', key='3232', modifications=[ColumnFamily(ColumnFam1 [636f6c756d6e5f6e616d65:false:10@4812312576,])])
+DEBUG [MutationStage:10] 2015-04-23 23:50:54,450 StorageProxy.java (line 1422) ~~~~~ [DEEGAN] Storage Proxy checkDeps()
+DEBUG [MutationStage:10] 2015-04-23 23:50:54,450 StorageProxy.java (line 1425) Checking deps for org.apache.cassandra.db.RowMutationCompletion@9f51be6
+DEBUG [MutationStage:10] 2015-04-23 23:50:54,451 AppliedOperations.java (line 97) Add pending op: 3232:4812312576=73430.1.0
+DEBUG [MiscStage:1] 2015-04-23 23:50:54,452 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:54,452 AppliedOperations.java (line 182) Check dependency: 39:909905920=13884.1.0, (dcm.lt=73438)
+DEBUG [MiscStage:1] 2015-04-23 23:50:54,453 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=73438)
+DEBUG [MiscStage:1] 2015-04-23 23:50:54,453 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:54,453 AppliedOperations.java (line 182) Check dependency: 3137:3736670208=57017.1.0, (dcm.lt=73440)
+DEBUG [MiscStage:1] 2015-04-23 23:50:54,454 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=73440)
+DEBUG [MiscStage:1] 2015-04-23 23:50:54,454 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:54,455 AppliedOperations.java (line 182) Check dependency: 3135:3281981440=50079.1.0, (dcm.lt=73444)
+DEBUG [MiscStage:1] 2015-04-23 23:50:54,455 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=73444)
+DEBUG [MiscStage:1] 2015-04-23 23:50:54,456 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:54,456 AppliedOperations.java (line 182) Check dependency: 34:296226816=4520.1.0, (dcm.lt=73448)
+DEBUG [MiscStage:1] 2015-04-23 23:50:54,456 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=73448)
+DEBUG [MiscStage:1] 2015-04-23 23:50:54,457 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:54,457 AppliedOperations.java (line 182) Check dependency: 3131:1697845248=25907.1.0, (dcm.lt=73451)
+DEBUG [MiscStage:1] 2015-04-23 23:50:54,458 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=73451)
+DEBUG [MiscStage:1] 2015-04-23 23:50:54,458 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:54,458 AppliedOperations.java (line 182) Check dependency: 3138:3830714368=58452.1.0, (dcm.lt=73452)
+DEBUG [MiscStage:1] 2015-04-23 23:50:54,458 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=73452)
+DEBUG [MiscStage:1] 2015-04-23 23:50:54,460 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:54,460 AppliedOperations.java (line 182) Check dependency: 3230:4020375552=61346.1.0, (dcm.lt=73459)
+DEBUG [MiscStage:1] 2015-04-23 23:50:54,460 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=73459)
+DEBUG [MiscStage:1] 2015-04-23 23:50:54,461 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:54,462 AppliedOperations.java (line 182) Check dependency: 37:458821632=7001.1.0, (dcm.lt=73466)
+DEBUG [MiscStage:1] 2015-04-23 23:50:54,462 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=73466)
+DEBUG [MiscStage:1] 2015-04-23 23:50:54,463 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:54,463 AppliedOperations.java (line 182) Check dependency: 3134:3054112768=46602.1.0, (dcm.lt=73470)
+DEBUG [MiscStage:1] 2015-04-23 23:50:54,463 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=73470)
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:54,468 RowMutationCompletion.java (line 43) ~~~~ [DEEGAN] Completion Complete (18ms )
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:54,469 RowMutationCompletion.java (line 46) Max mutation delay: 5
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:54,469 RowMutationCompletion.java (line 47) time: 4
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:54,473 RowMutationCompletion.java (line 49) done....
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:54,473 RowMutationVerbHandler.java (line 73) ~~~~ [DEEGAN] Applying Mutation1!!!
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:54,473 RowMutationVerbHandler.java (line 79) Applying RowMutation(keyspace='KeySpace1', key='3232', modifications=[ColumnFamily(ColumnFam1 [636f6c756d6e5f6e616d65:false:10@4812312576,])])
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:54,474 AppliedOperations.java (line 112) addAppliedOp called: 3232:4812312576=73430.1.0
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:54,474 AppliedOperations.java (line 118) Add applied op: 3232:4812312576=73430.1.0
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:54,475 RowMutationVerbHandler.java (line 86) RowMutation(keyspace='KeySpace1', key='3232', modifications=[ColumnFamily(ColumnFam1 [636f6c756d6e5f6e616d65:false:10@4812312576,])]) applied.  Sending response to 145@/188.226.251.145
+DEBUG [MiscStage:1] 2015-04-23 23:50:54,823 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:54,824 AppliedOperations.java (line 182) Check dependency: 3131:1697845248=25907.1.0, (dcm.lt=76064)
+DEBUG [MiscStage:1] 2015-04-23 23:50:54,824 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=76064)
+DEBUG [MiscStage:1] 2015-04-23 23:50:54,825 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:54,825 AppliedOperations.java (line 182) Check dependency: 3134:3054112768=46602.1.0, (dcm.lt=76068)
+DEBUG [MiscStage:1] 2015-04-23 23:50:54,826 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=76068)
+DEBUG [MiscStage:1] 2015-04-23 23:50:54,826 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:54,826 AppliedOperations.java (line 182) Check dependency: 3138:3830714368=58452.1.0, (dcm.lt=76072)
+DEBUG [MiscStage:1] 2015-04-23 23:50:54,827 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=76072)
+DEBUG [MiscStage:1] 2015-04-23 23:50:54,827 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:54,828 AppliedOperations.java (line 182) Check dependency: 3232:4812312576=73430.1.0, (dcm.lt=76075)
+DEBUG [MiscStage:1] 2015-04-23 23:50:54,828 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=76075)
+DEBUG [MiscStage:1] 2015-04-23 23:50:54,829 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:54,829 AppliedOperations.java (line 182) Check dependency: 34:296226816=4520.1.0, (dcm.lt=76079)
+DEBUG [MiscStage:1] 2015-04-23 23:50:54,830 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=76079)
+DEBUG [MiscStage:1] 2015-04-23 23:50:54,830 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:54,831 AppliedOperations.java (line 182) Check dependency: 3137:3736670208=57017.1.0, (dcm.lt=76083)
+DEBUG [MiscStage:1] 2015-04-23 23:50:54,831 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=76083)
+DEBUG [MiscStage:1] 2015-04-23 23:50:54,832 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:54,832 AppliedOperations.java (line 182) Check dependency: 3230:4020375552=61346.1.0, (dcm.lt=76085)
+DEBUG [MiscStage:1] 2015-04-23 23:50:54,832 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=76085)
+DEBUG [MiscStage:1] 2015-04-23 23:50:54,833 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:54,833 AppliedOperations.java (line 182) Check dependency: 39:909905920=13884.1.0, (dcm.lt=76086)
+DEBUG [MiscStage:1] 2015-04-23 23:50:54,840 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=76086)
+DEBUG [MiscStage:1] 2015-04-23 23:50:54,841 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:54,841 AppliedOperations.java (line 182) Check dependency: 3135:3281981440=50079.1.0, (dcm.lt=76088)
+DEBUG [MiscStage:1] 2015-04-23 23:50:54,841 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=76088)
+DEBUG [MiscStage:1] 2015-04-23 23:50:54,842 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:54,842 AppliedOperations.java (line 182) Check dependency: 37:458821632=7001.1.0, (dcm.lt=76091)
+DEBUG [MiscStage:1] 2015-04-23 23:50:54,843 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=76091)
+DEBUG [MiscStage:1] 2015-04-23 23:50:54,852 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:54,852 AppliedOperations.java (line 182) Check dependency: 3134:3054112768=46602.1.0, (dcm.lt=76243)
+DEBUG [MiscStage:1] 2015-04-23 23:50:54,853 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=76243)
+DEBUG [MiscStage:1] 2015-04-23 23:50:54,853 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:54,854 AppliedOperations.java (line 182) Check dependency: 3135:3281981440=50079.1.0, (dcm.lt=76246)
+DEBUG [MiscStage:1] 2015-04-23 23:50:54,855 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=76246)
+DEBUG [MiscStage:1] 2015-04-23 23:50:54,855 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:54,856 AppliedOperations.java (line 182) Check dependency: 3230:4020375552=61346.1.0, (dcm.lt=76248)
+DEBUG [MiscStage:1] 2015-04-23 23:50:54,856 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=76248)
+DEBUG [MiscStage:1] 2015-04-23 23:50:54,857 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:54,857 AppliedOperations.java (line 182) Check dependency: 3232:4812312576=73430.1.0, (dcm.lt=76252)
+DEBUG [MiscStage:1] 2015-04-23 23:50:54,858 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=76252)
+DEBUG [MiscStage:1] 2015-04-23 23:50:54,858 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:54,864 AppliedOperations.java (line 182) Check dependency: 3138:3830714368=58452.1.0, (dcm.lt=76256)
+DEBUG [MiscStage:1] 2015-04-23 23:50:54,865 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=76256)
+DEBUG [MiscStage:1] 2015-04-23 23:50:54,865 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:54,866 AppliedOperations.java (line 182) Check dependency: 3131:1697845248=25907.1.0, (dcm.lt=76257)
+DEBUG [MiscStage:1] 2015-04-23 23:50:54,866 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=76257)
+DEBUG [MiscStage:1] 2015-04-23 23:50:54,867 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:54,867 AppliedOperations.java (line 182) Check dependency: 39:909905920=13884.1.0, (dcm.lt=76261)
+DEBUG [MiscStage:1] 2015-04-23 23:50:54,867 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=76261)
+DEBUG [MutationStage:11] 2015-04-23 23:50:55,424 RowMutationVerbHandler.java (line 42) ~~~~ [DEEGAN] Starting verb handler
+DEBUG [MutationStage:11] 2015-04-23 23:50:55,425 RowMutationVerbHandler.java (line 47) Deserialized RowMutation(keyspace='KeySpace1', key='3235', modifications=[ColumnFamily(ColumnFam1 [636f6c756d6e5f6e616d65:false:10@5267591168,])])
+DEBUG [MutationStage:11] 2015-04-23 23:50:55,425 StorageProxy.java (line 1422) ~~~~~ [DEEGAN] Storage Proxy checkDeps()
+DEBUG [MutationStage:11] 2015-04-23 23:50:55,425 StorageProxy.java (line 1425) Checking deps for org.apache.cassandra.db.RowMutationCompletion@769fcd6
+DEBUG [MutationStage:11] 2015-04-23 23:50:55,425 AppliedOperations.java (line 97) Add pending op: 3235:5267591168=80377.1.0
+DEBUG [MiscStage:1] 2015-04-23 23:50:55,427 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:55,427 AppliedOperations.java (line 182) Check dependency: 37:458821632=7001.1.0, (dcm.lt=80384)
+DEBUG [MiscStage:1] 2015-04-23 23:50:55,427 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=80384)
+DEBUG [MiscStage:1] 2015-04-23 23:50:55,428 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:55,429 AppliedOperations.java (line 182) Check dependency: 3138:3830714368=58452.1.0, (dcm.lt=80388)
+DEBUG [MiscStage:1] 2015-04-23 23:50:55,429 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=80388)
+DEBUG [MiscStage:1] 2015-04-23 23:50:55,430 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:55,430 AppliedOperations.java (line 182) Check dependency: 3134:3054112768=46602.1.0, (dcm.lt=80391)
+DEBUG [MiscStage:1] 2015-04-23 23:50:55,430 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=80391)
+DEBUG [MiscStage:1] 2015-04-23 23:50:55,431 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:55,432 AppliedOperations.java (line 182) Check dependency: 3232:4812312576=73430.1.0, (dcm.lt=80397)
+DEBUG [MiscStage:1] 2015-04-23 23:50:55,432 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=80397)
+DEBUG [MiscStage:1] 2015-04-23 23:50:55,434 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:55,434 AppliedOperations.java (line 182) Check dependency: 39:909905920=13884.1.0, (dcm.lt=80404)
+DEBUG [MiscStage:1] 2015-04-23 23:50:55,434 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=80404)
+DEBUG [MiscStage:1] 2015-04-23 23:50:55,435 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:55,435 AppliedOperations.java (line 182) Check dependency: 3230:4020375552=61346.1.0, (dcm.lt=80409)
+DEBUG [MiscStage:1] 2015-04-23 23:50:55,436 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=80409)
+DEBUG [MiscStage:1] 2015-04-23 23:50:55,436 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:55,436 AppliedOperations.java (line 182) Check dependency: 34:296226816=4520.1.0, (dcm.lt=80411)
+DEBUG [MiscStage:1] 2015-04-23 23:50:55,437 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=80411)
+DEBUG [MiscStage:1] 2015-04-23 23:50:55,438 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:55,438 AppliedOperations.java (line 182) Check dependency: 3131:1697845248=25907.1.0, (dcm.lt=80418)
+DEBUG [MiscStage:1] 2015-04-23 23:50:55,439 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=80418)
+DEBUG [MiscStage:1] 2015-04-23 23:50:55,439 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:55,440 AppliedOperations.java (line 182) Check dependency: 3137:3736670208=57017.1.0, (dcm.lt=80420)
+DEBUG [MiscStage:1] 2015-04-23 23:50:55,440 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=80420)
+DEBUG [MiscStage:1] 2015-04-23 23:50:55,440 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:55,440 AppliedOperations.java (line 182) Check dependency: 3135:3281981440=50079.1.0, (dcm.lt=80421)
+DEBUG [MiscStage:1] 2015-04-23 23:50:55,441 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=80421)
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:55,451 RowMutationCompletion.java (line 43) ~~~~ [DEEGAN] Completion Complete (26ms )
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:55,451 RowMutationCompletion.java (line 46) Max mutation delay: 5
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:55,452 RowMutationCompletion.java (line 47) time: 4
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:55,456 RowMutationCompletion.java (line 49) done....
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:55,456 RowMutationVerbHandler.java (line 73) ~~~~ [DEEGAN] Applying Mutation1!!!
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:55,456 RowMutationVerbHandler.java (line 79) Applying RowMutation(keyspace='KeySpace1', key='3235', modifications=[ColumnFamily(ColumnFam1 [636f6c756d6e5f6e616d65:false:10@5267591168,])])
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:55,457 AppliedOperations.java (line 112) addAppliedOp called: 3235:5267591168=80377.1.0
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:55,457 AppliedOperations.java (line 118) Add applied op: 3235:5267591168=80377.1.0
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:55,458 RowMutationVerbHandler.java (line 86) RowMutation(keyspace='KeySpace1', key='3235', modifications=[ColumnFamily(ColumnFam1 [636f6c756d6e5f6e616d65:false:10@5267591168,])]) applied.  Sending response to 150@/188.226.251.145
+DEBUG [MutationStage:12] 2015-04-23 23:50:56,194 RowMutationVerbHandler.java (line 42) ~~~~ [DEEGAN] Starting verb handler
+DEBUG [MutationStage:12] 2015-04-23 23:50:56,195 RowMutationVerbHandler.java (line 47) Deserialized RowMutation(keyspace='KeySpace1', key='3236', modifications=[ColumnFamily(ColumnFam1 [636f6c756d6e5f6e616d65:false:10@5680992256,])])
+DEBUG [MutationStage:12] 2015-04-23 23:50:56,195 StorageProxy.java (line 1422) ~~~~~ [DEEGAN] Storage Proxy checkDeps()
+DEBUG [MutationStage:12] 2015-04-23 23:50:56,196 StorageProxy.java (line 1425) Checking deps for org.apache.cassandra.db.RowMutationCompletion@3fa801ba
+DEBUG [MutationStage:12] 2015-04-23 23:50:56,196 AppliedOperations.java (line 97) Add pending op: 3236:5680992256=86685.1.0
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,198 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,198 AppliedOperations.java (line 182) Check dependency: 3134:3054112768=46602.1.0, (dcm.lt=86691)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,199 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=86691)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,199 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,199 AppliedOperations.java (line 182) Check dependency: 39:909905920=13884.1.0, (dcm.lt=86692)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,199 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=86692)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,199 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,200 AppliedOperations.java (line 182) Check dependency: 3138:3830714368=58452.1.0, (dcm.lt=86693)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,203 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=86693)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,204 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,204 AppliedOperations.java (line 182) Check dependency: 3131:1697845248=25907.1.0, (dcm.lt=86699)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,204 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=86699)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,206 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,206 AppliedOperations.java (line 182) Check dependency: 37:458821632=7001.1.0, (dcm.lt=86700)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,206 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=86700)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,208 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,208 AppliedOperations.java (line 182) Check dependency: 3235:5267591168=80377.1.0, (dcm.lt=86705)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,208 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=86705)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,208 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,209 AppliedOperations.java (line 182) Check dependency: 3137:3736670208=57017.1.0, (dcm.lt=86708)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,209 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=86708)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,209 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,210 AppliedOperations.java (line 182) Check dependency: 3135:3281981440=50079.1.0, (dcm.lt=86709)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,210 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=86709)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,211 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,211 AppliedOperations.java (line 182) Check dependency: 34:296226816=4520.1.0, (dcm.lt=86715)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,212 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=86715)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,212 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,212 AppliedOperations.java (line 182) Check dependency: 3230:4020375552=61346.1.0, (dcm.lt=86718)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,213 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=86718)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,213 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,213 AppliedOperations.java (line 182) Check dependency: 3232:4812312576=73430.1.0, (dcm.lt=86723)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,214 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=86723)
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:56,216 RowMutationCompletion.java (line 43) ~~~~ [DEEGAN] Completion Complete (21ms )
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:56,217 RowMutationCompletion.java (line 46) Max mutation delay: 5
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:56,217 RowMutationCompletion.java (line 47) time: 0
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:56,217 RowMutationCompletion.java (line 49) done....
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:56,217 RowMutationVerbHandler.java (line 73) ~~~~ [DEEGAN] Applying Mutation1!!!
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:56,217 RowMutationVerbHandler.java (line 79) Applying RowMutation(keyspace='KeySpace1', key='3236', modifications=[ColumnFamily(ColumnFam1 [636f6c756d6e5f6e616d65:false:10@5680992256,])])
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:56,218 AppliedOperations.java (line 112) addAppliedOp called: 3236:5680992256=86685.1.0
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:56,218 AppliedOperations.java (line 118) Add applied op: 3236:5680992256=86685.1.0
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:56,219 RowMutationVerbHandler.java (line 86) RowMutation(keyspace='KeySpace1', key='3236', modifications=[ColumnFamily(ColumnFam1 [636f6c756d6e5f6e616d65:false:10@5680992256,])]) applied.  Sending response to 154@/188.226.251.145
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,446 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,447 AppliedOperations.java (line 182) Check dependency: 3135:3281981440=50079.1.0, (dcm.lt=88733)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,447 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=88733)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,449 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,449 AppliedOperations.java (line 182) Check dependency: 3236:5680992256=86685.1.0, (dcm.lt=88737)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,450 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=88737)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,450 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,451 AppliedOperations.java (line 182) Check dependency: 3235:5267591168=80377.1.0, (dcm.lt=88742)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,451 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=88742)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,452 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,452 AppliedOperations.java (line 182) Check dependency: 37:458821632=7001.1.0, (dcm.lt=88743)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,453 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=88743)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,454 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,454 AppliedOperations.java (line 182) Check dependency: 3131:1697845248=25907.1.0, (dcm.lt=88746)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,455 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=88746)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,455 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,456 AppliedOperations.java (line 182) Check dependency: 3137:3736670208=57017.1.0, (dcm.lt=88749)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,456 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=88749)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,457 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,457 AppliedOperations.java (line 182) Check dependency: 39:909905920=13884.1.0, (dcm.lt=88752)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,458 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=88752)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,459 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,459 AppliedOperations.java (line 182) Check dependency: 34:296226816=4520.1.0, (dcm.lt=88755)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,459 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=88755)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,460 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,460 AppliedOperations.java (line 182) Check dependency: 3230:4020375552=61346.1.0, (dcm.lt=88760)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,460 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=88760)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,461 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,461 AppliedOperations.java (line 182) Check dependency: 3232:4812312576=73430.1.0, (dcm.lt=88764)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,462 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=88764)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,462 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,463 AppliedOperations.java (line 182) Check dependency: 3138:3830714368=58452.1.0, (dcm.lt=88767)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,463 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=88767)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,463 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,464 AppliedOperations.java (line 182) Check dependency: 3134:3054112768=46602.1.0, (dcm.lt=88768)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,464 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=88768)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,670 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,671 AppliedOperations.java (line 182) Check dependency: 3138:3830714368=58452.1.0, (dcm.lt=90580)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,671 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=90580)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,678 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,678 AppliedOperations.java (line 182) Check dependency: 3236:5680992256=86685.1.0, (dcm.lt=90587)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,678 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=90587)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,680 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,680 AppliedOperations.java (line 182) Check dependency: 3135:3281981440=50079.1.0, (dcm.lt=90590)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,681 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=90590)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,681 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,681 AppliedOperations.java (line 182) Check dependency: 3131:1697845248=25907.1.0, (dcm.lt=90595)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,681 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=90595)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,682 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,682 AppliedOperations.java (line 182) Check dependency: 3134:3054112768=46602.1.0, (dcm.lt=90599)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,682 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=90599)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,686 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,687 AppliedOperations.java (line 182) Check dependency: 3230:4020375552=61346.1.0, (dcm.lt=90605)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,687 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=90605)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,687 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,688 AppliedOperations.java (line 182) Check dependency: 3137:3736670208=57017.1.0, (dcm.lt=90609)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,688 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=90609)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,689 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,690 AppliedOperations.java (line 182) Check dependency: 34:296226816=4520.1.0, (dcm.lt=90616)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,690 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=90616)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,690 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,691 AppliedOperations.java (line 182) Check dependency: 39:909905920=13884.1.0, (dcm.lt=90619)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,691 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=90619)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,691 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,692 AppliedOperations.java (line 182) Check dependency: 37:458821632=7001.1.0, (dcm.lt=90620)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,692 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=90620)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,692 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,692 AppliedOperations.java (line 182) Check dependency: 3235:5267591168=80377.1.0, (dcm.lt=90621)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,693 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=90621)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,693 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,693 AppliedOperations.java (line 182) Check dependency: 3232:4812312576=73430.1.0, (dcm.lt=90622)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,693 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=90622)
+DEBUG [MutationStage:13] 2015-04-23 23:50:56,865 RowMutationVerbHandler.java (line 42) ~~~~ [DEEGAN] Starting verb handler
+DEBUG [MutationStage:13] 2015-04-23 23:50:56,866 RowMutationVerbHandler.java (line 47) Deserialized RowMutation(keyspace='KeySpace1', key='3239', modifications=[ColumnFamily(ColumnFam1 [636f6c756d6e5f6e616d65:false:10@6042226688,])])
+DEBUG [MutationStage:13] 2015-04-23 23:50:56,866 StorageProxy.java (line 1422) ~~~~~ [DEEGAN] Storage Proxy checkDeps()
+DEBUG [MutationStage:13] 2015-04-23 23:50:56,866 StorageProxy.java (line 1425) Checking deps for org.apache.cassandra.db.RowMutationCompletion@68c9b963
+DEBUG [MutationStage:13] 2015-04-23 23:50:56,866 AppliedOperations.java (line 97) Add pending op: 3239:6042226688=92197.1.0
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,868 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,868 AppliedOperations.java (line 182) Check dependency: 3232:4812312576=73430.1.0, (dcm.lt=92204)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,868 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=92204)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,871 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,871 AppliedOperations.java (line 182) Check dependency: 37:458821632=7001.1.0, (dcm.lt=92205)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,872 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=92205)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,874 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,875 AppliedOperations.java (line 182) Check dependency: 3134:3054112768=46602.1.0, (dcm.lt=92206)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,876 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=92206)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,878 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,878 AppliedOperations.java (line 182) Check dependency: 3137:3736670208=57017.1.0, (dcm.lt=92208)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,879 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=92208)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,880 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,880 AppliedOperations.java (line 182) Check dependency: 3135:3281981440=50079.1.0, (dcm.lt=92209)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,880 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=92209)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,882 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,882 AppliedOperations.java (line 182) Check dependency: 3131:1697845248=25907.1.0, (dcm.lt=92215)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,882 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=92215)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,883 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,884 AppliedOperations.java (line 182) Check dependency: 3138:3830714368=58452.1.0, (dcm.lt=92226)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,884 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=92226)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,885 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,885 AppliedOperations.java (line 182) Check dependency: 34:296226816=4520.1.0, (dcm.lt=92233)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,885 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=92233)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,886 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,886 AppliedOperations.java (line 182) Check dependency: 3236:5680992256=86685.1.0, (dcm.lt=92237)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,886 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=92237)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,886 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,887 AppliedOperations.java (line 182) Check dependency: 39:909905920=13884.1.0, (dcm.lt=92240)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,887 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=92240)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,887 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,888 AppliedOperations.java (line 182) Check dependency: 3235:5267591168=80377.1.0, (dcm.lt=92241)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,888 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=92241)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,888 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,888 AppliedOperations.java (line 182) Check dependency: 3230:4020375552=61346.1.0, (dcm.lt=92242)
+DEBUG [MiscStage:1] 2015-04-23 23:50:56,889 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=92242)
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:56,889 RowMutationCompletion.java (line 43) ~~~~ [DEEGAN] Completion Complete (23ms )
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:56,889 RowMutationCompletion.java (line 46) Max mutation delay: 5
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:56,889 RowMutationCompletion.java (line 47) time: 2
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:56,891 RowMutationCompletion.java (line 49) done....
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:56,892 RowMutationVerbHandler.java (line 73) ~~~~ [DEEGAN] Applying Mutation1!!!
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:56,892 RowMutationVerbHandler.java (line 79) Applying RowMutation(keyspace='KeySpace1', key='3239', modifications=[ColumnFamily(ColumnFam1 [636f6c756d6e5f6e616d65:false:10@6042226688,])])
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:56,892 AppliedOperations.java (line 112) addAppliedOp called: 3239:6042226688=92197.1.0
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:56,893 AppliedOperations.java (line 118) Add applied op: 3239:6042226688=92197.1.0
+DEBUG [RequestResponseStage:1] 2015-04-23 23:50:56,893 RowMutationVerbHandler.java (line 86) RowMutation(keyspace='KeySpace1', key='3239', modifications=[ColumnFamily(ColumnFam1 [636f6c756d6e5f6e616d65:false:10@6042226688,])]) applied.  Sending response to 158@/188.226.251.145
+DEBUG [MiscStage:1] 2015-04-23 23:50:57,095 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:57,095 AppliedOperations.java (line 182) Check dependency: 3131:1697845248=25907.1.0, (dcm.lt=93952)
+DEBUG [MiscStage:1] 2015-04-23 23:50:57,096 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=93952)
+DEBUG [MiscStage:1] 2015-04-23 23:50:57,096 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:57,097 AppliedOperations.java (line 182) Check dependency: 3239:6042226688=92197.1.0, (dcm.lt=93955)
+DEBUG [MiscStage:1] 2015-04-23 23:50:57,097 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=93955)
+DEBUG [MiscStage:1] 2015-04-23 23:50:57,097 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:57,097 AppliedOperations.java (line 182) Check dependency: 3232:4812312576=73430.1.0, (dcm.lt=93957)
+DEBUG [MiscStage:1] 2015-04-23 23:50:57,098 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=93957)
+DEBUG [MiscStage:1] 2015-04-23 23:50:57,098 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:57,099 AppliedOperations.java (line 182) Check dependency: 3236:5680992256=86685.1.0, (dcm.lt=93964)
+DEBUG [MiscStage:1] 2015-04-23 23:50:57,099 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=93964)
+DEBUG [MiscStage:1] 2015-04-23 23:50:57,099 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:57,099 AppliedOperations.java (line 182) Check dependency: 39:909905920=13884.1.0, (dcm.lt=93966)
+DEBUG [MiscStage:1] 2015-04-23 23:50:57,100 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=93966)
+DEBUG [MiscStage:1] 2015-04-23 23:50:57,100 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:57,100 AppliedOperations.java (line 182) Check dependency: 3135:3281981440=50079.1.0, (dcm.lt=93967)
+DEBUG [MiscStage:1] 2015-04-23 23:50:57,101 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=93967)
+DEBUG [MiscStage:1] 2015-04-23 23:50:57,101 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:57,101 AppliedOperations.java (line 182) Check dependency: 3134:3054112768=46602.1.0, (dcm.lt=93975)
+DEBUG [MiscStage:1] 2015-04-23 23:50:57,101 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=93975)
+DEBUG [MiscStage:1] 2015-04-23 23:50:57,102 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:57,102 AppliedOperations.java (line 182) Check dependency: 34:296226816=4520.1.0, (dcm.lt=93976)
+DEBUG [MiscStage:1] 2015-04-23 23:50:57,102 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=93976)
+DEBUG [MiscStage:1] 2015-04-23 23:50:57,103 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:57,103 AppliedOperations.java (line 182) Check dependency: 3230:4020375552=61346.1.0, (dcm.lt=93979)
+DEBUG [MiscStage:1] 2015-04-23 23:50:57,103 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=93979)
+DEBUG [MiscStage:1] 2015-04-23 23:50:57,104 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:57,104 AppliedOperations.java (line 182) Check dependency: 3137:3736670208=57017.1.0, (dcm.lt=93982)
+DEBUG [MiscStage:1] 2015-04-23 23:50:57,104 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=93982)
+DEBUG [MiscStage:1] 2015-04-23 23:50:57,104 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:57,105 AppliedOperations.java (line 182) Check dependency: 37:458821632=7001.1.0, (dcm.lt=93984)
+DEBUG [MiscStage:1] 2015-04-23 23:50:57,105 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=93984)
+DEBUG [MiscStage:1] 2015-04-23 23:50:57,105 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:57,106 AppliedOperations.java (line 182) Check dependency: 3235:5267591168=80377.1.0, (dcm.lt=93988)
+DEBUG [MiscStage:1] 2015-04-23 23:50:57,106 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=93988)
+DEBUG [MiscStage:1] 2015-04-23 23:50:57,106 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-23 23:50:57,112 AppliedOperations.java (line 182) Check dependency: 3138:3830714368=58452.1.0, (dcm.lt=93995)
+DEBUG [MiscStage:1] 2015-04-23 23:50:57,113 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=93995)

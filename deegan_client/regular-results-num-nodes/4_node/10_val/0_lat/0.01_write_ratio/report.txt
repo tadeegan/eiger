@@ -1,0 +1,31 @@
+Write/Read ratio: 0.01
+Latency: 0ms
+Value Size: 10b
+
+Total Operiations: 10000b
+
+
+
+regular-results-num-nodes/4_node/10_val/0_lat/0.01_write_ratio/eiger0.log:
+
+Average: 24ms
+Median: 22ms
+[33, 17, 12, 17, 14, 13, 18, 22, 24, 30, 47, 30, 26, 10, 48, 13, 58, 13, 29, 35, 9]
+
+regular-results-num-nodes/4_node/10_val/0_lat/0.01_write_ratio/eiger1.log:
+
+Average: 28ms
+Median: 26ms
+[30, 7, 9, 20, 24, 23, 23, 26, 20, 9, 48, 8, 64, 35, 24, 24, 44, 42, 35, 37, 48, 29, 30]
+
+regular-results-num-nodes/4_node/10_val/0_lat/0.01_write_ratio/eiger2.log:
+
+Average: 25ms
+Median: 23ms
+[22, 2, 51, 12, 12, 7, 22, 13, 14, 37, 20, 24, 32, 33, 10, 15, 28, 23, 27, 37, 23, 6, 37, 38, 47, 59]
+
+regular-results-num-nodes/4_node/10_val/0_lat/0.01_write_ratio/eiger3.log:
+
+Average: 22ms
+Median: 20ms
+[33, 11, 9, 19, 34, 21, 18, 12, 41, 6, 20, 40, 37, 20]

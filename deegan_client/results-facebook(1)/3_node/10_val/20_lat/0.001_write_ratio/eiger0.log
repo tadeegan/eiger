@@ -1,0 +1,178 @@
+ INFO [main] 2015-04-28 19:51:54,497 AbstractCassandraDaemon.java (line 103) Logging initialized
+ INFO [main] 2015-04-28 19:51:54,506 AbstractCassandraDaemon.java (line 124) JVM vendor/version: OpenJDK 64-Bit Server VM/1.7.0_75
+ INFO [main] 2015-04-28 19:51:54,507 AbstractCassandraDaemon.java (line 125) Heap size: 250544128/251592704
+ INFO [main] 2015-04-28 19:51:54,507 AbstractCassandraDaemon.java (line 126) Classpath: /home/eiger/eiger//conf:/home/eiger/eiger//build/classes/main:/home/eiger/eiger//build/classes/thrift:/home/eiger/eiger//lib/antlr-3.2.jar:/home/eiger/eiger//lib/avro-1.4.0-fixes.jar:/home/eiger/eiger//lib/avro-1.4.0-sources-fixes.jar:/home/eiger/eiger//lib/commons-cli-1.1.jar:/home/eiger/eiger//lib/commons-codec-1.2.jar:/home/eiger/eiger//lib/commons-lang-2.4.jar:/home/eiger/eiger//lib/compress-lzf-0.8.4.jar:/home/eiger/eiger//lib/concurrentlinkedhashmap-lru-1.2.jar:/home/eiger/eiger//lib/guava-r08.jar:/home/eiger/eiger//lib/high-scale-lib-1.1.2.jar:/home/eiger/eiger//lib/jackson-core-asl-1.9.2.jar:/home/eiger/eiger//lib/jackson-mapper-asl-1.9.2.jar:/home/eiger/eiger//lib/jamm-0.2.5.jar:/home/eiger/eiger//lib/jline-0.9.94.jar:/home/eiger/eiger//lib/json-simple-1.1.jar:/home/eiger/eiger//lib/libthrift-0.7.0.jar:/home/eiger/eiger//lib/log4j-1.2.16.jar:/home/eiger/eiger//lib/servlet-api-2.5-20081211.jar:/home/eiger/eiger//lib/slf4j-api-1.6.1.jar:/home/eiger/eiger//lib/slf4j-log4j12-1.6.1.jar:/home/eiger/eiger//lib/snakeyaml-1.6.jar:/home/eiger/eiger//lib/snappy-java-1.0.4.1.jar:/home/eiger/eiger//lib/snaptree-0.1-SNAPSHOT.jar
+ INFO [main] 2015-04-28 19:51:54,510 CLibrary.java (line 66) JNA not found. Native methods will be disabled.
+ INFO [main] 2015-04-28 19:51:54,523 DatabaseDescriptor.java (line 124) Loading settings from file:/home/eiger/eiger/conf/eiger_conf.yaml
+ INFO [main] 2015-04-28 19:51:54,826 DatabaseDescriptor.java (line 178) DiskAccessMode 'auto' determined to be mmap, indexAccessMode is mmap
+ INFO [main] 2015-04-28 19:51:54,874 DatabaseDescriptor.java (line 243) Global memtable threshold is enabled at 79MB
+ INFO [main] 2015-04-28 19:51:55,223 CacheService.java (line 100) Initializing key cache with capacity of 2 MBs.
+ INFO [main] 2015-04-28 19:51:55,264 CacheService.java (line 111) Scheduling key cache save to each 14400 seconds (going to save all keys).
+ INFO [main] 2015-04-28 19:51:55,268 CacheService.java (line 125) Initializing row cache with capacity of 0 MBs and provider org.apache.cassandra.cache.ConcurrentLinkedHashCacheProvider
+ INFO [main] 2015-04-28 19:51:55,271 CacheService.java (line 137) Scheduling row cache save to each 0 seconds (going to save all keys).
+DEBUG [main] 2015-04-28 19:51:55,528 AppliedOperations.java (line 112) addAppliedOp called: 4c:65536=1.0.0
+ INFO [main] 2015-04-28 19:51:55,564 DatabaseDescriptor.java (line 479) Couldn't detect any schema definitions in local storage.
+ INFO [main] 2015-04-28 19:51:55,565 DatabaseDescriptor.java (line 506) Found table data in data directories. Consider using the CLI to define your schema.
+ INFO [main] 2015-04-28 19:51:55,589 CommitLog.java (line 136) No commitlog files found; skipping replay
+DEBUG [main] 2015-04-28 19:51:55,594 AppliedOperations.java (line 112) addAppliedOp called: 6275696c64:0=0.0.0
+DEBUG [main] 2015-04-28 19:51:55,597 AppliedOperations.java (line 112) addAppliedOp called: 63716c:0=0.0.0
+DEBUG [main] 2015-04-28 19:51:55,598 AppliedOperations.java (line 112) addAppliedOp called: 746872696674:0=0.0.0
+DEBUG [main] 2015-04-28 19:51:55,601 AppliedOperations.java (line 112) addAppliedOp called: 436f6f6b696573:131072=2.0.0
+ INFO [main] 2015-04-28 19:51:55,602 StorageService.java (line 424) Cassandra version: 1.1-dev-SNAPSHOT
+ INFO [main] 2015-04-28 19:51:55,602 StorageService.java (line 425) Thrift API version: 19.25.0+cops.2.0.3
+ INFO [main] 2015-04-28 19:51:55,602 StorageService.java (line 438) Loading persisted ring state
+ INFO [main] 2015-04-28 19:51:55,608 StorageService.java (line 519) Starting up server gossip
+DEBUG [main] 2015-04-28 19:51:55,629 AppliedOperations.java (line 112) addAppliedOp called: 4c:196608=3.0.0
+ INFO [main] 2015-04-28 19:51:55,634 ColumnFamilyStore.java (line 590) Enqueuing flush of Memtable-LocationInfo@106374412(246/307 serialized/live bytes, 3 ops)
+ INFO [FlushWriter:1] 2015-04-28 19:51:55,635 Memtable.java (line 252) Writing Memtable-LocationInfo@106374412(246/307 serialized/live bytes, 3 ops)
+ INFO [FlushWriter:1] 2015-04-28 19:51:55,687 Memtable.java (line 293) Completed flushing /home/eiger/eiger/cassandra_var/data/0/system/LocationInfo/system-LocationInfo-hc-1-Data.db (354 bytes)
+ INFO [main] 2015-04-28 19:51:55,716 MessagingService.java (line 286) Starting Messaging Service on port 7000
+ INFO [main] 2015-04-28 19:51:55,729 StorageService.java (line 543) This node will not auto bootstrap because it is configured to be a seed node.
+ INFO [main] 2015-04-28 19:51:55,742 StorageService.java (line 629) Saved token not found. Using 0 from configuration
+DEBUG [main] 2015-04-28 19:51:55,743 AppliedOperations.java (line 112) addAppliedOp called: 426f6f747374726170:262144=4.0.0
+DEBUG [main] 2015-04-28 19:51:55,746 AppliedOperations.java (line 112) addAppliedOp called: 4c:327680=5.0.0
+ INFO [main] 2015-04-28 19:51:55,747 ColumnFamilyStore.java (line 590) Enqueuing flush of Memtable-LocationInfo@1525129148(118/147 serialized/live bytes, 2 ops)
+ INFO [FlushWriter:1] 2015-04-28 19:51:55,747 Memtable.java (line 252) Writing Memtable-LocationInfo@1525129148(118/147 serialized/live bytes, 2 ops)
+ INFO [FlushWriter:1] 2015-04-28 19:51:55,759 Memtable.java (line 293) Completed flushing /home/eiger/eiger/cassandra_var/data/0/system/LocationInfo/system-LocationInfo-hc-2-Data.db (228 bytes)
+ INFO [main] 2015-04-28 19:51:55,764 StorageService.java (line 1053) Node /104.236.140.240 state jump to normal
+ INFO [main] 2015-04-28 19:51:55,765 StorageService.java (line 646) Bootstrap/Replace/Move completed! Now serving reads.
+ INFO [main] 2015-04-28 19:51:55,766 Mx4jTool.java (line 72) Will not load MX4J, mx4j-tools.jar is not in the classpath
+ INFO [main] 2015-04-28 19:51:55,839 CassandraDaemon.java (line 121) Binding thrift service to /104.236.140.240:9160
+ INFO [main] 2015-04-28 19:51:55,844 CassandraDaemon.java (line 130) Using TFastFramedTransport with a max frame size of 15728640 bytes.
+ INFO [main] 2015-04-28 19:51:55,849 CassandraDaemon.java (line 157) Using synchronous/threadpool thrift server on /104.236.140.240 : 9160
+ INFO [Thread-2] 2015-04-28 19:51:55,850 CassandraDaemon.java (line 210) Listening for thrift clients...
+ INFO [GossipStage:1] 2015-04-28 19:51:57,948 Gossiper.java (line 834) Node /104.236.191.32 is now part of the cluster
+ INFO [GossipStage:1] 2015-04-28 19:51:57,982 Gossiper.java (line 800) InetAddress /104.236.191.32 is now UP
+DEBUG [GossipStage:1] 2015-04-28 19:51:57,993 AppliedOperations.java (line 112) addAppliedOp called: 52696e67:917504=14.0.0
+ INFO [GossipStage:1] 2015-04-28 19:51:57,995 ColumnFamilyStore.java (line 590) Enqueuing flush of Memtable-LocationInfo@1768641377(75/93 serialized/live bytes, 1 ops)
+ INFO [FlushWriter:1] 2015-04-28 19:51:57,995 Memtable.java (line 252) Writing Memtable-LocationInfo@1768641377(75/93 serialized/live bytes, 1 ops)
+ INFO [FlushWriter:1] 2015-04-28 19:51:58,006 Memtable.java (line 293) Completed flushing /home/eiger/eiger/cassandra_var/data/0/system/LocationInfo/system-LocationInfo-hc-3-Data.db (129 bytes)
+ INFO [GossipStage:1] 2015-04-28 19:51:59,818 Gossiper.java (line 834) Node /192.241.215.97 is now part of the cluster
+ INFO [GossipStage:1] 2015-04-28 19:51:59,819 Gossiper.java (line 800) InetAddress /192.241.215.97 is now UP
+ INFO [GossipStage:1] 2015-04-28 19:52:01,045 Gossiper.java (line 834) Node /188.226.251.145 is now part of the cluster
+ INFO [GossipStage:1] 2015-04-28 19:52:01,046 Gossiper.java (line 800) InetAddress /188.226.251.145 is now UP
+DEBUG [GossipStage:1] 2015-04-28 19:52:01,047 AppliedOperations.java (line 112) addAppliedOp called: 52696e67:5505024=84.0.0
+ INFO [GossipStage:1] 2015-04-28 19:52:01,048 ColumnFamilyStore.java (line 590) Enqueuing flush of Memtable-LocationInfo@269108109(60/75 serialized/live bytes, 1 ops)
+ INFO [FlushWriter:1] 2015-04-28 19:52:01,048 Memtable.java (line 252) Writing Memtable-LocationInfo@269108109(60/75 serialized/live bytes, 1 ops)
+ INFO [FlushWriter:1] 2015-04-28 19:52:01,061 Memtable.java (line 293) Completed flushing /home/eiger/eiger/cassandra_var/data/0/system/LocationInfo/system-LocationInfo-hc-4-Data.db (114 bytes)
+ INFO [CompactionExecutor:1] 2015-04-28 19:52:01,068 CompactionTask.java (line 115) Compacting [SSTableReader(path='/home/eiger/eiger/cassandra_var/data/0/system/LocationInfo/system-LocationInfo-hc-2-Data.db'), SSTableReader(path='/home/eiger/eiger/cassandra_var/data/0/system/LocationInfo/system-LocationInfo-hc-3-Data.db'), SSTableReader(path='/home/eiger/eiger/cassandra_var/data/0/system/LocationInfo/system-LocationInfo-hc-4-Data.db'), SSTableReader(path='/home/eiger/eiger/cassandra_var/data/0/system/LocationInfo/system-LocationInfo-hc-1-Data.db')]
+ INFO [CompactionExecutor:1] 2015-04-28 19:52:01,119 CompactionTask.java (line 226) Compacted to [/home/eiger/eiger/cassandra_var/data/0/system/LocationInfo/system-LocationInfo-hc-5-Data.db,].  825 to 720 (~87% of original) bytes for 4 keys at 0.015606MB/s.  Time: 44ms.
+DEBUG [GossipStage:1] 2015-04-28 19:52:58,784 AppliedOperations.java (line 112) addAppliedOp called: 52696e67:63635456=971.0.0
+ INFO [GossipStage:1] 2015-04-28 19:52:58,790 ColumnFamilyStore.java (line 590) Enqueuing flush of Memtable-LocationInfo@1312903077(75/93 serialized/live bytes, 1 ops)
+ INFO [FlushWriter:1] 2015-04-28 19:52:58,791 Memtable.java (line 252) Writing Memtable-LocationInfo@1312903077(75/93 serialized/live bytes, 1 ops)
+ INFO [FlushWriter:1] 2015-04-28 19:52:58,810 Memtable.java (line 293) Completed flushing /home/eiger/eiger/cassandra_var/data/0/system/LocationInfo/system-LocationInfo-hc-6-Data.db (129 bytes)
+DEBUG [MigrationStage:1] 2015-04-28 19:53:09,089 AppliedOperations.java (line 112) addAppliedOp called: 62376634333339302d656530312d313165342d303030302d613836313834363836376266:72683520=1109.1.0
+DEBUG [MigrationStage:1] 2015-04-28 19:53:09,090 AppliedOperations.java (line 118) Add applied op: 62376634333339302d656530312d313165342d303030302d613836313834363836376266:72683520=1109.1.0
+DEBUG [MigrationStage:1] 2015-04-28 19:53:09,090 AppliedOperations.java (line 61) Ignoring updateNewestOp for: MigrationStage:1
+DEBUG [MigrationStage:1] 2015-04-28 19:53:09,234 AppliedOperations.java (line 112) addAppliedOp called: 4d6967726174696f6e73204b6579:74252288=1133.0.0
+ INFO [MigrationStage:1] 2015-04-28 19:53:09,252 Migration.java (line 119) Applying migration b7f43390-ee01-11e4-0000-a861846867bf Add keyspace: Facebook, rep strategy:NetworkTopologyStrategy{org.apache.cassandra.config.CFMetaData@2aaf0838[cfId=1000,ksName=Facebook,cfName=Walls,cfType=Standard,comparator=org.apache.cassandra.db.marshal.BytesType,subcolumncomparator=<null>,comment=,readRepairChance=0.0,replicateOnWrite=true,gcGraceSeconds=864000,defaultValidator=org.apache.cassandra.db.marshal.BytesType,keyValidator=org.apache.cassandra.db.marshal.BytesType,minCompactionThreshold=4,maxCompactionThreshold=32,mergeShardsChance=0.1,keyAlias=<null>,column_metadata={},compactionStrategyClass=class org.apache.cassandra.db.compaction.SizeTieredCompactionStrategy,compactionStrategyOptions={},compressionOptions={},bloomFilterFpChance=<null>,caching=KEYS_ONLY]}, durable_writes: true
+DEBUG [MigrationStage:1] 2015-04-28 19:53:09,253 AppliedOperations.java (line 112) addAppliedOp called: 4c617374204d6967726174696f6e:74252288=1133.0.0
+ INFO [MigrationStage:1] 2015-04-28 19:53:09,254 ColumnFamilyStore.java (line 590) Enqueuing flush of Memtable-Migrations@990952968(6773/8466 serialized/live bytes, 1 ops)
+ INFO [FlushWriter:1] 2015-04-28 19:53:09,255 Memtable.java (line 252) Writing Memtable-Migrations@990952968(6773/8466 serialized/live bytes, 1 ops)
+ INFO [MigrationStage:1] 2015-04-28 19:53:09,258 ColumnFamilyStore.java (line 590) Enqueuing flush of Memtable-Schema@1429718272(2964/3705 serialized/live bytes, 3 ops)
+ INFO [FlushWriter:1] 2015-04-28 19:53:09,284 Memtable.java (line 293) Completed flushing /home/eiger/eiger/cassandra_var/data/0/system/Migrations/system-Migrations-hc-1-Data.db (6837 bytes)
+ INFO [FlushWriter:1] 2015-04-28 19:53:09,287 Memtable.java (line 252) Writing Memtable-Schema@1429718272(2964/3705 serialized/live bytes, 3 ops)
+ INFO [FlushWriter:1] 2015-04-28 19:53:09,309 Memtable.java (line 293) Completed flushing /home/eiger/eiger/cassandra_var/data/0/system/Schema/system-Schema-hc-1-Data.db (3114 bytes)
+DEBUG [MutationStage:1] 2015-04-28 19:53:31,932 RowMutationVerbHandler.java (line 42) ~~~~ [DEEGAN] Starting verb handler
+DEBUG [MutationStage:1] 2015-04-28 19:53:31,934 RowMutationVerbHandler.java (line 47) Deserialized RowMutation(keyspace='Facebook', key='7573657231322375736572362332', modifications=[ColumnFamily(Walls [757365723132:false:37@1473384448,])])
+DEBUG [MutationStage:1] 2015-04-28 19:53:31,934 RowMutationVerbHandler.java (line 61) ~~~ [Deegan] Apply Mutation. No Deps
+DEBUG [MutationStage:1] 2015-04-28 19:53:31,934 RowMutationVerbHandler.java (line 73) ~~~~ [DEEGAN] Applying Mutation1!!!
+DEBUG [MutationStage:1] 2015-04-28 19:53:31,935 RowMutationVerbHandler.java (line 79) Applying RowMutation(keyspace='Facebook', key='7573657231322375736572362332', modifications=[ColumnFamily(Walls [757365723132:false:37@1473384448,])])
+DEBUG [MutationStage:1] 2015-04-28 19:53:31,935 AppliedOperations.java (line 112) addAppliedOp called: 7573657231322375736572362332:1473384448=22482.1.0
+DEBUG [MutationStage:1] 2015-04-28 19:53:31,936 AppliedOperations.java (line 118) Add applied op: 7573657231322375736572362332:1473384448=22482.1.0
+DEBUG [MutationStage:1] 2015-04-28 19:53:31,938 RowMutationVerbHandler.java (line 86) RowMutation(keyspace='Facebook', key='7573657231322375736572362332', modifications=[ColumnFamily(Walls [757365723132:false:37@1473384448,])]) applied.  Sending response to 358@/188.226.251.145
+DEBUG [MutationStage:2] 2015-04-28 19:53:40,065 RowMutationVerbHandler.java (line 42) ~~~~ [DEEGAN] Starting verb handler
+DEBUG [MutationStage:2] 2015-04-28 19:53:40,066 RowMutationVerbHandler.java (line 47) Deserialized RowMutation(keyspace='Facebook', key='7573657237237573657231362336', modifications=[ColumnFamily(Walls [7573657237:false:38@2358251520,])])
+DEBUG [MutationStage:2] 2015-04-28 19:53:40,067 RowMutationVerbHandler.java (line 61) ~~~ [Deegan] Apply Mutation. No Deps
+DEBUG [MutationStage:2] 2015-04-28 19:53:40,067 RowMutationVerbHandler.java (line 73) ~~~~ [DEEGAN] Applying Mutation1!!!
+DEBUG [MutationStage:2] 2015-04-28 19:53:40,067 RowMutationVerbHandler.java (line 79) Applying RowMutation(keyspace='Facebook', key='7573657237237573657231362336', modifications=[ColumnFamily(Walls [7573657237:false:38@2358251520,])])
+DEBUG [MutationStage:2] 2015-04-28 19:53:40,068 AppliedOperations.java (line 112) addAppliedOp called: 7573657237237573657231362336:2358251520=35984.1.0
+DEBUG [MutationStage:2] 2015-04-28 19:53:40,068 AppliedOperations.java (line 118) Add applied op: 7573657237237573657231362336:2358251520=35984.1.0
+DEBUG [MutationStage:2] 2015-04-28 19:53:40,069 RowMutationVerbHandler.java (line 86) RowMutation(keyspace='Facebook', key='7573657237237573657231362336', modifications=[ColumnFamily(Walls [7573657237:false:38@2358251520,])]) applied.  Sending response to 392@/188.226.251.145
+DEBUG [MutationStage:3] 2015-04-28 19:53:43,415 RowMutationVerbHandler.java (line 42) ~~~~ [DEEGAN] Starting verb handler
+DEBUG [MutationStage:3] 2015-04-28 19:53:43,416 RowMutationVerbHandler.java (line 47) Deserialized RowMutation(keyspace='Facebook', key='75736572342375736572362338', modifications=[ColumnFamily(Walls [7573657234:false:37@2715029504,])])
+DEBUG [MutationStage:3] 2015-04-28 19:53:43,416 RowMutationVerbHandler.java (line 61) ~~~ [Deegan] Apply Mutation. No Deps
+DEBUG [MutationStage:3] 2015-04-28 19:53:43,416 RowMutationVerbHandler.java (line 73) ~~~~ [DEEGAN] Applying Mutation1!!!
+DEBUG [MutationStage:3] 2015-04-28 19:53:43,416 RowMutationVerbHandler.java (line 79) Applying RowMutation(keyspace='Facebook', key='75736572342375736572362338', modifications=[ColumnFamily(Walls [7573657234:false:37@2715029504,])])
+DEBUG [MutationStage:3] 2015-04-28 19:53:43,417 AppliedOperations.java (line 112) addAppliedOp called: 75736572342375736572362338:2715029504=41428.1.0
+DEBUG [MutationStage:3] 2015-04-28 19:53:43,417 AppliedOperations.java (line 118) Add applied op: 75736572342375736572362338:2715029504=41428.1.0
+DEBUG [MutationStage:3] 2015-04-28 19:53:43,418 RowMutationVerbHandler.java (line 86) RowMutation(keyspace='Facebook', key='75736572342375736572362338', modifications=[ColumnFamily(Walls [7573657234:false:37@2715029504,])]) applied.  Sending response to 406@/188.226.251.145
+DEBUG [MutationStage:4] 2015-04-28 19:53:46,531 RowMutationVerbHandler.java (line 42) ~~~~ [DEEGAN] Starting verb handler
+DEBUG [MutationStage:4] 2015-04-28 19:53:46,531 RowMutationVerbHandler.java (line 47) Deserialized RowMutation(keyspace='Facebook', key='7573657238237573657231382339', modifications=[ColumnFamily(Walls [7573657238:false:52@2961903616,])])
+DEBUG [MutationStage:4] 2015-04-28 19:53:46,558 StorageProxy.java (line 1422) ~~~~~ [DEEGAN] Storage Proxy checkDeps()
+DEBUG [MutationStage:4] 2015-04-28 19:53:46,558 StorageProxy.java (line 1425) Checking deps for org.apache.cassandra.db.RowMutationCompletion@13f5f825
+DEBUG [MutationStage:4] 2015-04-28 19:53:46,559 AppliedOperations.java (line 97) Add pending op: 7573657238237573657231382339:2961903616=45195.1.0
+DEBUG [RequestResponseStage:2] 2015-04-28 19:53:46,577 RowMutationCompletion.java (line 43) ~~~~ [DEEGAN] Completion Complete (40ms )
+DEBUG [RequestResponseStage:2] 2015-04-28 19:53:46,578 RowMutationCompletion.java (line 46) Max mutation delay: 20
+DEBUG [RequestResponseStage:2] 2015-04-28 19:53:46,578 RowMutationCompletion.java (line 47) time: 10
+DEBUG [RequestResponseStage:2] 2015-04-28 19:53:46,589 RowMutationCompletion.java (line 49) done....
+DEBUG [RequestResponseStage:2] 2015-04-28 19:53:46,590 RowMutationVerbHandler.java (line 73) ~~~~ [DEEGAN] Applying Mutation1!!!
+DEBUG [RequestResponseStage:2] 2015-04-28 19:53:46,591 RowMutationVerbHandler.java (line 79) Applying RowMutation(keyspace='Facebook', key='7573657238237573657231382339', modifications=[ColumnFamily(Walls [7573657238:false:52@2961903616,])])
+DEBUG [RequestResponseStage:2] 2015-04-28 19:53:46,591 AppliedOperations.java (line 112) addAppliedOp called: 7573657238237573657231382339:2961903616=45195.1.0
+DEBUG [RequestResponseStage:2] 2015-04-28 19:53:46,592 AppliedOperations.java (line 118) Add applied op: 7573657238237573657231382339:2961903616=45195.1.0
+DEBUG [RequestResponseStage:2] 2015-04-28 19:53:46,592 RowMutationVerbHandler.java (line 86) RowMutation(keyspace='Facebook', key='7573657238237573657231382339', modifications=[ColumnFamily(Walls [7573657238:false:52@2961903616,])]) applied.  Sending response to 418@/188.226.251.145
+DEBUG [MutationStage:5] 2015-04-28 19:53:49,896 RowMutationVerbHandler.java (line 42) ~~~~ [DEEGAN] Starting verb handler
+DEBUG [MutationStage:5] 2015-04-28 19:53:49,897 RowMutationVerbHandler.java (line 47) Deserialized RowMutation(keyspace='Facebook', key='75736572313423757365723137233132', modifications=[ColumnFamily(Walls [757365723134:false:38@3324710912,])])
+DEBUG [MutationStage:5] 2015-04-28 19:53:49,898 StorageProxy.java (line 1422) ~~~~~ [DEEGAN] Storage Proxy checkDeps()
+DEBUG [MutationStage:5] 2015-04-28 19:53:49,898 StorageProxy.java (line 1425) Checking deps for org.apache.cassandra.db.RowMutationCompletion@1287a9b2
+DEBUG [MutationStage:5] 2015-04-28 19:53:49,898 AppliedOperations.java (line 97) Add pending op: 75736572313423757365723137233132:3324710912=50731.1.0
+DEBUG [RequestResponseStage:2] 2015-04-28 19:53:49,905 RowMutationCompletion.java (line 43) ~~~~ [DEEGAN] Completion Complete (7ms )
+DEBUG [RequestResponseStage:2] 2015-04-28 19:53:49,905 RowMutationCompletion.java (line 46) Max mutation delay: 20
+DEBUG [RequestResponseStage:2] 2015-04-28 19:53:49,906 RowMutationCompletion.java (line 47) time: 7
+DEBUG [RequestResponseStage:2] 2015-04-28 19:53:49,913 RowMutationCompletion.java (line 49) done....
+DEBUG [RequestResponseStage:2] 2015-04-28 19:53:49,914 RowMutationVerbHandler.java (line 73) ~~~~ [DEEGAN] Applying Mutation1!!!
+DEBUG [RequestResponseStage:2] 2015-04-28 19:53:49,914 RowMutationVerbHandler.java (line 79) Applying RowMutation(keyspace='Facebook', key='75736572313423757365723137233132', modifications=[ColumnFamily(Walls [757365723134:false:38@3324710912,])])
+DEBUG [RequestResponseStage:2] 2015-04-28 19:53:49,915 AppliedOperations.java (line 112) addAppliedOp called: 75736572313423757365723137233132:3324710912=50731.1.0
+DEBUG [RequestResponseStage:2] 2015-04-28 19:53:49,915 AppliedOperations.java (line 118) Add applied op: 75736572313423757365723137233132:3324710912=50731.1.0
+DEBUG [RequestResponseStage:2] 2015-04-28 19:53:49,916 RowMutationVerbHandler.java (line 86) RowMutation(keyspace='Facebook', key='75736572313423757365723137233132', modifications=[ColumnFamily(Walls [757365723134:false:38@3324710912,])]) applied.  Sending response to 434@/188.226.251.145
+DEBUG [MutationStage:6] 2015-04-28 19:53:50,052 RowMutationVerbHandler.java (line 42) ~~~~ [DEEGAN] Starting verb handler
+DEBUG [MutationStage:6] 2015-04-28 19:53:50,053 RowMutationVerbHandler.java (line 47) Deserialized RowMutation(keyspace='Facebook', key='7573657230237573657231233133', modifications=[ColumnFamily(Walls [7573657230:false:37@3346468864,])])
+DEBUG [MutationStage:6] 2015-04-28 19:53:50,054 StorageProxy.java (line 1422) ~~~~~ [DEEGAN] Storage Proxy checkDeps()
+DEBUG [MutationStage:6] 2015-04-28 19:53:50,054 StorageProxy.java (line 1425) Checking deps for org.apache.cassandra.db.RowMutationCompletion@7740c621
+DEBUG [MutationStage:6] 2015-04-28 19:53:50,054 AppliedOperations.java (line 97) Add pending op: 7573657230237573657231233133:3346468864=51063.1.0
+DEBUG [RequestResponseStage:2] 2015-04-28 19:53:50,057 RowMutationCompletion.java (line 43) ~~~~ [DEEGAN] Completion Complete (3ms )
+DEBUG [RequestResponseStage:2] 2015-04-28 19:53:50,057 RowMutationCompletion.java (line 46) Max mutation delay: 20
+DEBUG [RequestResponseStage:2] 2015-04-28 19:53:50,057 RowMutationCompletion.java (line 47) time: 3
+DEBUG [RequestResponseStage:2] 2015-04-28 19:53:50,061 RowMutationCompletion.java (line 49) done....
+DEBUG [RequestResponseStage:2] 2015-04-28 19:53:50,061 RowMutationVerbHandler.java (line 73) ~~~~ [DEEGAN] Applying Mutation1!!!
+DEBUG [RequestResponseStage:2] 2015-04-28 19:53:50,061 RowMutationVerbHandler.java (line 79) Applying RowMutation(keyspace='Facebook', key='7573657230237573657231233133', modifications=[ColumnFamily(Walls [7573657230:false:37@3346468864,])])
+DEBUG [RequestResponseStage:2] 2015-04-28 19:53:50,062 AppliedOperations.java (line 112) addAppliedOp called: 7573657230237573657231233133:3346468864=51063.1.0
+DEBUG [RequestResponseStage:2] 2015-04-28 19:53:50,062 AppliedOperations.java (line 118) Add applied op: 7573657230237573657231233133:3346468864=51063.1.0
+DEBUG [RequestResponseStage:2] 2015-04-28 19:53:50,063 RowMutationVerbHandler.java (line 86) RowMutation(keyspace='Facebook', key='7573657230237573657231233133', modifications=[ColumnFamily(Walls [7573657230:false:37@3346468864,])]) applied.  Sending response to 437@/188.226.251.145
+DEBUG [MutationStage:7] 2015-04-28 19:53:54,831 RowMutationVerbHandler.java (line 42) ~~~~ [DEEGAN] Starting verb handler
+DEBUG [MutationStage:7] 2015-04-28 19:53:54,832 RowMutationVerbHandler.java (line 47) Deserialized RowMutation(keyspace='Facebook', key='757365723139237573657235233136', modifications=[ColumnFamily(Walls [757365723139:false:37@4024569856,])])
+DEBUG [MutationStage:7] 2015-04-28 19:53:54,832 StorageProxy.java (line 1422) ~~~~~ [DEEGAN] Storage Proxy checkDeps()
+DEBUG [MutationStage:7] 2015-04-28 19:53:54,833 StorageProxy.java (line 1425) Checking deps for org.apache.cassandra.db.RowMutationCompletion@5ff1141e
+DEBUG [MutationStage:7] 2015-04-28 19:53:54,833 AppliedOperations.java (line 97) Add pending op: 757365723139237573657235233136:4024569856=61410.1.0
+DEBUG [RequestResponseStage:2] 2015-04-28 19:53:54,840 RowMutationCompletion.java (line 43) ~~~~ [DEEGAN] Completion Complete (8ms )
+DEBUG [RequestResponseStage:2] 2015-04-28 19:53:54,840 RowMutationCompletion.java (line 46) Max mutation delay: 20
+DEBUG [RequestResponseStage:2] 2015-04-28 19:53:54,841 RowMutationCompletion.java (line 47) time: 2
+DEBUG [RequestResponseStage:2] 2015-04-28 19:53:54,843 RowMutationCompletion.java (line 49) done....
+DEBUG [RequestResponseStage:2] 2015-04-28 19:53:54,843 RowMutationVerbHandler.java (line 73) ~~~~ [DEEGAN] Applying Mutation1!!!
+DEBUG [RequestResponseStage:2] 2015-04-28 19:53:54,844 RowMutationVerbHandler.java (line 79) Applying RowMutation(keyspace='Facebook', key='757365723139237573657235233136', modifications=[ColumnFamily(Walls [757365723139:false:37@4024569856,])])
+DEBUG [RequestResponseStage:2] 2015-04-28 19:53:54,844 AppliedOperations.java (line 112) addAppliedOp called: 757365723139237573657235233136:4024569856=61410.1.0
+DEBUG [RequestResponseStage:2] 2015-04-28 19:53:54,845 AppliedOperations.java (line 118) Add applied op: 757365723139237573657235233136:4024569856=61410.1.0
+DEBUG [RequestResponseStage:2] 2015-04-28 19:53:54,845 RowMutationVerbHandler.java (line 86) RowMutation(keyspace='Facebook', key='757365723139237573657235233136', modifications=[ColumnFamily(Walls [757365723139:false:37@4024569856,])]) applied.  Sending response to 457@/188.226.251.145
+DEBUG [MutationStage:8] 2015-04-28 19:53:56,991 RowMutationVerbHandler.java (line 42) ~~~~ [DEEGAN] Starting verb handler
+DEBUG [MutationStage:8] 2015-04-28 19:53:56,992 RowMutationVerbHandler.java (line 47) Deserialized RowMutation(keyspace='Facebook', key='7573657231237573657232233137', modifications=[ColumnFamily(Walls [7573657231:false:37@4291170304,])])
+DEBUG [MutationStage:8] 2015-04-28 19:53:56,992 StorageProxy.java (line 1422) ~~~~~ [DEEGAN] Storage Proxy checkDeps()
+DEBUG [MutationStage:8] 2015-04-28 19:53:56,992 StorageProxy.java (line 1425) Checking deps for org.apache.cassandra.db.RowMutationCompletion@3bb5a60e
+DEBUG [MutationStage:8] 2015-04-28 19:53:56,992 AppliedOperations.java (line 97) Add pending op: 7573657231237573657232233137:4291170304=65478.1.0
+DEBUG [RequestResponseStage:2] 2015-04-28 19:53:57,000 RowMutationCompletion.java (line 43) ~~~~ [DEEGAN] Completion Complete (8ms )
+DEBUG [RequestResponseStage:2] 2015-04-28 19:53:57,000 RowMutationCompletion.java (line 46) Max mutation delay: 20
+DEBUG [RequestResponseStage:2] 2015-04-28 19:53:57,000 RowMutationCompletion.java (line 47) time: 8
+DEBUG [RequestResponseStage:2] 2015-04-28 19:53:57,008 RowMutationCompletion.java (line 49) done....
+DEBUG [RequestResponseStage:2] 2015-04-28 19:53:57,009 RowMutationVerbHandler.java (line 73) ~~~~ [DEEGAN] Applying Mutation1!!!
+DEBUG [RequestResponseStage:2] 2015-04-28 19:53:57,009 RowMutationVerbHandler.java (line 79) Applying RowMutation(keyspace='Facebook', key='7573657231237573657232233137', modifications=[ColumnFamily(Walls [7573657231:false:37@4291170304,])])
+DEBUG [RequestResponseStage:2] 2015-04-28 19:53:57,009 AppliedOperations.java (line 112) addAppliedOp called: 7573657231237573657232233137:4291170304=65478.1.0
+DEBUG [RequestResponseStage:2] 2015-04-28 19:53:57,009 AppliedOperations.java (line 118) Add applied op: 7573657231237573657232233137:4291170304=65478.1.0
+DEBUG [RequestResponseStage:2] 2015-04-28 19:53:57,010 RowMutationVerbHandler.java (line 86) RowMutation(keyspace='Facebook', key='7573657231237573657232233137', modifications=[ColumnFamily(Walls [7573657231:false:37@4291170304,])]) applied.  Sending response to 464@/188.226.251.145
+DEBUG [MiscStage:1] 2015-04-28 19:53:58,044 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-28 19:53:58,044 AppliedOperations.java (line 182) Check dependency: 7573657237237573657231362336:2358251520=35984.1.0, (dcm.lt=67510)
+DEBUG [MiscStage:1] 2015-04-28 19:53:58,045 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=67510)
+DEBUG [MiscStage:1] 2015-04-28 19:53:59,521 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-28 19:53:59,521 AppliedOperations.java (line 182) Check dependency: 7573657231322375736572362332:1473384448=22482.1.0, (dcm.lt=70935)
+DEBUG [MiscStage:1] 2015-04-28 19:53:59,522 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=70935)
+DEBUG [MiscStage:1] 2015-04-28 19:54:07,528 AppliedOperations.java (line 176) ~~~~~~~~~ [DEEGAN] check Dep AppliedOperations.java ~~~~~~~~~
+DEBUG [MiscStage:1] 2015-04-28 19:54:07,529 AppliedOperations.java (line 182) Check dependency: 7573657230237573657231233133:3346468864=51063.1.0, (dcm.lt=87378)
+DEBUG [MiscStage:1] 2015-04-28 19:54:07,529 AppliedOperations.java (line 229) Send dependency check reply. (dcm.lt=87378)

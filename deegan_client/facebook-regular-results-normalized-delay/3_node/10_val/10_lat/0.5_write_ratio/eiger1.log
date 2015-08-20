@@ -1,0 +1,75 @@
+ INFO [main] 2015-05-09 16:57:00,890 AbstractCassandraDaemon.java (line 103) Logging initialized
+ INFO [main] 2015-05-09 16:57:00,897 AbstractCassandraDaemon.java (line 124) JVM vendor/version: OpenJDK 64-Bit Server VM/1.7.0_75
+ INFO [main] 2015-05-09 16:57:00,898 AbstractCassandraDaemon.java (line 125) Heap size: 250544128/251592704
+ INFO [main] 2015-05-09 16:57:00,898 AbstractCassandraDaemon.java (line 126) Classpath: /home/eiger/eiger/conf:/home/eiger/eiger/build/classes/main:/home/eiger/eiger/build/classes/thrift:/home/eiger/eiger/lib/antlr-3.2.jar:/home/eiger/eiger/lib/avro-1.4.0-fixes.jar:/home/eiger/eiger/lib/avro-1.4.0-sources-fixes.jar:/home/eiger/eiger/lib/commons-cli-1.1.jar:/home/eiger/eiger/lib/commons-codec-1.2.jar:/home/eiger/eiger/lib/commons-lang-2.4.jar:/home/eiger/eiger/lib/commons-math3-3.5.jar:/home/eiger/eiger/lib/compress-lzf-0.8.4.jar:/home/eiger/eiger/lib/concurrentlinkedhashmap-lru-1.2.jar:/home/eiger/eiger/lib/guava-r08.jar:/home/eiger/eiger/lib/high-scale-lib-1.1.2.jar:/home/eiger/eiger/lib/jackson-core-asl-1.9.2.jar:/home/eiger/eiger/lib/jackson-mapper-asl-1.9.2.jar:/home/eiger/eiger/lib/jamm-0.2.5.jar:/home/eiger/eiger/lib/jline-0.9.94.jar:/home/eiger/eiger/lib/json-simple-1.1.jar:/home/eiger/eiger/lib/libthrift-0.7.0.jar:/home/eiger/eiger/lib/log4j-1.2.16.jar:/home/eiger/eiger/lib/servlet-api-2.5-20081211.jar:/home/eiger/eiger/lib/slf4j-api-1.6.1.jar:/home/eiger/eiger/lib/slf4j-log4j12-1.6.1.jar:/home/eiger/eiger/lib/snakeyaml-1.6.jar:/home/eiger/eiger/lib/snappy-java-1.0.4.1.jar:/home/eiger/eiger/lib/snaptree-0.1-SNAPSHOT.jar
+ INFO [main] 2015-05-09 16:57:00,900 CLibrary.java (line 66) JNA not found. Native methods will be disabled.
+ INFO [main] 2015-05-09 16:57:00,912 DatabaseDescriptor.java (line 124) Loading settings from file:/home/eiger/eiger/conf/eiger_conf.yaml
+ INFO [main] 2015-05-09 16:57:01,238 DatabaseDescriptor.java (line 178) DiskAccessMode 'auto' determined to be mmap, indexAccessMode is mmap
+ INFO [main] 2015-05-09 16:57:01,273 DatabaseDescriptor.java (line 243) Global memtable threshold is enabled at 79MB
+ INFO [main] 2015-05-09 16:57:01,642 CacheService.java (line 100) Initializing key cache with capacity of 2 MBs.
+ INFO [main] 2015-05-09 16:57:01,687 CacheService.java (line 111) Scheduling key cache save to each 14400 seconds (going to save all keys).
+ INFO [main] 2015-05-09 16:57:01,693 CacheService.java (line 125) Initializing row cache with capacity of 0 MBs and provider org.apache.cassandra.cache.ConcurrentLinkedHashCacheProvider
+ INFO [main] 2015-05-09 16:57:01,696 CacheService.java (line 137) Scheduling row cache save to each 0 seconds (going to save all keys).
+DEBUG [main] 2015-05-09 16:57:01,957 AppliedOperations.java (line 112) addAppliedOp called: 4c:65538=1.0.2
+ INFO [main] 2015-05-09 16:57:01,982 DatabaseDescriptor.java (line 479) Couldn't detect any schema definitions in local storage.
+ INFO [main] 2015-05-09 16:57:01,983 DatabaseDescriptor.java (line 506) Found table data in data directories. Consider using the CLI to define your schema.
+ INFO [main] 2015-05-09 16:57:02,006 CommitLog.java (line 136) No commitlog files found; skipping replay
+DEBUG [main] 2015-05-09 16:57:02,011 AppliedOperations.java (line 112) addAppliedOp called: 6275696c64:0=0.0.0
+DEBUG [main] 2015-05-09 16:57:02,013 AppliedOperations.java (line 112) addAppliedOp called: 63716c:0=0.0.0
+DEBUG [main] 2015-05-09 16:57:02,014 AppliedOperations.java (line 112) addAppliedOp called: 746872696674:0=0.0.0
+DEBUG [main] 2015-05-09 16:57:02,017 AppliedOperations.java (line 112) addAppliedOp called: 436f6f6b696573:131074=2.0.2
+ INFO [main] 2015-05-09 16:57:02,018 StorageService.java (line 424) Cassandra version: 1.1-dev-SNAPSHOT
+ INFO [main] 2015-05-09 16:57:02,018 StorageService.java (line 425) Thrift API version: 19.25.0+cops.2.0.3
+ INFO [main] 2015-05-09 16:57:02,018 StorageService.java (line 438) Loading persisted ring state
+ INFO [main] 2015-05-09 16:57:02,023 StorageService.java (line 519) Starting up server gossip
+DEBUG [main] 2015-05-09 16:57:02,042 AppliedOperations.java (line 112) addAppliedOp called: 4c:196610=3.0.2
+ INFO [main] 2015-05-09 16:57:02,046 ColumnFamilyStore.java (line 590) Enqueuing flush of Memtable-LocationInfo@664393896(246/307 serialized/live bytes, 3 ops)
+ INFO [FlushWriter:1] 2015-05-09 16:57:02,047 Memtable.java (line 252) Writing Memtable-LocationInfo@664393896(246/307 serialized/live bytes, 3 ops)
+ INFO [FlushWriter:1] 2015-05-09 16:57:02,111 Memtable.java (line 293) Completed flushing /home/eiger/eiger/cassandra_var/data/0/system/LocationInfo/system-LocationInfo-hc-1-Data.db (354 bytes)
+ INFO [main] 2015-05-09 16:57:02,139 MessagingService.java (line 286) Starting Messaging Service on port 7000
+ INFO [main] 2015-05-09 16:57:02,150 StorageService.java (line 543) This node will not auto bootstrap because it is configured to be a seed node.
+ INFO [main] 2015-05-09 16:57:02,163 StorageService.java (line 629) Saved token not found. Using 56713727820156410577229101238628035242 from configuration
+DEBUG [main] 2015-05-09 16:57:02,164 AppliedOperations.java (line 112) addAppliedOp called: 426f6f747374726170:262146=4.0.2
+DEBUG [main] 2015-05-09 16:57:02,167 AppliedOperations.java (line 112) addAppliedOp called: 4c:327682=5.0.2
+ INFO [main] 2015-05-09 16:57:02,167 ColumnFamilyStore.java (line 590) Enqueuing flush of Memtable-LocationInfo@380487624(133/166 serialized/live bytes, 2 ops)
+ INFO [FlushWriter:1] 2015-05-09 16:57:02,168 Memtable.java (line 252) Writing Memtable-LocationInfo@380487624(133/166 serialized/live bytes, 2 ops)
+ INFO [FlushWriter:1] 2015-05-09 16:57:02,182 Memtable.java (line 293) Completed flushing /home/eiger/eiger/cassandra_var/data/0/system/LocationInfo/system-LocationInfo-hc-2-Data.db (243 bytes)
+ INFO [main] 2015-05-09 16:57:02,187 StorageService.java (line 1053) Node /104.236.191.32 state jump to normal
+ INFO [main] 2015-05-09 16:57:02,188 StorageService.java (line 646) Bootstrap/Replace/Move completed! Now serving reads.
+ INFO [main] 2015-05-09 16:57:02,194 Mx4jTool.java (line 72) Will not load MX4J, mx4j-tools.jar is not in the classpath
+ INFO [main] 2015-05-09 16:57:02,257 CassandraDaemon.java (line 121) Binding thrift service to /104.236.191.32:9160
+ INFO [main] 2015-05-09 16:57:02,262 CassandraDaemon.java (line 130) Using TFastFramedTransport with a max frame size of 15728640 bytes.
+ INFO [main] 2015-05-09 16:57:02,266 CassandraDaemon.java (line 157) Using synchronous/threadpool thrift server on /104.236.191.32 : 9160
+ INFO [Thread-2] 2015-05-09 16:57:02,267 CassandraDaemon.java (line 210) Listening for thrift clients...
+ INFO [GossipStage:1] 2015-05-09 16:57:02,754 Gossiper.java (line 834) Node /104.236.140.240 is now part of the cluster
+ INFO [GossipStage:1] 2015-05-09 16:57:02,755 Gossiper.java (line 800) InetAddress /104.236.140.240 is now UP
+DEBUG [GossipStage:1] 2015-05-09 16:57:02,760 AppliedOperations.java (line 112) addAppliedOp called: 52696e67:983042=15.0.2
+ INFO [GossipStage:1] 2015-05-09 16:57:02,763 ColumnFamilyStore.java (line 590) Enqueuing flush of Memtable-LocationInfo@776462459(60/75 serialized/live bytes, 1 ops)
+ INFO [FlushWriter:1] 2015-05-09 16:57:02,764 Memtable.java (line 252) Writing Memtable-LocationInfo@776462459(60/75 serialized/live bytes, 1 ops)
+ INFO [FlushWriter:1] 2015-05-09 16:57:02,776 Memtable.java (line 293) Completed flushing /home/eiger/eiger/cassandra_var/data/0/system/LocationInfo/system-LocationInfo-hc-3-Data.db (114 bytes)
+ INFO [GossipStage:1] 2015-05-09 16:57:05,070 Gossiper.java (line 834) Node /192.241.215.97 is now part of the cluster
+ INFO [GossipStage:1] 2015-05-09 16:57:05,070 Gossiper.java (line 800) InetAddress /192.241.215.97 is now UP
+ INFO [GossipStage:1] 2015-05-09 16:57:06,614 Gossiper.java (line 834) Node /188.226.251.145 is now part of the cluster
+ INFO [GossipStage:1] 2015-05-09 16:57:06,615 Gossiper.java (line 800) InetAddress /188.226.251.145 is now UP
+DEBUG [GossipStage:1] 2015-05-09 16:57:06,617 AppliedOperations.java (line 112) addAppliedOp called: 52696e67:6029314=92.0.2
+ INFO [GossipStage:1] 2015-05-09 16:57:06,618 ColumnFamilyStore.java (line 590) Enqueuing flush of Memtable-LocationInfo@1491470279(60/75 serialized/live bytes, 1 ops)
+ INFO [FlushWriter:1] 2015-05-09 16:57:06,619 Memtable.java (line 252) Writing Memtable-LocationInfo@1491470279(60/75 serialized/live bytes, 1 ops)
+ INFO [FlushWriter:1] 2015-05-09 16:57:06,648 Memtable.java (line 293) Completed flushing /home/eiger/eiger/cassandra_var/data/0/system/LocationInfo/system-LocationInfo-hc-4-Data.db (114 bytes)
+ INFO [CompactionExecutor:1] 2015-05-09 16:57:06,659 CompactionTask.java (line 115) Compacting [SSTableReader(path='/home/eiger/eiger/cassandra_var/data/0/system/LocationInfo/system-LocationInfo-hc-3-Data.db'), SSTableReader(path='/home/eiger/eiger/cassandra_var/data/0/system/LocationInfo/system-LocationInfo-hc-2-Data.db'), SSTableReader(path='/home/eiger/eiger/cassandra_var/data/0/system/LocationInfo/system-LocationInfo-hc-4-Data.db'), SSTableReader(path='/home/eiger/eiger/cassandra_var/data/0/system/LocationInfo/system-LocationInfo-hc-1-Data.db')]
+ INFO [CompactionExecutor:1] 2015-05-09 16:57:06,702 CompactionTask.java (line 226) Compacted to [/home/eiger/eiger/cassandra_var/data/0/system/LocationInfo/system-LocationInfo-hc-5-Data.db,].  825 to 720 (~87% of original) bytes for 4 keys at 0.019618MB/s.  Time: 35ms.
+DEBUG [GossipStage:1] 2015-05-09 16:58:03,270 AppliedOperations.java (line 112) addAppliedOp called: 52696e67:75628546=1154.0.2
+ INFO [GossipStage:1] 2015-05-09 16:58:03,277 ColumnFamilyStore.java (line 590) Enqueuing flush of Memtable-LocationInfo@694123595(75/93 serialized/live bytes, 1 ops)
+ INFO [FlushWriter:1] 2015-05-09 16:58:03,278 Memtable.java (line 252) Writing Memtable-LocationInfo@694123595(75/93 serialized/live bytes, 1 ops)
+ INFO [FlushWriter:1] 2015-05-09 16:58:03,291 Memtable.java (line 293) Completed flushing /home/eiger/eiger/cassandra_var/data/0/system/LocationInfo/system-LocationInfo-hc-6-Data.db (129 bytes)
+DEBUG [MigrationStage:1] 2015-05-09 16:58:09,127 AppliedOperations.java (line 112) addAppliedOp called: 31383161386536302d663638652d313165342d303030302d613836313834363836376665:81268736=1240.1.0
+DEBUG [MigrationStage:1] 2015-05-09 16:58:09,127 AppliedOperations.java (line 118) Add applied op: 31383161386536302d663638652d313165342d303030302d613836313834363836376665:81268736=1240.1.0
+DEBUG [MigrationStage:1] 2015-05-09 16:58:09,128 AppliedOperations.java (line 61) Ignoring updateNewestOp for: MigrationStage:1
+DEBUG [MigrationStage:1] 2015-05-09 16:58:09,290 AppliedOperations.java (line 112) addAppliedOp called: 4d6967726174696f6e73204b6579:82182146=1254.0.2
+ INFO [MigrationStage:1] 2015-05-09 16:58:09,304 Migration.java (line 119) Applying migration 181a8e60-f68e-11e4-0000-a861846867fe Add keyspace: Facebook, rep strategy:NetworkTopologyStrategy{org.apache.cassandra.config.CFMetaData@4066aeb5[cfId=1000,ksName=Facebook,cfName=Walls,cfType=Standard,comparator=org.apache.cassandra.db.marshal.BytesType,subcolumncomparator=<null>,comment=,readRepairChance=0.0,replicateOnWrite=true,gcGraceSeconds=864000,defaultValidator=org.apache.cassandra.db.marshal.BytesType,keyValidator=org.apache.cassandra.db.marshal.BytesType,minCompactionThreshold=4,maxCompactionThreshold=32,mergeShardsChance=0.1,keyAlias=<null>,column_metadata={},compactionStrategyClass=class org.apache.cassandra.db.compaction.SizeTieredCompactionStrategy,compactionStrategyOptions={},compressionOptions={},bloomFilterFpChance=<null>,caching=KEYS_ONLY]}, durable_writes: true
+DEBUG [MigrationStage:1] 2015-05-09 16:58:09,304 AppliedOperations.java (line 112) addAppliedOp called: 4c617374204d6967726174696f6e:82182146=1254.0.2
+ INFO [MigrationStage:1] 2015-05-09 16:58:09,305 ColumnFamilyStore.java (line 590) Enqueuing flush of Memtable-Migrations@1208359311(6773/8466 serialized/live bytes, 1 ops)
+ INFO [FlushWriter:1] 2015-05-09 16:58:09,306 Memtable.java (line 252) Writing Memtable-Migrations@1208359311(6773/8466 serialized/live bytes, 1 ops)
+ INFO [MigrationStage:1] 2015-05-09 16:58:09,309 ColumnFamilyStore.java (line 590) Enqueuing flush of Memtable-Schema@1107077981(2964/3705 serialized/live bytes, 3 ops)
+ INFO [FlushWriter:1] 2015-05-09 16:58:09,327 Memtable.java (line 293) Completed flushing /home/eiger/eiger/cassandra_var/data/0/system/Migrations/system-Migrations-hc-1-Data.db (6837 bytes)
+ INFO [FlushWriter:1] 2015-05-09 16:58:09,329 Memtable.java (line 252) Writing Memtable-Schema@1107077981(2964/3705 serialized/live bytes, 3 ops)
+ INFO [FlushWriter:1] 2015-05-09 16:58:09,346 Memtable.java (line 293) Completed flushing /home/eiger/eiger/cassandra_var/data/0/system/Schema/system-Schema-hc-1-Data.db (3114 bytes)

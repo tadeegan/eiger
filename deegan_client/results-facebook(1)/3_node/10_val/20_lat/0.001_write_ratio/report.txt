@@ -1,0 +1,25 @@
+Write/Read ratio: 0.001
+Latency: 20ms
+Value Size: 10b
+
+Total Operiations: 20000b
+
+
+
+results-facebook/3_node/10_val/20_lat/0.001_write_ratio/eiger0.log:
+
+Average: 13ms
+Median: 8ms
+[40, 7, 3, 8, 8]
+
+results-facebook/3_node/10_val/20_lat/0.001_write_ratio/eiger1.log:
+
+Average: 45ms
+Median: 85ms
+[85, 5]
+
+results-facebook/3_node/10_val/20_lat/0.001_write_ratio/eiger2.log:
+
+Average: 11ms
+Median: 6ms
+[24, 3, 6]

@@ -1,0 +1,25 @@
+Write/Read ratio: 0.01
+Latency: 0ms
+Value Size: 10b
+
+Total Operiations: 10000b
+
+
+
+facebook-results-num-nodes/3_node/10_val/0_lat/0.01_write_ratio/eiger0.log:
+
+Average: 7ms
+Median: 4ms
+[24, 65, 5, 4, 8, 11, 3, 4, 2, 4, 3, 2, 4, 4, 4, 3, 3, 4, 2, 4, 2]
+
+facebook-results-num-nodes/3_node/10_val/0_lat/0.01_write_ratio/eiger1.log:
+
+Average: 6ms
+Median: 4ms
+[33, 5, 8, 10, 16, 5, 3, 4, 4, 2, 4, 4, 6, 5, 4, 3, 4, 3, 5, 3, 9]
+
+facebook-results-num-nodes/3_node/10_val/0_lat/0.01_write_ratio/eiger2.log:
+
+Average: 4ms
+Median: 3ms
+[37, 3, 2, 2, 9, 3, 5, 5, 3, 3, 3, 3, 3, 3, 3, 3, 2, 4, 3, 1, 4, 4, 8, 2, 3]

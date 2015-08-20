@@ -1,0 +1,18 @@
+Write/Read ratio: 0.5
+Latency: 20ms
+Value Size: 10b
+
+Total Operiations: 10000b
+
+
+
+facebook-regular-results-normalized-delay/3_node/10_val/20_lat/0.5_write_ratio/eiger0.log:
+
+
+
+facebook-regular-results-normalized-delay/3_node/10_val/20_lat/0.5_write_ratio/eiger1.log:
+
+
+
+facebook-regular-results-normalized-delay/3_node/10_val/20_lat/0.5_write_ratio/eiger2.log:
+

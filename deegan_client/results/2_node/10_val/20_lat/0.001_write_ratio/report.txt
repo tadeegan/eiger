@@ -1,0 +1,17 @@
+Write/Read ratio: 0.001
+Latency: 20ms
+Value Size: 10b
+
+
+
+results/2_node/10_val/20_lat/0.001_write_ratio/eiger0.log:
+
+Average: 15ms
+Median: 12ms
+[30, 7, 11, 9, 12, 11, 16, 24]
+
+results/2_node/10_val/20_lat/0.001_write_ratio/eiger1.log:
+
+Average: 11ms
+Median: 10ms
+[29, 3, 5, 6, 10, 14, 7, 10, 16, 15, 15]
